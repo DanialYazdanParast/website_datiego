@@ -6,7 +6,7 @@ class BottomNavigationItem extends StatefulWidget {
   final String label;
   final Function() onTap;
   final bool isActive;
-  final Color? color;
+  final Color color;
 
   const BottomNavigationItem({
     super.key,
