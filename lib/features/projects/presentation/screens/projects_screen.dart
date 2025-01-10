@@ -37,7 +37,7 @@ class _ProjectsScreenState extends State<ProjectsScreen> {
                 padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.08),
                 sliver: SliverGrid(
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: screenWidth <= 800 ? 1 : 2,
+                    crossAxisCount: screenWidth <= 900 ? 1 : 2,
                     crossAxisSpacing: 16,
                     mainAxisSpacing: 16,
                     childAspectRatio: 1.8 / 2,

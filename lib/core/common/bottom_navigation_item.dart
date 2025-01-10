@@ -43,7 +43,7 @@ class _BottomNavigationItemState extends State<BottomNavigationItem> {
         children: [
           if (hoverLabel == widget.label) // نمایش لیبل در صورت هاور
             Positioned(
-              top: -43, // مکان لیبل بالای دکمه
+              top: -45, // مکان لیبل بالای دکمه
               child: SlideInUp(
                 duration: const Duration(milliseconds: 300), // مدت زمان انیمیشن
                 curve: Curves.fastEaseInToSlowEaseOut,
