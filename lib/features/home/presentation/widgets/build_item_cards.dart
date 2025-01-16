@@ -2,7 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:website_datiego/features/home/presentation/bloc/home_bloc.dart';
 import 'package:website_datiego/features/home/presentation/widgets/item_card_home.dart';
 
-Widget buildItemCards(HomeState state, double width, double height) {
+Widget buildItemCards(
+  HomeState state,
+  double width,
+  double height,
+) {
   if (state is HomeSuccesState) {
     return Positioned(
       child: SizedBox(

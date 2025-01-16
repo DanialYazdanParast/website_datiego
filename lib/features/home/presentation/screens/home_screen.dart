@@ -55,7 +55,12 @@ class HomeBody extends StatelessWidget {
                   alignment: AlignmentDirectional.center,
                   children: [
                     const SizedBox.expand(),
-                    if (showItemCard) buildItemCards(state, width, height),
+                    if (showItemCard)
+                      buildItemCards(
+                        state,
+                        width,
+                        height,
+                      ),
                     const IntroSection(),
                   ],
                 ),
