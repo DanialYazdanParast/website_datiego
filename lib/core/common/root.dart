@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:website_datiego/core/common/bottom_navigattion.dart';
 import 'package:website_datiego/features/about_me/presentation/screens/about_me_screen.dart';
+import 'package:website_datiego/features/blog/presentation/screens/blog_screen.dart';
 import 'package:website_datiego/features/home/presentation/screens/home_screen.dart';
 import 'package:website_datiego/features/projects/presentation/screens/projects_screen.dart';
 
@@ -69,7 +70,7 @@ class _RootScreenState extends State<RootScreen> {
                   _navigator(_homeKey, homeindex, const HomeScreen()),
                   _navigator(
                       _projectsKey, projectsindex, const ProjectsScreen()),
-                  _navigator(_bloghKey, blogindex, const HomeScreen()),
+                  _navigator(_bloghKey, blogindex, const BlogScreen()),
                   _navigator(_aboutKey, aboutindex, const AboutMeScreen()),
                 ],
               ),
