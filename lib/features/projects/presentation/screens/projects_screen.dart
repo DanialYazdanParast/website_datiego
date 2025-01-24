@@ -1,15 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:shimmer/shimmer.dart';
 import 'package:website_datiego/core/di/service_locator.dart';
-import 'package:website_datiego/core/widgets/image_loding_service.dart';
-import 'package:website_datiego/features/home/presentation/screens/home_screen.dart';
 import 'package:website_datiego/features/projects/presentation/bloc/projects_bloc.dart';
 import 'package:website_datiego/features/projects/presentation/widgets/build_project_list.dart';
 import 'package:website_datiego/features/projects/presentation/widgets/project_card.dart';
 import 'package:website_datiego/features/projects/presentation/widgets/project_card_shimmer.dart';
-import 'package:website_datiego/features/shared/domain/entities/projects_entities.dart';
 
 class ProjectsScreen extends StatefulWidget {
   const ProjectsScreen({super.key});
@@ -35,7 +30,6 @@ class _ProjectsScreenState extends State<ProjectsScreen> {
       backgroundColor: Colors.white,
       body: BlocProvider(
         create: (context) => ProjectsBloc(sl.get())..add(GetProjectsEvent()),
-        // مقدار اولیه برای hoverState
         child: Scrollbar(
           controller: scrollController,
           thumbVisibility: true,
@@ -49,7 +43,7 @@ class _ProjectsScreenState extends State<ProjectsScreen> {
                   controller: scrollController,
                   screenWidth: screenWidth,
                   itemCount: 6,
-                  itemBuilder: (context, index) => ProjectCardShimmer(),
+                  itemBuilder: (context, index) => const ProjectCardShimmer(),
                 );
               }
               if (state is ProjectSuccesState) {

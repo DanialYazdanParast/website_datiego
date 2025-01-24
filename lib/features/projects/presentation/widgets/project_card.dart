@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:website_datiego/core/widgets/image_loding_service.dart';
 import 'package:website_datiego/features/home/presentation/screens/home_screen.dart';
+import 'package:website_datiego/features/project_detail/presentation/screens/project_detail_screen.dart';
 import 'package:website_datiego/features/projects/presentation/bloc/projects_bloc.dart';
 import 'package:website_datiego/features/shared/domain/entities/projects_entities.dart';
 
@@ -34,7 +35,7 @@ class _ProjectCardState extends State<ProjectCard>
     return GestureDetector(
       onTap: () {
         Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => HomeScreen(),
+          builder: (context) => ProjectDetailScreen(project: widget.project),
         ));
       },
       child: MouseRegion(
