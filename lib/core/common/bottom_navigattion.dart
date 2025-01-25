@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
 import 'package:website_datiego/core/common/bottom_navigation_item.dart';
 import 'package:website_datiego/core/common/root.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:website_datiego/core/services/url_launcher_service.dart';
 
 class BottomNavigattion extends StatelessWidget {
   final Function(int index) onTab;
@@ -10,6 +14,8 @@ class BottomNavigattion extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final double screenWidth = MediaQuery.of(context).size.width;
+    final urlLauncher = GetIt.instance<UrlLauncherService>();
     return Padding(
       padding: const EdgeInsets.only(bottom: 22),
       child: Container(
@@ -98,10 +104,37 @@ class BottomNavigattion extends StatelessWidget {
                 iconFileName: Icons.email_outlined,
                 color: const Color(0xffb0e3b6),
                 isActive: false,
-                onTap: () {
-                  onTab(homeindex);
+                onTap: () async {
+                  await urlLauncher.sendEmail('danialyazdan77@gmail.com');
                 },
               ),
+              if (screenWidth >= 900)
+                Row(
+                  children: [
+                    const SizedBox(width: 12),
+                    BottomNavigationItem(
+                      label: '@DanialYazdanParast ↗',
+                      iconFileName: FontAwesomeIcons.github,
+                      color: Colors.grey.shade400,
+                      isActive: false,
+                      onTap: () async {
+                        await urlLauncher
+                            .openUrl('https://github.com/DanialYazdanParast');
+                      },
+                    ),
+                    const SizedBox(width: 12),
+                    BottomNavigationItem(
+                      label: '@DanialYazdanParast ↗',
+                      iconFileName: FontAwesomeIcons.linkedin,
+                      color: const Color.fromARGB(200, 97, 189, 238),
+                      isActive: false,
+                      onTap: () async {
+                        await urlLauncher
+                            .openUrl('https://github.com/DanialYazdanParast');
+                      },
+                    ),
+                  ],
+                )
             ],
           ),
         ),

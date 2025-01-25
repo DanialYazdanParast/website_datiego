@@ -29,7 +29,7 @@ class _ProjectsScreenState extends State<ProjectsScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       body: BlocProvider(
-        create: (context) => ProjectsBloc(sl.get())..add(GetProjectsEvent()),
+        create: (context) => ProjectsBloc(getIt.get())..add(GetProjectsEvent()),
         child: Scrollbar(
           controller: scrollController,
           thumbVisibility: true,

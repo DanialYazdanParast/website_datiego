@@ -13,7 +13,7 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       body: BlocProvider(
         create: (context) =>
-            HomeBloc(sl.get(), sl.get())..add(GetProjectsHomeEvent()),
+            HomeBloc(getIt.get(), getIt.get())..add(GetProjectsHomeEvent()),
         child: const HomeBody(),
       ),
     );

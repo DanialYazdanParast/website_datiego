@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ProjectsRepository projectsRepository = sl.get();
+    ProjectsRepository projectsRepository = getIt.get();
     projectsRepository.getProjects().then((value) {
       debugPrint(value.toString());
     }).catchError((e) {

@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:get_it/get_it.dart';
+import 'package:website_datiego/core/services/url_launcher_service.dart';
 
 class AboutMeScreen extends StatefulWidget {
   const AboutMeScreen({super.key});
@@ -197,22 +200,22 @@ class SocialMedia extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final urlLauncher = GetIt.instance<UrlLauncherService>();
     return Container(
       padding: const EdgeInsets.all(24),
       decoration: BoxDecoration(
         color: const Color(0xFFf8f8f8), // معادل background-color
         borderRadius: BorderRadius.circular(32),
-
         border: Border.all(
           color: const Color.fromRGBO(0, 0, 0, 0.1), // معادل border-color
           width: 1, // معادل border-width
           style: BorderStyle.solid, // معادل border-style
         ),
       ),
-      child: const Column(
+      child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
+          const Text(
             "Come and say hi! ",
             style: TextStyle(
               color: Color(0xff212121),
@@ -220,37 +223,48 @@ class SocialMedia extends StatelessWidget {
               fontWeight: FontWeight.w600,
             ),
           ),
-          SizedBox(
-            height: 16,
-          ),
+          const SizedBox(height: 16),
           Column(
             children: [
               ButtonSocial(
-                color: Color(0xffb0e3b6),
+                onTap: () async {
+                  await urlLauncher.sendEmail('danialyazdan77@gmail.com');
+                },
+                color: const Color(0xffb0e3b6),
                 icon: Icons.email_outlined,
                 text: "danialyazdan77@gmail.com",
               ),
-              SizedBox(
-                height: 10,
-              ),
+              const SizedBox(height: 10),
               ButtonSocial(
+                onTap: () async {
+                  await urlLauncher
+                      .openUrl('https://github.com/DanialYazdanParast');
+                },
                 color: Colors.black12,
-                icon: Icons.gif_box_outlined,
+                icon: FontAwesomeIcons.github,
                 text: "github.com/DanialYazdanParast",
               ),
-              SizedBox(
-                height: 10,
-              ),
+              const SizedBox(height: 10),
               ButtonSocial(
-                color: Color(0xffffb3e9),
-                icon: Icons.image_outlined,
+                onTap: () {},
+                color: const Color.fromARGB(200, 97, 189, 238),
+                icon: FontAwesomeIcons.linkedin,
+                text: "linkedin.com/DanialYazdanParast",
+              ),
+              const SizedBox(height: 10),
+              ButtonSocial(
+                onTap: () async {
+                  await urlLauncher
+                      .openUrl('https://www.instagram.com/datiego');
+                },
+                color: const Color(0xffffb3e9),
+                icon: FontAwesomeIcons.instagram,
                 text: "instagram.com/Datiego",
               ),
-              SizedBox(
-                height: 10,
-              ),
+              const SizedBox(height: 10),
               ButtonSocial(
-                color: Color(0xfffac99c),
+                onTap: () {},
+                color: const Color(0xfffac99c),
                 icon: Icons.phone_outlined,
                 text: "(+98)9174016011",
               ),
@@ -388,11 +402,13 @@ class ButtonSocial extends StatelessWidget {
     required this.text,
     required this.color,
     required this.icon,
+    required this.onTap,
   });
 
   final String text;
   final Color color;
   final IconData icon;
+  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -420,7 +436,7 @@ class ButtonSocial extends StatelessWidget {
       ),
       label:
           Text(text, style: const TextStyle(fontSize: 16, color: Colors.black)),
-      onPressed: () {},
+      onPressed: onTap,
       icon: Icon(
         icon,
         color: Colors.black,
