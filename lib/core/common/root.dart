@@ -1,109 +1,77 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:website_datiego/core/common/bottom_navigattion.dart';
-import 'package:website_datiego/features/about_me/presentation/screens/about_me_screen.dart';
-import 'package:website_datiego/features/blog/presentation/screens/blog_screen.dart';
-import 'package:website_datiego/features/home/presentation/screens/home_screen.dart';
-import 'package:website_datiego/features/projects/presentation/screens/projects_screen.dart';
 
-const int homeindex = 0;
-const int projectsindex = 1;
-const int blogindex = 2;
-const int aboutindex = 3;
+import 'package:website_datiego/core/router/go_router.dart';
+
+enum TabItem { home, projects, blog, about }
+
+const Map<TabItem, String> tabRoutes = {
+  TabItem.home: ScreenGoRouter.home,
+  TabItem.projects: ScreenGoRouter.projects,
+  TabItem.blog: ScreenGoRouter.blog,
+  TabItem.about: ScreenGoRouter.about,
+};
 
 class RootScreen extends StatefulWidget {
-  const RootScreen({
-    super.key,
-  });
+  final Widget child;
 
-  static final GlobalKey<ScaffoldState> scaffoldKey =
-      GlobalKey<ScaffoldState>();
+  const RootScreen({super.key, required this.child});
 
   @override
   State<RootScreen> createState() => _RootScreenState();
 }
 
 class _RootScreenState extends State<RootScreen> {
-  int selectedScreenIndex = homeindex;
-  final List<int> _history = [];
+  TabItem _selectedTab = TabItem.home;
 
-  final GlobalKey<NavigatorState> _homeKey = GlobalKey();
-  final GlobalKey<NavigatorState> _projectsKey = GlobalKey();
-  final GlobalKey<NavigatorState> _bloghKey = GlobalKey();
-  final GlobalKey<NavigatorState> _aboutKey = GlobalKey();
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    _updateSelectedTab();
+  }
 
-  late final map = {
-    homeindex: _homeKey,
-    projectsindex: _projectsKey,
-    blogindex: _bloghKey,
-    aboutindex: _aboutKey,
-  };
+  void _updateSelectedTab() {
+    final GoRouterState state = GoRouterState.of(context);
+    final String location = state.uri.toString();
 
-  Future<bool> _onWillpop() async {
-    final NavigatorState curentSelectedNavigatorState =
-        map[selectedScreenIndex]!.currentState!;
+    setState(() {
+      if (location == tabRoutes[TabItem.home]) {
+        _selectedTab = TabItem.home;
+      } else if (location.startsWith(tabRoutes[TabItem.projects]!)) {
+        _selectedTab = TabItem.projects;
+      } else if (location.startsWith(tabRoutes[TabItem.blog]!)) {
+        _selectedTab = TabItem.blog;
+      } else if (location.startsWith(tabRoutes[TabItem.about]!)) {
+        _selectedTab = TabItem.about;
+      }
+    });
+  }
 
-    if (curentSelectedNavigatorState.canPop()) {
-      curentSelectedNavigatorState.pop();
-      return false;
-    } else if (_history.isNotEmpty) {
-      setState(() {
-        selectedScreenIndex = _history.last;
-        _history.removeLast();
-      });
-      return false;
-    }
-    return true;
+  void _onTabSelected(TabItem tabItem) {
+    context.go(tabRoutes[tabItem]!);
   }
 
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-        onWillPop: _onWillpop,
-        child: Scaffold(
-          key: RootScreen.scaffoldKey,
-          body: Stack(
-            alignment: Alignment.topCenter,
-            children: [
-              IndexedStack(
-                index: selectedScreenIndex,
-                children: [
-                  _navigator(_homeKey, homeindex, const HomeScreen()),
-                  _navigator(
-                      _projectsKey, projectsindex, const ProjectsScreen()),
-                  _navigator(_bloghKey, blogindex, const BlogScreen()),
-                  _navigator(_aboutKey, aboutindex, const AboutMeScreen()),
-                ],
-              ),
-              Positioned(
-                bottom: 0,
-                child: BottomNavigattion(
-                  selextedIndex: selectedScreenIndex,
-                  onTab: (selectedIndex) {
-                    setState(() {
-                      _history.remove(selectedScreenIndex);
-                      _history.add(selectedScreenIndex);
-                      selectedScreenIndex = selectedIndex;
-                    });
-                  },
-                ),
-              ),
-            ],
+    return Scaffold(
+      body: Stack(
+        alignment: AlignmentDirectional.bottomCenter,
+        children: [
+          Positioned.fill(
+            child: widget.child, // Current page content
           ),
-        ));
-  }
-
-  Widget _navigator(GlobalKey key, int index, Widget child) {
-    return key.currentState == null && selectedScreenIndex != index
-        ? Container()
-        : Navigator(
-            key: key,
-            onGenerateRoute: (settings) => MaterialPageRoute(
-              builder: (
-                context,
-              ) =>
-                  Offstage(
-                      offstage: selectedScreenIndex != index, child: child),
+          Positioned(
+            bottom: 0,
+            child: BottomNavigattion(
+              selextedIndex: _selectedTab.index,
+              onTab: (index) {
+                _onTabSelected(TabItem.values[index]);
+              },
             ),
-          );
+          ),
+        ],
+      ),
+    );
   }
 }

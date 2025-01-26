@@ -70,7 +70,7 @@ class ProjectCardShimmer extends StatelessWidget {
         .slideY(
             begin: 0.2, // Start slightly below
             end: 0, // End at its normal position
-            //   duration: const Duration(milliseconds: 500),
+            duration: const Duration(milliseconds: 500),
             curve: Curves.easeOut)
         .fadeIn();
   }

@@ -3,7 +3,7 @@ import 'package:get_it/get_it.dart';
 import 'package:website_datiego/core/common/bottom_navigation_item.dart';
 import 'package:website_datiego/core/common/root.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:url_launcher/url_launcher.dart';
+
 import 'package:website_datiego/core/services/url_launcher_service.dart';
 
 class BottomNavigattion extends StatelessWidget {
@@ -53,40 +53,40 @@ class BottomNavigattion extends StatelessWidget {
               BottomNavigationItem(
                 label: 'Home',
                 iconFileName: Icons.home_outlined,
-                isActive: selextedIndex == homeindex,
+                isActive: selextedIndex == TabItem.home.index,
                 color: const Color(0xfffac99c),
                 onTap: () {
-                  onTab(homeindex);
+                  onTab(TabItem.home.index);
                 },
               ),
               const SizedBox(width: 12),
               BottomNavigationItem(
                 label: 'Projects',
                 iconFileName: Icons.code,
-                isActive: selextedIndex == projectsindex,
+                isActive: selextedIndex == TabItem.projects.index,
                 color: const Color(0xffc8adfa),
                 onTap: () {
-                  onTab(projectsindex);
+                  onTab(TabItem.projects.index);
                 },
               ),
               const SizedBox(width: 12),
               BottomNavigationItem(
                 label: 'Blog',
                 iconFileName: Icons.article_outlined,
-                isActive: selextedIndex == blogindex,
+                isActive: selextedIndex == TabItem.blog.index,
                 color: const Color(0xfff8a9a8),
                 onTap: () {
-                  onTab(blogindex);
+                  onTab(TabItem.blog.index);
                 },
               ),
               const SizedBox(width: 12),
               BottomNavigationItem(
                 label: 'About Me',
                 iconFileName: Icons.account_circle_outlined,
-                isActive: selextedIndex == aboutindex,
+                isActive: selextedIndex == TabItem.about.index,
                 color: const Color(0xff9ccbf5),
                 onTap: () {
-                  onTab(aboutindex);
+                  onTab(TabItem.about.index);
                 },
               ),
               const SizedBox(width: 12),

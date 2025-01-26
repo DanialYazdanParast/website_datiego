@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_html/flutter_html.dart';
+
 import 'package:website_datiego/features/project_detail/presentation/widgets/custom_close_button.dart';
 import 'package:website_datiego/features/project_detail/presentation/widgets/image_project.dart';
 
@@ -10,9 +11,11 @@ import 'package:website_datiego/features/project_detail/presentation/widgets/tex
 import 'package:website_datiego/features/shared/domain/entities/projects_entities.dart';
 
 class ProjectDetailScreen extends StatefulWidget {
-  const ProjectDetailScreen({super.key, required this.project});
+  const ProjectDetailScreen({
+    super.key,
+    required this.project,
+  });
   final ProjectsEntities project;
-
   @override
   State<ProjectDetailScreen> createState() => _ProjectDetailScreenState();
 }

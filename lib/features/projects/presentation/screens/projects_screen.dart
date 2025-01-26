@@ -39,12 +39,7 @@ class _ProjectsScreenState extends State<ProjectsScreen> {
           child: BlocBuilder<ProjectsBloc, ProjectsState>(
             builder: (context, state) {
               if (state is ProjectLoadingState) {
-                return buildProjectList(
-                  controller: scrollController,
-                  screenWidth: screenWidth,
-                  itemCount: 6,
-                  itemBuilder: (context, index) => const ProjectCardShimmer(),
-                );
+                return Container();
               }
               if (state is ProjectSuccesState) {
                 return buildProjectList(

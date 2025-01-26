@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
+import 'package:website_datiego/core/router/go_router.dart';
 import 'package:website_datiego/core/widgets/image_loding_service.dart';
-import 'package:website_datiego/features/home/presentation/screens/home_screen.dart';
-import 'package:website_datiego/features/project_detail/presentation/screens/project_detail_screen.dart';
 import 'package:website_datiego/features/projects/presentation/bloc/projects_bloc.dart';
 import 'package:website_datiego/features/shared/domain/entities/projects_entities.dart';
 
@@ -34,9 +35,9 @@ class _ProjectCardState extends State<ProjectCard>
 
     return GestureDetector(
       onTap: () {
-        Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => ProjectDetailScreen(project: widget.project),
-        ));
+        final encodedTitle = Uri.encodeComponent(widget.project.title!);
+        context.go('${ScreenGoRouter.projects}/$encodedTitle',
+            extra: widget.project);
       },
       child: MouseRegion(
         onEnter: (_) => context
@@ -140,7 +141,14 @@ class _ProjectCardState extends State<ProjectCard>
                 ],
               ),
             )),
-      ),
+      )
+          .animate()
+          .slideY(
+              begin: 0.2, // Start slightly below
+              end: 0, // End at its normal position
+              duration: const Duration(milliseconds: 500),
+              curve: Curves.easeOut)
+          .fadeIn(),
     );
   }
 

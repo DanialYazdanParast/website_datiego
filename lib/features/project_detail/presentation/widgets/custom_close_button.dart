@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class CustomCloseButton extends StatelessWidget {
   const CustomCloseButton({
@@ -9,7 +10,7 @@ class CustomCloseButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.pop(context);
+        context.pop();
       },
       child: Container(
         height: 48,
