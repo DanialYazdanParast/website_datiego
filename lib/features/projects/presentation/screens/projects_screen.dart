@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:website_datiego/core/constants/app_colors.dart';
 import 'package:website_datiego/core/di/service_locator.dart';
 import 'package:website_datiego/features/projects/presentation/bloc/projects_bloc.dart';
 import 'package:website_datiego/features/projects/presentation/widgets/build_project_list.dart';
@@ -27,7 +28,7 @@ class _ProjectsScreenState extends State<ProjectsScreen> {
     double screenWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: LightThemeColors.primaryColor,
       body: BlocProvider(
         create: (context) => ProjectsBloc(getIt.get())..add(GetProjectsEvent()),
         child: Scrollbar(

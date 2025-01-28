@@ -3,8 +3,12 @@ import 'package:get_it/get_it.dart';
 import 'package:website_datiego/core/common/bottom_navigation_item.dart';
 import 'package:website_datiego/core/common/root.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:website_datiego/core/constants/app_colors.dart';
+import 'package:website_datiego/core/constants/app_constants.dart';
 
 import 'package:website_datiego/core/services/url_launcher_service.dart';
+import 'package:website_datiego/core/widgets/custom_border.dart';
+import 'package:website_datiego/core/widgets/custom_box_shadow.dart';
 
 class BottomNavigattion extends StatelessWidget {
   final Function(int index) onTab;
@@ -20,33 +24,15 @@ class BottomNavigattion extends StatelessWidget {
       padding: const EdgeInsets.only(bottom: 22),
       child: Container(
         decoration: BoxDecoration(
-          color: const Color.fromRGBO(248, 248, 248, 0.84),
+          color: LightThemeColors.onprimaryColor,
           borderRadius: BorderRadius.circular(24),
-          boxShadow: const [
-            BoxShadow(
-              color: Color.fromRGBO(0, 0, 0, 0.04),
-              blurRadius: 4,
-              offset: Offset(0, 0),
-            ),
-            BoxShadow(
-              color: Color.fromRGBO(0, 0, 0, 0.04),
-              blurRadius: 16,
-              offset: Offset(0, 4),
-            ),
-            BoxShadow(
-              color: Color.fromRGBO(0, 0, 0, 0.04),
-              blurRadius: 32,
-              offset: Offset(0, 8),
-            ),
-          ],
-          border: Border.all(
-            color: const Color.fromRGBO(255, 255, 255, 0.84),
-            width: 1,
-          ),
+          boxShadow: customBoxShadow,
+          border: customBorder,
         ),
         child: Container(
           color: Colors.transparent,
-          padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 12),
+          padding:
+              const EdgeInsets.only(left: 12, right: 12, top: 12, bottom: 4),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -54,7 +40,7 @@ class BottomNavigattion extends StatelessWidget {
                 label: 'Home',
                 iconFileName: Icons.home_outlined,
                 isActive: selextedIndex == TabItem.home.index,
-                color: const Color(0xfffac99c),
+                color: AppColors.lightPeach,
                 onTap: () {
                   onTab(TabItem.home.index);
                 },
@@ -64,7 +50,7 @@ class BottomNavigattion extends StatelessWidget {
                 label: 'Projects',
                 iconFileName: Icons.code,
                 isActive: selextedIndex == TabItem.projects.index,
-                color: const Color(0xffc8adfa),
+                color: AppColors.lightPurple,
                 onTap: () {
                   onTab(TabItem.projects.index);
                 },
@@ -74,7 +60,7 @@ class BottomNavigattion extends StatelessWidget {
                 label: 'Blog',
                 iconFileName: Icons.article_outlined,
                 isActive: selextedIndex == TabItem.blog.index,
-                color: const Color(0xfff8a9a8),
+                color: AppColors.lightCoral,
                 onTap: () {
                   onTab(TabItem.blog.index);
                 },
@@ -84,7 +70,7 @@ class BottomNavigattion extends StatelessWidget {
                 label: 'About Me',
                 iconFileName: Icons.account_circle_outlined,
                 isActive: selextedIndex == TabItem.about.index,
-                color: const Color(0xff9ccbf5),
+                color: AppColors.lightBlue,
                 onTap: () {
                   onTab(TabItem.about.index);
                 },
@@ -94,7 +80,7 @@ class BottomNavigattion extends StatelessWidget {
                 width: 2,
                 height: 20,
                 decoration: BoxDecoration(
-                  color: Colors.grey.shade300.withOpacity(0.7),
+                  color: AppColors.gray300,
                   borderRadius: BorderRadius.circular(20),
                 ),
               ),
@@ -102,35 +88,33 @@ class BottomNavigattion extends StatelessWidget {
               BottomNavigationItem(
                 label: 'danialyazdan77@gmail.com ↗',
                 iconFileName: Icons.email_outlined,
-                color: const Color(0xffb0e3b6),
+                color: AppColors.lightMintGreen,
                 isActive: false,
                 onTap: () async {
-                  await urlLauncher.sendEmail('danialyazdan77@gmail.com');
+                  await urlLauncher.sendEmail(AppConstants.emailUrl);
                 },
               ),
-              if (screenWidth >= 900)
+              if (screenWidth >= AppConstants.maxWidthmobile)
                 Row(
                   children: [
                     const SizedBox(width: 12),
                     BottomNavigationItem(
                       label: '@DanialYazdanParast ↗',
                       iconFileName: FontAwesomeIcons.github,
-                      color: Colors.grey.shade400,
+                      color: AppColors.gray400,
                       isActive: false,
                       onTap: () async {
-                        await urlLauncher
-                            .openUrl('https://github.com/DanialYazdanParast');
+                        await urlLauncher.openUrl(AppConstants.gitHubUrl);
                       },
                     ),
                     const SizedBox(width: 12),
                     BottomNavigationItem(
                       label: '@DanialYazdanParast ↗',
                       iconFileName: FontAwesomeIcons.linkedin,
-                      color: const Color.fromARGB(200, 97, 189, 238),
+                      color: AppColors.lightSkyBlue,
                       isActive: false,
                       onTap: () async {
-                        await urlLauncher
-                            .openUrl('https://github.com/DanialYazdanParast');
+                        await urlLauncher.openUrl(AppConstants.linkedinUrl);
                       },
                     ),
                   ],

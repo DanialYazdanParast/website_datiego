@@ -33,15 +33,15 @@ Widget buildItemCards(
 
 double _getAlignmentX(int index) {
   const alignmentX = [0.55, -0.95, 0.05, 0.99, -0.7];
-  return alignmentX[index % alignmentX.length];
+  return alignmentX[index];
 }
 
 double _getAlignmentY(int index) {
   const alignmentY = [-0.82, 0.60, 0.85, 0.5, -0.70];
-  return alignmentY[index % alignmentY.length];
+  return alignmentY[index];
 }
 
 double _getAngle(int index) {
   const angles = [0.06, 0.05, -0.05, 0.08, -0.08];
-  return angles[index % angles.length];
+  return angles[index];
 }

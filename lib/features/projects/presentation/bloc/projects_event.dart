@@ -16,6 +16,5 @@ class HoverItemEvent extends ProjectsEvent {
   const HoverItemEvent(this.index, this.isHovered);
 
   @override
-  // TODO: implement props
   List<Object> get props => [index, isHovered];
 }

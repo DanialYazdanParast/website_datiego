@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:shimmer/shimmer.dart';
+import 'package:website_datiego/core/widgets/custom_border.dart';
 
 class ProjectCardShimmer extends StatelessWidget {
   const ProjectCardShimmer({super.key});
@@ -10,14 +11,9 @@ class ProjectCardShimmer extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(24),
       decoration: BoxDecoration(
-        color: const Color(0xFFf8f8f8),
-        borderRadius: BorderRadius.circular(32),
-        border: Border.all(
-          color: const Color.fromRGBO(0, 0, 0, 0.1),
-          width: 1,
-          style: BorderStyle.solid,
-        ),
-      ),
+          color: const Color(0xFFf8f8f8),
+          borderRadius: BorderRadius.circular(32),
+          border: customBorder),
       child: Shimmer.fromColors(
         baseColor: Colors.grey[300]!,
         highlightColor: Colors.grey[100]!,

@@ -2,6 +2,10 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:website_datiego/core/constants/app_colors.dart';
+import 'package:website_datiego/core/constants/app_constants.dart';
+import 'package:website_datiego/core/widgets/custom_border.dart';
+import 'package:website_datiego/core/widgets/custom_box_shadow.dart';
 import 'package:website_datiego/features/home/presentation/bloc/home_bloc.dart';
 
 class IntroSection extends StatelessWidget {
@@ -20,39 +24,29 @@ class IntroSection extends StatelessWidget {
           filter: ImageFilter.blur(sigmaX: 5.0, sigmaY: 5.0),
           child: Container(
             height: 235,
-            width: 434,
+            width: 435,
             decoration: BoxDecoration(
-              color: const Color.fromRGBO(248, 248, 248, 0.84),
-              borderRadius: BorderRadius.circular(24),
-              boxShadow: const [
-                BoxShadow(color: Color.fromRGBO(0, 0, 0, 0.04), blurRadius: 4),
-                BoxShadow(color: Color.fromRGBO(0, 0, 0, 0.04), blurRadius: 16),
-                BoxShadow(color: Color.fromRGBO(0, 0, 0, 0.04), blurRadius: 32),
-              ],
-              border: Border.all(
-                color: const Color.fromRGBO(255, 255, 255, 0.84),
-                width: 1,
-              ),
-            ),
+                color: LightThemeColors.onprimaryColor,
+                borderRadius: BorderRadius.circular(24),
+                boxShadow: customBoxShadow,
+                border: customBorder),
             child: Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(10),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
+                  _buildIntroRow('Hi, I\'m', 'Datiego', AppColors.lightPurple),
                   _buildIntroRow(
-                      'Hi, I\'m', 'Datiego', const Color(0xffc8adfa)),
-                  _buildIntroRow(
-                      'I\'m a', 'Flutter Developer', const Color(0xff9ccbf5)),
+                      'I\'m a', 'Flutter Developer', AppColors.lightBlue),
                   InkWell(
                     onTap: () {
-                      context.read<HomeBloc>().add(const DownloadFileEvent(
-                          url:
-                              "https://rozup.ir/download/3973557/Danial-YazdanParast_Flutter.pdf",
+                      context.read<HomeBloc>().add(DownloadFileEvent(
+                          url: AppConstants.urlCv,
                           fileName: "Danial-YazdanParast_Flutter.pdf"));
                     },
                     child: _buildIntroRow(
-                        'my cv', 'Download ↗', const Color(0xffb0e3b6)),
+                        'my cv', 'Download ↗', AppColors.lightMintGreen),
                   ),
                 ],
               ),

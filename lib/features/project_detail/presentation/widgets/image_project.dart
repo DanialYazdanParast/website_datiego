@@ -19,7 +19,6 @@ class ImageProject extends StatelessWidget {
       child: ImageLodingService(
         imageUrl: imageUrl,
         borderRadius: BorderRadius.circular(15),
-        boxFit: BoxFit.fill,
       ),
     );
   }

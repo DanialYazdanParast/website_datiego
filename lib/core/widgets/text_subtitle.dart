@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:website_datiego/core/constants/app_colors.dart';
 
 class TextSubtitle extends StatelessWidget {
   const TextSubtitle({
@@ -13,7 +14,7 @@ class TextSubtitle extends StatelessWidget {
     return Text(
       subtitle,
       style: const TextStyle(
-        color: Color(0xff6e6e6e),
+        color: LightThemeColors.textSecondary,
         fontSize: 16,
         fontWeight: FontWeight.w400,
       ),

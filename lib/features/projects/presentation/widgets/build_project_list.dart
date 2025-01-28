@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:website_datiego/core/constants/app_constants.dart';
 
 Widget buildProjectList({
   required ScrollController controller,
@@ -14,7 +15,7 @@ Widget buildProjectList({
         padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.08),
         sliver: SliverGrid(
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: screenWidth <= 900 ? 1 : 2,
+            crossAxisCount: screenWidth < AppConstants.maxWidthmobile ? 1 : 2,
             crossAxisSpacing: 32,
             mainAxisSpacing: 32,
             childAspectRatio: 0.9 / 1,
