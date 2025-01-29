@@ -36,10 +36,10 @@ class IntroSection extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  _buildIntroRow(
-                      'Hi, I\'m', 'Datiego', AppColors.lightPurple, context),
+                  _buildIntroRow('Hi, I\'m', 'Datiego', AppColors.lightPurple,
+                      context, true),
                   _buildIntroRow('I\'m a', 'Flutter Developer',
-                      AppColors.lightBlue, context),
+                      AppColors.lightBlue, context, false),
                   InkWell(
                     onTap: () {
                       context.read<HomeBloc>().add(DownloadFileEvent(
@@ -47,7 +47,7 @@ class IntroSection extends StatelessWidget {
                           fileName: "Danial-YazdanParast_Flutter.pdf"));
                     },
                     child: _buildIntroRow('my cv', 'Download ↗',
-                        AppColors.lightMintGreen, context),
+                        AppColors.lightMintGreen, context, false),
                   ),
                 ],
               ),
@@ -61,8 +61,8 @@ class IntroSection extends StatelessWidget {
         .moveY(begin: 50, end: 0, duration: 800.ms, curve: Curves.easeOut);
   }
 
-  Widget _buildIntroRow(
-      String label, String highlight, Color color, BuildContext context) {
+  Widget _buildIntroRow(String label, String highlight, Color color,
+      BuildContext context, bool image) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -73,16 +73,25 @@ class IntroSection extends StatelessWidget {
                 .copyWith(fontSize: 36, fontWeight: FontWeight.w400)),
         const SizedBox(width: 10),
         Container(
-          padding: const EdgeInsets.symmetric(horizontal: 10),
+          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
           decoration: BoxDecoration(
             color: color,
             borderRadius: BorderRadius.circular(15),
           ),
-          child: Text(highlight,
-              style: Theme.of(context)
-                  .textTheme
-                  .titleLarge!
-                  .copyWith(fontSize: 36, fontWeight: FontWeight.w400)),
+          child: Row(
+            children: [
+              Text(highlight,
+                  style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                      fontSize: 36, fontWeight: FontWeight.w400, height: 1.1)),
+              image
+                  ? Image.asset(
+                      'assets/co.png',
+                      height: 50,
+                      fit: BoxFit.cover,
+                    )
+                  : Container(),
+            ],
+          ),
         ),
       ],
     );

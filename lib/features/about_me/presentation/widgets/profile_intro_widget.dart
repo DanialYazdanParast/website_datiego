@@ -22,29 +22,30 @@ class ProfileIntroWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Expanded(
-            child: Container(
-              width: double.infinity,
-              decoration: BoxDecoration(
-                color: Colors.red,
-                borderRadius: BorderRadius.circular(8),
-              ),
-              child: const Center(
-                child: Text(
-                  "Hey again  ",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
+              child: SizedBox(
+            width: double.infinity,
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(8),
+              child: Image.asset(
+                'assets/aaaa.jpg',
+                fit: BoxFit.cover,
               ),
             ),
-          ),
+          )),
           const SizedBox(
             height: 16,
           ),
-          const TextTitelAbout(
-            text: "Hey again ",
+          Row(
+            children: [
+              const TextTitelAbout(
+                text: "Hey again ",
+              ),
+              Image.asset(
+                'assets/waving-hand.png',
+                height: 26,
+                width: 26,
+              )
+            ],
           ),
           const SizedBox(
             height: 16,

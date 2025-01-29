@@ -9,6 +9,7 @@ Widget buildProjectList({
 }) {
   return CustomScrollView(
     controller: controller,
+    primary: false,
     slivers: <Widget>[
       const SliverPadding(padding: EdgeInsets.only(top: 30)),
       SliverPadding(

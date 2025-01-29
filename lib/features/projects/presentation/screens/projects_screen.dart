@@ -13,11 +13,11 @@ class ProjectsScreen extends StatefulWidget {
 }
 
 class _ProjectsScreenState extends State<ProjectsScreen> {
-  final ScrollController scrollController = ScrollController();
+  final ScrollController _scrollController = ScrollController();
 
   @override
   void dispose() {
-    scrollController.dispose();
+    _scrollController.dispose();
     super.dispose();
   }
 
@@ -29,7 +29,7 @@ class _ProjectsScreenState extends State<ProjectsScreen> {
       body: BlocProvider(
         create: (context) => ProjectsBloc(getIt.get())..add(GetProjectsEvent()),
         child: Scrollbar(
-          controller: scrollController,
+          controller: _scrollController,
           thumbVisibility: true,
           trackVisibility: true,
           thickness: 10,
@@ -41,7 +41,7 @@ class _ProjectsScreenState extends State<ProjectsScreen> {
               }
               if (state is ProjectSuccesState) {
                 return buildProjectList(
-                  controller: scrollController,
+                  controller: _scrollController,
                   screenWidth: screenWidth,
                   itemCount: state.projects.length,
                   itemBuilder: (context, index) => ProjectCard(
