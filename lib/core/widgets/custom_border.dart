@@ -1,8 +1,8 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
-Border get customBorder {
+Border customBorder(BuildContext context) {
   return Border.all(
-    color: const Color.fromRGBO(0, 0, 0, 0.1), // معادل border-color
+    color: Theme.of(context).colorScheme.outline,
     width: 1, // معادل border-width
     style: BorderStyle.solid, // معادل border-style
   );

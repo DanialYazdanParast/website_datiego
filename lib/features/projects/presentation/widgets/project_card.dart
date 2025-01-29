@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:website_datiego/core/constants/app_colors.dart';
 import 'package:website_datiego/core/router/go_router.dart';
 import 'package:website_datiego/core/widgets/custom_border.dart';
 import 'package:website_datiego/core/widgets/custom_box_shadow.dart';
@@ -61,10 +60,10 @@ class _ProjectCardState extends State<ProjectCard>
             child: Container(
               padding: const EdgeInsets.all(24),
               decoration: BoxDecoration(
-                  color: LightThemeColors.secondaryColor,
+                  color: Theme.of(context).colorScheme.secondary,
                   borderRadius: BorderRadius.circular(32),
                   boxShadow: hoveredOnItemCard ? customBoxShadow : [],
-                  border: customBorder),
+                  border: customBorder(context)),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [

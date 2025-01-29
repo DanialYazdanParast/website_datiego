@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_html/flutter_html.dart';
-import 'package:website_datiego/core/constants/app_colors.dart';
 import 'package:website_datiego/features/project_detail/presentation/widgets/custom_close_button.dart';
 import 'package:website_datiego/features/project_detail/presentation/widgets/image_project.dart';
 import 'package:website_datiego/core/widgets/tag_project.dart';
@@ -47,7 +46,6 @@ class _ProjectDetailScreenState extends State<ProjectDetailScreen> {
     double screenHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
-      backgroundColor: LightThemeColors.primaryColor,
       body: Scrollbar(
         controller: scrollController,
         thumbVisibility: true,

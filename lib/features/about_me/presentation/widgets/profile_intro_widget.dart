@@ -17,7 +17,7 @@ class ProfileIntroWidget extends StatelessWidget {
     return Container(
       height: screenheight * 0.95,
       padding: const EdgeInsets.all(24),
-      decoration: customBoxDecoration,
+      decoration: customBoxDecoration(context),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -49,13 +49,9 @@ class ProfileIntroWidget extends StatelessWidget {
           const SizedBox(
             height: 16,
           ),
-          const Text(
+          Text(
             "I am currently on my professional journey, creating digital experiences that are both efficient and engaging. My goal is to improve and simplify technology to help people make their daily tasks easier and more enjoyable.",
-            style: TextStyle(
-                color: LightThemeColors.textSecondary,
-                fontSize: 16,
-                fontWeight: FontWeight.w400,
-                height: 1.6),
+            style: Theme.of(context).textTheme.titleMedium,
           ),
           const SizedBox(
             height: 16,
@@ -63,29 +59,29 @@ class ProfileIntroWidget extends StatelessWidget {
           Row(children: [
             Container(
               decoration: BoxDecoration(
-                color:
-                    LightThemeColors.onsecondaryColor, // معادل background-color
+                color: Theme.of(context)
+                    .colorScheme
+                    .onSecondary, // معادل background-color
                 borderRadius: BorderRadius.circular(8), // معادل border-radius
-                border: customBorder,
+                border: customBorder(context),
               ),
-              child: const Padding(
-                padding: EdgeInsets.symmetric(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(
                     vertical: 8,
                     horizontal: 12), // اگر نیاز به فاصله داخلی باشد
                 child: Row(
                   children: [
-                    Icon(
+                    const Icon(
                       Icons.location_on_outlined,
                       color: LightThemeColors.textSecondary,
                       size: 20,
                     ),
-                    SizedBox(width: 4),
+                    const SizedBox(width: 4),
                     Text(
                       "Shiraz, Iran", // محتوا
-                      style: TextStyle(
-                          color: LightThemeColors.textSecondary,
-                          fontSize: 14,
-                          fontWeight: FontWeight.w600), // استایل متن
+                      style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                          fontWeight: FontWeight.w600,
+                          fontSize: 14), // استایل متن
                     ),
                   ],
                 ),

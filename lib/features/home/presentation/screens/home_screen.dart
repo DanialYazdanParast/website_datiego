@@ -28,16 +28,25 @@ class HomeBody extends StatelessWidget {
     final width = MediaQuery.of(context).size.width;
     final height = MediaQuery.of(context).size.height;
 
+    final bool isDarkMode =
+        Theme.of(context).colorScheme.brightness == Brightness.dark;
+
     return Container(
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
         gradient: LinearGradient(
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
-          colors: [
-            Color(0xFFFFD6E8), // Light pink
-            Color(0xFFE3E8FF), // Light blue
-            Color(0xFFCFF0D6), // Light green
-          ],
+          colors: isDarkMode
+              ? [
+                  const Color(0x4a3E3B4F), // Soft dark purple
+                  const Color(0x4a4A4A6A), // Soft dark blue
+                  const Color(0x4a3D5A6C), // Soft dark teal
+                ]
+              : [
+                  const Color(0xFFFFD6E8), // Light pink
+                  const Color(0xFFE3E8FF), // Light blue
+                  const Color(0xFFCFF0D6), // Light green
+                ],
         ),
       ),
       child: BlocConsumer<HomeBloc, HomeState>(

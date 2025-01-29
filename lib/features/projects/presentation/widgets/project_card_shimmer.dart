@@ -11,9 +11,9 @@ class ProjectCardShimmer extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(24),
       decoration: BoxDecoration(
-          color: const Color(0xFFf8f8f8),
+          color: Theme.of(context).colorScheme.secondary,
           borderRadius: BorderRadius.circular(32),
-          border: customBorder),
+          border: customBorder(context)),
       child: Shimmer.fromColors(
         baseColor: Colors.grey[300]!,
         highlightColor: Colors.grey[100]!,

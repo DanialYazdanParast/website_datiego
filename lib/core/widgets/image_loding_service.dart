@@ -1,6 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:website_datiego/core/constants/app_colors.dart';
 
 class ImageLodingService extends StatelessWidget {
   final String imageUrl;
@@ -20,7 +19,7 @@ class ImageLodingService extends StatelessWidget {
       borderRadius: borderRadius,
       child: CachedNetworkImage(
         placeholder: (context, url) => Container(
-          color: LightThemeColors.onsecondaryColor,
+          color: Theme.of(context).colorScheme.onSecondary,
         ),
         imageUrl: imageUrl,
         fit: boxFit,

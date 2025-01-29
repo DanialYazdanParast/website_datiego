@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:website_datiego/core/constants/app_colors.dart';
 import 'package:website_datiego/core/widgets/custom_border.dart';
 
 class TagProject extends StatelessWidget {
@@ -19,16 +18,15 @@ class TagProject extends StatelessWidget {
             return Container(
               padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 12),
               decoration: BoxDecoration(
-                  color: LightThemeColors.onsecondaryColor,
+                  color: Theme.of(context).colorScheme.onSecondary,
                   borderRadius: BorderRadius.circular(8),
-                  border: customBorder),
+                  border: customBorder(context)),
               child: Text(
                 tag,
-                style: const TextStyle(
-                  color: LightThemeColors.textSecondary,
-                  fontSize: 14,
-                  fontWeight: FontWeight.w600,
-                ),
+                style: Theme.of(context)
+                    .textTheme
+                    .titleMedium!
+                    .copyWith(fontWeight: FontWeight.w600, fontSize: 14),
               ),
             );
           }).toList() ??

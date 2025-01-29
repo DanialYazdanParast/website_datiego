@@ -24,10 +24,10 @@ class BottomNavigattion extends StatelessWidget {
       padding: const EdgeInsets.only(bottom: 22),
       child: Container(
         decoration: BoxDecoration(
-          color: LightThemeColors.onprimaryColor,
+          color: Theme.of(context).colorScheme.onPrimary,
           borderRadius: BorderRadius.circular(24),
           boxShadow: customBoxShadow,
-          border: customBorder,
+          border: customBorder(context),
         ),
         child: Container(
           color: Colors.transparent,
@@ -80,7 +80,7 @@ class BottomNavigattion extends StatelessWidget {
                 width: 2,
                 height: 20,
                 decoration: BoxDecoration(
-                  color: AppColors.gray300,
+                  color:  Theme.of(context).dividerColor,
                   borderRadius: BorderRadius.circular(20),
                 ),
               ),

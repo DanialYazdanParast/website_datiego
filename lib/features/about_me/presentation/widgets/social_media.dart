@@ -4,6 +4,7 @@ import 'package:get_it/get_it.dart';
 import 'package:website_datiego/core/constants/app_colors.dart';
 import 'package:website_datiego/core/constants/app_constants.dart';
 import 'package:website_datiego/core/services/url_launcher_service.dart';
+import 'package:website_datiego/core/widgets/custom_border.dart';
 import 'package:website_datiego/features/about_me/presentation/widgets/text_titel_about.dart';
 
 class SocialMedia extends StatelessWidget {
@@ -17,13 +18,10 @@ class SocialMedia extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(24),
       decoration: BoxDecoration(
-        color: const Color(0xFFf8f8f8), // معادل background-color
+        color:
+            Theme.of(context).colorScheme.secondary, // معادل background-color
         borderRadius: BorderRadius.circular(32),
-        border: Border.all(
-          color: const Color.fromRGBO(0, 0, 0, 0.1), // معادل border-color
-          width: 1, // معادل border-width
-          style: BorderStyle.solid, // معادل border-style
-        ),
+        border: customBorder(context),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -116,16 +114,22 @@ class ButtonSocial extends StatelessWidget {
             if (states.contains(WidgetState.hovered)) {
               return color; // رنگ هنگام Hover
             }
-            return LightThemeColors.onsecondaryColor; // رنگ پیش‌فرض
+            return Theme.of(context).colorScheme.onSecondary; // رنگ پیش‌فرض
           },
         ),
       ),
-      label:
-          Text(text, style: const TextStyle(fontSize: 16, color: Colors.black)),
+      label: Text(
+        text,
+        style: Theme.of(context)
+            .textTheme
+            .titleLarge!
+            .copyWith(fontSize: 16, fontWeight: FontWeight.w400),
+      ),
       onPressed: onTap,
       icon: Icon(
         icon,
-        color: Colors.black,
+        color: Theme.of(context).iconTheme.color,
+        size: 24,
       ),
     );
   }

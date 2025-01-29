@@ -26,27 +26,28 @@ class IntroSection extends StatelessWidget {
             height: 235,
             width: 435,
             decoration: BoxDecoration(
-                color: LightThemeColors.onprimaryColor,
+                color: Theme.of(context).colorScheme.onPrimary,
                 borderRadius: BorderRadius.circular(24),
                 boxShadow: customBoxShadow,
-                border: customBorder),
+                border: customBorder(context)),
             child: Padding(
               padding: const EdgeInsets.all(10),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  _buildIntroRow('Hi, I\'m', 'Datiego', AppColors.lightPurple),
                   _buildIntroRow(
-                      'I\'m a', 'Flutter Developer', AppColors.lightBlue),
+                      'Hi, I\'m', 'Datiego', AppColors.lightPurple, context),
+                  _buildIntroRow('I\'m a', 'Flutter Developer',
+                      AppColors.lightBlue, context),
                   InkWell(
                     onTap: () {
                       context.read<HomeBloc>().add(DownloadFileEvent(
                           url: AppConstants.urlCv,
                           fileName: "Danial-YazdanParast_Flutter.pdf"));
                     },
-                    child: _buildIntroRow(
-                        'my cv', 'Download ↗', AppColors.lightMintGreen),
+                    child: _buildIntroRow('my cv', 'Download ↗',
+                        AppColors.lightMintGreen, context),
                   ),
                 ],
               ),
@@ -60,12 +61,16 @@ class IntroSection extends StatelessWidget {
         .moveY(begin: 50, end: 0, duration: 800.ms, curve: Curves.easeOut);
   }
 
-  Widget _buildIntroRow(String label, String highlight, Color color) {
+  Widget _buildIntroRow(
+      String label, String highlight, Color color, BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(label,
-            style: const TextStyle(fontSize: 36, fontWeight: FontWeight.w400)),
+            style: Theme.of(context)
+                .textTheme
+                .titleLarge!
+                .copyWith(fontSize: 36, fontWeight: FontWeight.w400)),
         const SizedBox(width: 10),
         Container(
           padding: const EdgeInsets.symmetric(horizontal: 10),
@@ -74,8 +79,10 @@ class IntroSection extends StatelessWidget {
             borderRadius: BorderRadius.circular(15),
           ),
           child: Text(highlight,
-              style:
-                  const TextStyle(fontSize: 36, fontWeight: FontWeight.w400)),
+              style: Theme.of(context)
+                  .textTheme
+                  .titleLarge!
+                  .copyWith(fontSize: 36, fontWeight: FontWeight.w400)),
         ),
       ],
     );

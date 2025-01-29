@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:website_datiego/core/widgets/custom_border.dart';
 
 class BlogScreen extends StatelessWidget {
   const BlogScreen({super.key});
@@ -7,27 +8,24 @@ class BlogScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
       body: Center(
         child: Container(
           height: 100,
           width: 300,
           decoration: BoxDecoration(
-            color: const Color(0xFFf8f8f8), // معادل background-color
+            color: Theme.of(context)
+                .colorScheme
+                .secondary, // معادل background-color
             borderRadius: BorderRadius.circular(32),
 
-            border: Border.all(
-              color: const Color.fromRGBO(0, 0, 0, 0.1), // معادل border-color
-              width: 1, // معادل border-width
-              style: BorderStyle.solid, // معادل border-style
-            ),
+            border: customBorder(context),
           ),
-          child: const Padding(
-            padding: EdgeInsets.all(5.0),
+          child: Padding(
+            padding: const EdgeInsets.all(5.0),
             child: Center(
               child: Text(
                 'Blog is Empty',
-                style: TextStyle(fontSize: 20),
+                style: Theme.of(context).textTheme.titleLarge,
               ),
             ),
           ),

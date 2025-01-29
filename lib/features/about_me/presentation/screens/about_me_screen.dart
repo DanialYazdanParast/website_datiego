@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:website_datiego/core/constants/app_colors.dart';
 import 'package:website_datiego/core/constants/app_constants.dart';
 import 'package:website_datiego/features/about_me/presentation/widgets/profile_details_widget.dart';
 import 'package:website_datiego/features/about_me/presentation/widgets/profile_intro_widget.dart';
@@ -24,7 +23,6 @@ class _AboutMeScreenState extends State<AboutMeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: LightThemeColors.primaryColor,
       body: LayoutBuilder(builder: (context, constraints) {
         if (constraints.maxWidth >= AppConstants.maxWidthmobile) {
           return Row(

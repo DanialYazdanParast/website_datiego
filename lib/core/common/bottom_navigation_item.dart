@@ -1,6 +1,5 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
-import 'package:website_datiego/core/constants/app_colors.dart';
 import 'package:website_datiego/core/widgets/custom_border.dart';
 import 'package:website_datiego/core/widgets/custom_box_shadow.dart';
 
@@ -46,7 +45,7 @@ class _BottomNavigationItemState extends State<BottomNavigationItem> {
         children: [
           if (hoverLabel == widget.label) // نمایش لیبل در صورت هاور
             Positioned(
-              top: -45, // مکان لیبل بالای دکمه
+              top: -48, // مکان لیبل بالای دکمه
               child: SlideInUp(
                 duration: const Duration(milliseconds: 300), // مدت زمان انیمیشن
                 curve: Curves.fastEaseInToSlowEaseOut,
@@ -56,17 +55,15 @@ class _BottomNavigationItemState extends State<BottomNavigationItem> {
                   padding:
                       const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                   decoration: BoxDecoration(
-                      color: LightThemeColors.onprimaryColor,
+                      color: Theme.of(context).colorScheme.onPrimary,
                       borderRadius: BorderRadius.circular(6),
                       boxShadow: customBoxShadow,
-                      border: customBorder),
-                  child: Text(
-                    widget.label,
-                    style: const TextStyle(
-                      color: LightThemeColors.textPrimary,
-                      fontSize: 12,
-                    ),
-                  ),
+                      border: customBorder(context)),
+                  child: Text(widget.label,
+                      style: Theme.of(context)
+                          .textTheme
+                          .titleMedium!
+                          .copyWith(fontSize: 13, fontWeight: FontWeight.w500)),
                 ),
               ),
             ),
@@ -91,17 +88,18 @@ class _BottomNavigationItemState extends State<BottomNavigationItem> {
                           offset: Offset(0, 2),
                         ),
                       ],
-                      border: customBorder,
+                      border: customBorder(context),
                       color: hoverLabel == widget.label
                           ? widget.color
                           : widget.isActive
                               ? widget.color
-                              : LightThemeColors.primaryColor
+                              : Theme.of(context)
+                                  .colorScheme
+                                  .primary
                                   .withOpacity(0.60) // تغییر رنگ هنگام هاور
                       ),
                   child: Icon(
                     widget.iconFileName,
-                    color: Colors.black,
                     size: 25,
                   ),
                 ),
@@ -112,7 +110,7 @@ class _BottomNavigationItemState extends State<BottomNavigationItem> {
                       width: 16,
                       height: 3,
                       decoration: BoxDecoration(
-                        color: AppColors.gray400.withOpacity(0.4),
+                        color: Theme.of(context).dividerColor,
                         borderRadius: BorderRadius.circular(20),
                       ),
                     )

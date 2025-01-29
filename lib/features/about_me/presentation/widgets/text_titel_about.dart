@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:website_datiego/core/constants/app_colors.dart';
 
 class TextTitelAbout extends StatelessWidget {
   final String text;
@@ -12,11 +11,7 @@ class TextTitelAbout extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       text,
-      style: const TextStyle(
-        color: LightThemeColors.textPrimary,
-        fontSize: 24,
-        fontWeight: FontWeight.w600,
-      ),
+      style: Theme.of(context).textTheme.titleLarge,
     );
   }
 }

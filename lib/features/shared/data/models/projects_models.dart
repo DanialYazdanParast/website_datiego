@@ -2,19 +2,13 @@ import 'package:website_datiego/features/shared/domain/entities/projects_entitie
 
 class ProjectsModels extends ProjectsEntities {
   const ProjectsModels({
-    String? description,
-    String? image,
-    String? subtitle,
-    String? title,
-    String? id,
-    List<String>? tag,
-  }) : super(
-            description: description,
-            image: image,
-            subtitle: subtitle,
-            title: title,
-            id: id,
-            tag: tag);
+    super.description,
+    super.image,
+    super.subtitle,
+    super.title,
+    super.id,
+    super.tag,
+  });
 
   factory ProjectsModels.fromJson(Map<String, dynamic> json) {
     return ProjectsModels(

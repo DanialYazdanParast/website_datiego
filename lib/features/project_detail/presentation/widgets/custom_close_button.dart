@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:website_datiego/core/constants/app_colors.dart';
 import 'package:website_datiego/core/widgets/custom_border.dart';
 
 class CustomCloseButton extends StatelessWidget {
@@ -19,11 +18,14 @@ class CustomCloseButton extends StatelessWidget {
         width: 48,
         padding: const EdgeInsets.all(8),
         decoration: BoxDecoration(
-            color: LightThemeColors.onprimaryColor, // معادل background-color
+            color: Theme.of(context)
+                .colorScheme
+                .onPrimary, // معادل background-color
             borderRadius: BorderRadius.circular(12),
-            border: customBorder),
-        child: const Icon(
+            border: customBorder(context)),
+        child: Icon(
           Icons.close,
+          color: Theme.of(context).iconTheme.color,
           size: 25,
         ),
       ),

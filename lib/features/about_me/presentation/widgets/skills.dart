@@ -17,15 +17,10 @@ class Skills extends StatelessWidget {
       width: double.infinity,
       padding: const EdgeInsets.all(24),
       decoration: BoxDecoration(
-        color: const Color(0xFFf8f8f8), // معادل background-color
-        borderRadius: BorderRadius.circular(32),
-
-        border: Border.all(
-          color: const Color.fromRGBO(0, 0, 0, 0.1), // معادل border-color
-          width: 1, // معادل border-width
-          style: BorderStyle.solid, // معادل border-style
-        ),
-      ),
+          color:
+              Theme.of(context).colorScheme.secondary, // معادل background-color
+          borderRadius: BorderRadius.circular(32),
+          border: customBorder(context)),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -60,16 +55,14 @@ class SkillCard extends StatelessWidget {
       decoration: BoxDecoration(
           color: Color(skill.colorCode), // معادل background-color
           borderRadius: BorderRadius.circular(8), // معادل border-radius
-          border: customBorder),
+          border: customBorder(context)),
       child: Padding(
         padding: const EdgeInsets.symmetric(
             vertical: 8, horizontal: 12), // اگر نیاز به فاصله داخلی باشد
         child: Text(
           skill.text, // محتوا
-          style: const TextStyle(
-              color: Colors.black,
-              fontSize: 16,
-              fontWeight: FontWeight.w600), // استایل متن
+          style: const TextStyle(fontSize: 16, color: Colors.black),
+          // استایل متن
         ),
       ),
     );
