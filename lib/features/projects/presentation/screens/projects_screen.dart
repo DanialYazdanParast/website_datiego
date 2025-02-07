@@ -33,8 +33,8 @@ class _ProjectsScreenState extends State<ProjectsScreen>
         create: (context) => ProjectsBloc(getIt.get())..add(GetProjectsEvent()),
         child: Scrollbar(
           controller: _scrollController,
-          thumbVisibility: screenWidth >= AppConstants.maxWidthmobile,
-          trackVisibility: screenWidth >= AppConstants.maxWidthmobile,
+          thumbVisibility: screenWidth >= AppConstants.maxWidthMobile,
+          trackVisibility: screenWidth >= AppConstants.maxWidthMobile,
           thickness: 10,
           radius: const Radius.circular(10),
           child: BlocBuilder<ProjectsBloc, ProjectsState>(

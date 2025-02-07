@@ -40,6 +40,7 @@ class ItemCardHome extends StatelessWidget {
       child: Align(
         alignment: Alignment(alignmentx, alignmenty),
         child: MouseRegion(
+          cursor: SystemMouseCursors.click,
           onEnter: (_) => context
               .read<HomeBloc>()
               .add(const SetHoveredOnItemCardEvent(true)),

@@ -14,14 +14,17 @@ Widget buildProjectList({
     slivers: <Widget>[
       const SliverPadding(padding: EdgeInsets.only(top: 30)),
       SliverPadding(
-          padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.08),
+          padding: EdgeInsets.symmetric(
+              horizontal: screenWidth >= AppConstants.maxWidthMobile
+                  ? screenWidth * 0.08
+                  : screenWidth * 0.05),
           sliver: SliverGrid(
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: screenWidth > AppConstants.maxWidthmobile ? 2 : 1,
+              crossAxisCount: screenWidth > AppConstants.maxWidthMobile ? 2 : 1,
               crossAxisSpacing: 32,
               mainAxisSpacing: 32,
               childAspectRatio:
-                  screenWidth >= AppConstants.maxWidthmobile ? 0.9 : 0.8,
+                  screenWidth >= AppConstants.maxWidthMobile ? 0.9 : 0.8,
             ),
             delegate: SliverChildBuilderDelegate(
               itemBuilder,

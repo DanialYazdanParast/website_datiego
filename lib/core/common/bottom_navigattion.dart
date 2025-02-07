@@ -94,7 +94,7 @@ class BottomNavigattion extends StatelessWidget {
                   await urlLauncher.sendEmail(AppConstants.emailUrl);
                 },
               ),
-              if (screenWidth >= AppConstants.maxWidthmobile)
+              if (screenWidth >= AppConstants.maxWidthMobile)
                 Row(
                   children: [
                     const SizedBox(width: 12),

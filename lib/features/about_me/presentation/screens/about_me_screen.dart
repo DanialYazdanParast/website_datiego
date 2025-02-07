@@ -24,7 +24,7 @@ class _AboutMeScreenState extends State<AboutMeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: LayoutBuilder(builder: (context, constraints) {
-        if (constraints.maxWidth >= AppConstants.maxWidthmobile) {
+        if (constraints.maxWidth >= AppConstants.maxWidthMobile) {
           return Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [

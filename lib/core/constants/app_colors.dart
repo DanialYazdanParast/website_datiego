@@ -6,14 +6,11 @@ class LightThemeColors {
   static const onprimaryColor = Color(0xD6F8F8F8); // شفافیت ۰٫۸۴ (D6)
   static const secondaryColor = Color(0xFFf8f8f8);
   static const onsecondaryColor = Color(0xFFEEEEEE);
-
   // رنگ‌های متن
   static const textPrimary = Color(0xff212121);
   static const textSecondary = Color(0xff6e6e6e);
-
   // Border Color
   static const Color borderColor = Color(0x1A000000);
-
   // Divider Color
   static const Color gray300 = Color(0xB3E0E0E0);
   // Divider Color
@@ -26,16 +23,12 @@ class DarkThemeColors {
   static const onprimaryColor = Color(0xd6212121); // شفافیت ۰٫۸۴ (D6)
   static const secondaryColor = Color(0xFF181818);
   static const onsecondaryColor = Color(0xFF262626);
-
   // رنگ‌های متن
   static const textPrimary = Color(0xffffffff);
   static const textSecondary = Color(0xffb3b3b3);
-
   // Border Color
   static const Color borderColor = Color(0x1affffff);
-
   // Divider Color
-
   static const Color dividerColor = Color(0xFF323232);
 }
 
@@ -49,3 +42,12 @@ class AppColors {
   static const Color lightSkyBlue = Color(0xC861BDEE);
   static const Color lightPink = Color(0xffffb3e9);
 }
+
+final List<Color> blogColors = [
+  AppColors.lightBlue,
+  AppColors.lightCoral,
+  AppColors.lightMintGreen,
+  AppColors.lightPeach,
+  AppColors.lightPink,
+  AppColors.lightPurple,
+];

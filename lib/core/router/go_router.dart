@@ -53,7 +53,7 @@ class ScreenGoRouter {
           GoRoute(
             path: ScreenGoRouter.blog,
             pageBuilder: (context, state) {
-              return const NoTransitionPage(
+              return NoTransitionPage(
                 child: BlogScreen(),
               );
             },

@@ -49,6 +49,7 @@ class _ProjectCardState extends State<ProjectCard>
           );
         },
         child: MouseRegion(
+          cursor: SystemMouseCursors.click,
           onEnter: (_) => context
               .read<ProjectsBloc>()
               .add(HoverItemEvent(widget.index, true)),

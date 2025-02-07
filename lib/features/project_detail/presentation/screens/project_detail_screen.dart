@@ -50,8 +50,8 @@ class _ProjectDetailScreenState extends State<ProjectDetailScreen> {
     return Scaffold(
       body: Scrollbar(
         controller: scrollController,
-        thumbVisibility: screenWidth >= AppConstants.maxWidthmobile,
-        trackVisibility: screenWidth >= AppConstants.maxWidthmobile,
+        thumbVisibility: screenWidth >= AppConstants.maxWidthMobile,
+        trackVisibility: screenWidth >= AppConstants.maxWidthMobile,
         thickness: 10,
         child: Stack(
           alignment: Alignment.topCenter,
