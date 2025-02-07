@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:website_datiego/features/about_me/presentation/widgets/little_bit_about_me.dart';
-import 'package:website_datiego/features/about_me/presentation/widgets/skills.dart';
-import 'package:website_datiego/features/about_me/presentation/widgets/social_media.dart';
+import 'package:Datiego/features/about_me/presentation/widgets/little_bit_about_me.dart';
+import 'package:Datiego/features/about_me/presentation/widgets/skills.dart';
+import 'package:Datiego/features/about_me/presentation/widgets/social_media.dart';
 
 class ProfileDetailsWidget extends StatelessWidget {
   const ProfileDetailsWidget({

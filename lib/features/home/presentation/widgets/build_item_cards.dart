@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:website_datiego/features/home/presentation/bloc/home_bloc.dart';
-import 'package:website_datiego/features/home/presentation/widgets/item_card_home.dart';
+import 'package:Datiego/features/home/presentation/bloc/home_bloc.dart';
+import 'package:Datiego/features/home/presentation/widgets/item_card_home.dart';
 
 Widget buildItemCards(
   HomeState state,
@@ -13,10 +13,10 @@ Widget buildItemCards(
         height: 600,
         width: 800,
         child: Stack(
-          children: state.projects.take(6).map((project) {
+          children: state.projects.take(5).map((project) {
             final index = state.projects.indexOf(project);
             return ItemCardHome(
-              imageUrl: project.image!,
+              project: project,
               width: width,
               height: height,
               alignmentx: _getAlignmentX(index),

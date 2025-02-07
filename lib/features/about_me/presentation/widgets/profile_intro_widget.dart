@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:website_datiego/core/constants/app_colors.dart';
-import 'package:website_datiego/core/widgets/custom_border.dart';
-import 'package:website_datiego/core/widgets/custom_box_decoration.dart';
-import 'package:website_datiego/features/about_me/presentation/widgets/text_titel_about.dart';
+import 'package:Datiego/core/constants/app_colors.dart';
+import 'package:Datiego/core/widgets/custom_border.dart';
+import 'package:Datiego/core/widgets/custom_box_decoration.dart';
+import 'package:Datiego/features/about_me/presentation/widgets/text_titel_about.dart';
 
 class ProfileIntroWidget extends StatelessWidget {
   const ProfileIntroWidget({
@@ -68,14 +68,14 @@ class ProfileIntroWidget extends StatelessWidget {
               ),
               child: Padding(
                 padding: const EdgeInsets.symmetric(
-                    vertical: 8,
-                    horizontal: 12), // اگر نیاز به فاصله داخلی باشد
+                    vertical: 6,
+                    horizontal: 10), // اگر نیاز به فاصله داخلی باشد
                 child: Row(
                   children: [
                     const Icon(
                       Icons.location_on_outlined,
                       color: LightThemeColors.textSecondary,
-                      size: 20,
+                      size: 18,
                     ),
                     const SizedBox(width: 4),
                     Text(

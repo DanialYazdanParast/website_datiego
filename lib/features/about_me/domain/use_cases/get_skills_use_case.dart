@@ -1,5 +1,5 @@
-import 'package:website_datiego/features/about_me/domain/entities/skill_entities.dart';
-import 'package:website_datiego/features/about_me/domain/repository/skills_repository.dart';
+import 'package:Datiego/features/about_me/domain/entities/skill_entities.dart';
+import 'package:Datiego/features/about_me/domain/repository/skills_repository.dart';
 
 class GetSkillsUseCase {
   final SkillsRepository repository;

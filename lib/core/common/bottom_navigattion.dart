@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
-import 'package:website_datiego/core/common/bottom_navigation_item.dart';
-import 'package:website_datiego/core/common/root.dart';
+import 'package:Datiego/core/common/bottom_navigation_item.dart';
+import 'package:Datiego/core/common/root.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:website_datiego/core/constants/app_colors.dart';
-import 'package:website_datiego/core/constants/app_constants.dart';
+import 'package:Datiego/core/constants/app_colors.dart';
+import 'package:Datiego/core/constants/app_constants.dart';
 
-import 'package:website_datiego/core/services/url_launcher_service.dart';
-import 'package:website_datiego/core/widgets/custom_border.dart';
-import 'package:website_datiego/core/widgets/custom_box_shadow.dart';
+import 'package:Datiego/core/services/url_launcher_service.dart';
+import 'package:Datiego/core/widgets/custom_border.dart';
+import 'package:Datiego/core/widgets/custom_box_shadow.dart';
 
 class BottomNavigattion extends StatelessWidget {
   final Function(int index) onTab;
@@ -80,7 +80,7 @@ class BottomNavigattion extends StatelessWidget {
                 width: 2,
                 height: 20,
                 decoration: BoxDecoration(
-                  color:  Theme.of(context).dividerColor,
+                  color: Theme.of(context).dividerColor,
                   borderRadius: BorderRadius.circular(20),
                 ),
               ),

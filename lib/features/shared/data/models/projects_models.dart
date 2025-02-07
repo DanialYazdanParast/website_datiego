@@ -1,4 +1,4 @@
-import 'package:website_datiego/features/shared/domain/entities/projects_entities.dart';
+import 'package:Datiego/features/shared/domain/entities/projects_entities.dart';
 
 class ProjectsModels extends ProjectsEntities {
   const ProjectsModels({

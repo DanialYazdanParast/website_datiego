@@ -1,8 +1,7 @@
+import 'package:Datiego/confing/theme/app_theme.dart';
+import 'package:Datiego/core/di/service_locator.dart';
+import 'package:Datiego/core/router/go_router.dart';
 import 'package:flutter/material.dart';
-import 'package:website_datiego/confing/theme/app_theme.dart';
-
-import 'package:website_datiego/core/di/service_locator.dart';
-import 'package:website_datiego/core/router/go_router.dart';
 
 import 'package:flutter_web_plugins/flutter_web_plugins.dart';
 

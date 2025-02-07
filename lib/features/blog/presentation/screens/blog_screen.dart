@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:website_datiego/core/widgets/custom_border.dart';
+import 'package:Datiego/core/widgets/custom_border.dart';
 
 class BlogScreen extends StatelessWidget {
   const BlogScreen({super.key});

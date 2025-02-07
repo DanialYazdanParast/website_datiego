@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:shimmer/shimmer.dart';
-import 'package:website_datiego/core/widgets/custom_border.dart';
+import 'package:Datiego/core/widgets/custom_border.dart';
 
 class ProjectCardShimmer extends StatelessWidget {
   const ProjectCardShimmer({super.key});
@@ -19,6 +19,7 @@ class ProjectCardShimmer extends StatelessWidget {
         highlightColor: Colors.grey[100]!,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Expanded(
               child: Container(

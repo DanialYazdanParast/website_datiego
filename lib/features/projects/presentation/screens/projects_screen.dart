@@ -1,9 +1,11 @@
+import 'package:Datiego/core/constants/app_constants.dart';
+import 'package:Datiego/features/projects/presentation/widgets/project_card_shimmer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:website_datiego/core/di/service_locator.dart';
-import 'package:website_datiego/features/projects/presentation/bloc/projects_bloc.dart';
-import 'package:website_datiego/features/projects/presentation/widgets/build_project_list.dart';
-import 'package:website_datiego/features/projects/presentation/widgets/project_card.dart';
+import 'package:Datiego/core/di/service_locator.dart';
+import 'package:Datiego/features/projects/presentation/bloc/projects_bloc.dart';
+import 'package:Datiego/features/projects/presentation/widgets/build_project_list.dart';
+import 'package:Datiego/features/projects/presentation/widgets/project_card.dart';
 
 class ProjectsScreen extends StatefulWidget {
   const ProjectsScreen({super.key});
@@ -12,7 +14,8 @@ class ProjectsScreen extends StatefulWidget {
   State<ProjectsScreen> createState() => _ProjectsScreenState();
 }
 
-class _ProjectsScreenState extends State<ProjectsScreen> {
+class _ProjectsScreenState extends State<ProjectsScreen>
+    with AutomaticKeepAliveClientMixin {
   final ScrollController _scrollController = ScrollController();
 
   @override
@@ -30,14 +33,19 @@ class _ProjectsScreenState extends State<ProjectsScreen> {
         create: (context) => ProjectsBloc(getIt.get())..add(GetProjectsEvent()),
         child: Scrollbar(
           controller: _scrollController,
-          thumbVisibility: true,
-          trackVisibility: true,
+          thumbVisibility: screenWidth >= AppConstants.maxWidthmobile,
+          trackVisibility: screenWidth >= AppConstants.maxWidthmobile,
           thickness: 10,
           radius: const Radius.circular(10),
           child: BlocBuilder<ProjectsBloc, ProjectsState>(
             builder: (context, state) {
               if (state is ProjectLoadingState) {
-                return Container();
+                return buildProjectList(
+                  controller: _scrollController,
+                  screenWidth: screenWidth,
+                  itemCount: 6,
+                  itemBuilder: (context, index) => const ProjectCardShimmer(),
+                );
               }
               if (state is ProjectSuccesState) {
                 return buildProjectList(
@@ -62,4 +70,8 @@ class _ProjectsScreenState extends State<ProjectsScreen> {
       ),
     );
   }
+
+  @override
+  // TODO: implement wantKeepAlive
+  bool get wantKeepAlive => true;
 }

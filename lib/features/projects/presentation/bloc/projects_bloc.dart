@@ -1,8 +1,8 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:website_datiego/core/utils/exceptions.dart';
-import 'package:website_datiego/features/shared/domain/entities/projects_entities.dart';
-import 'package:website_datiego/features/shared/domain/use_cases/get_projects_usecase.dart';
+import 'package:Datiego/core/utils/exceptions.dart';
+import 'package:Datiego/features/shared/domain/entities/projects_entities.dart';
+import 'package:Datiego/features/shared/domain/use_cases/get_projects_usecase.dart';
 
 part 'projects_event.dart';
 part 'projects_state.dart';
@@ -12,8 +12,11 @@ class ProjectsBloc extends Bloc<ProjectsEvent, ProjectsState> {
   ProjectsBloc(this.getProjectsUsecase) : super(ProjectLoadingState()) {
     on<GetProjectsEvent>((event, emit) async {
       try {
+        emit(ProjectLoadingState());
+        await Future.delayed(const Duration(milliseconds: 500));
         var projects = await getProjectsUsecase.call();
-        emit(ProjectSuccesState(projects));
+        var reversed = projects.reversed.toList();
+        emit(ProjectSuccesState(reversed));
       } catch (e) {
         emit(ProjectErrorState(AppException()));
       }

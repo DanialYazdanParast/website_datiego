@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:website_datiego/core/constants/app_constants.dart';
-import 'package:website_datiego/features/about_me/presentation/widgets/profile_details_widget.dart';
-import 'package:website_datiego/features/about_me/presentation/widgets/profile_intro_widget.dart';
+import 'package:Datiego/core/constants/app_constants.dart';
+import 'package:Datiego/features/about_me/presentation/widgets/profile_details_widget.dart';
+import 'package:Datiego/features/about_me/presentation/widgets/profile_intro_widget.dart';
 
 class AboutMeScreen extends StatefulWidget {
   const AboutMeScreen({super.key});
@@ -86,8 +86,8 @@ class _AboutMeScreenState extends State<AboutMeScreen> {
         } else {
           return Scrollbar(
             controller: scrollController,
-            thumbVisibility: true,
-            trackVisibility: true,
+            thumbVisibility: false,
+            trackVisibility: false,
             thickness: 10,
             child: SingleChildScrollView(
               controller: scrollController,

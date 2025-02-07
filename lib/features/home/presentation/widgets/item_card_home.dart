@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:website_datiego/core/widgets/image_loding_service.dart';
-import 'package:website_datiego/features/home/presentation/bloc/home_bloc.dart';
+import 'package:go_router/go_router.dart';
+import 'package:Datiego/core/router/go_router.dart';
+import 'package:Datiego/core/widgets/image_loding_service.dart';
+import 'package:Datiego/features/home/presentation/bloc/home_bloc.dart';
+import 'package:Datiego/features/shared/domain/entities/projects_entities.dart';
 
 class ItemCardHome extends StatelessWidget {
   const ItemCardHome({
@@ -12,7 +15,7 @@ class ItemCardHome extends StatelessWidget {
     required this.alignmentx,
     required this.alignmenty,
     required this.angle,
-    required this.imageUrl,
+    required this.project,
   });
 
   final double width;
@@ -20,30 +23,42 @@ class ItemCardHome extends StatelessWidget {
   final double alignmentx;
   final double alignmenty;
   final double angle;
-  final String imageUrl;
+
+  final ProjectsEntities project;
 
   @override
   Widget build(BuildContext context) {
-    return Align(
-      alignment: Alignment(alignmentx, alignmenty),
-      child: MouseRegion(
-        onEnter: (_) =>
-            context.read<HomeBloc>().add(const SetHoveredOnItemCardEvent(true)),
-        onExit: (_) => context
-            .read<HomeBloc>()
-            .add(const SetHoveredOnItemCardEvent(false)),
-        child: Transform.rotate(
-          angle: angle,
-          child: SizedBox(
-            height: 170,
-            width: 220,
-            child: ImageLodingService(
-              imageUrl: imageUrl,
-              borderRadius: BorderRadius.circular(15),
+    return GestureDetector(
+      onTap: () {
+        final encodedTitle = Uri.encodeComponent(project.title!);
+
+        context.go(
+          '${ScreenGoRouter.projects}/$encodedTitle',
+          extra: project,
+        );
+      },
+      child: Align(
+        alignment: Alignment(alignmentx, alignmenty),
+        child: MouseRegion(
+          onEnter: (_) => context
+              .read<HomeBloc>()
+              .add(const SetHoveredOnItemCardEvent(true)),
+          onExit: (_) => context
+              .read<HomeBloc>()
+              .add(const SetHoveredOnItemCardEvent(false)),
+          child: Transform.rotate(
+            angle: angle,
+            child: SizedBox(
+              height: 170,
+              width: 220,
+              child: ImageLodingService(
+                imageUrl: project.image!,
+                borderRadius: BorderRadius.circular(15),
+              ),
             ),
           ),
         ),
-      ),
-    ).animate().fadeIn().scale();
+      ).animate().fadeIn().scale(),
+    );
   }
 }

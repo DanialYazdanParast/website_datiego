@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get_it/get_it.dart';
-import 'package:website_datiego/core/constants/app_colors.dart';
-import 'package:website_datiego/core/constants/app_constants.dart';
-import 'package:website_datiego/core/services/url_launcher_service.dart';
-import 'package:website_datiego/core/widgets/custom_border.dart';
-import 'package:website_datiego/features/about_me/presentation/widgets/text_titel_about.dart';
+import 'package:Datiego/core/constants/app_colors.dart';
+import 'package:Datiego/core/constants/app_constants.dart';
+import 'package:Datiego/core/services/url_launcher_service.dart';
+import 'package:Datiego/core/widgets/custom_border.dart';
+import 'package:Datiego/features/about_me/presentation/widgets/text_titel_about.dart';
 
 class SocialMedia extends StatelessWidget {
   const SocialMedia({
@@ -51,7 +51,9 @@ class SocialMedia extends StatelessWidget {
               ),
               const SizedBox(height: 10),
               ButtonSocial(
-                onTap: () {},
+                onTap: () async {
+                  await urlLauncher.openUrl(AppConstants.linkedinUrl);
+                },
                 color: AppColors.lightSkyBlue,
                 icon: FontAwesomeIcons.linkedin,
                 text: "linkedin.com/DanialYazdanParast",

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:website_datiego/core/widgets/custom_box_decoration.dart';
-import 'package:website_datiego/features/about_me/presentation/widgets/text_titel_about.dart';
+import 'package:Datiego/core/widgets/custom_box_decoration.dart';
+import 'package:Datiego/features/about_me/presentation/widgets/text_titel_about.dart';
 
 class LittleBitAboutMe extends StatelessWidget {
   const LittleBitAboutMe({

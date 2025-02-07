@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:website_datiego/core/widgets/image_loding_service.dart';
+import 'package:Datiego/core/widgets/image_loding_service.dart';
 
 class ImageProject extends StatelessWidget {
   const ImageProject({
@@ -13,12 +13,14 @@ class ImageProject extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: double.infinity,
-      height: screenHeight * 0.8,
-      child: ImageLodingService(
-        imageUrl: imageUrl,
-        borderRadius: BorderRadius.circular(15),
+    return AspectRatio(
+      aspectRatio: 2 / 1.5,
+      child: SizedBox(
+        width: double.infinity,
+        child: ImageLodingService(
+          imageUrl: imageUrl,
+          borderRadius: BorderRadius.circular(15),
+        ),
       ),
     );
   }

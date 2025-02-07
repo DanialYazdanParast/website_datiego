@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:website_datiego/core/widgets/custom_border.dart';
+import 'package:Datiego/core/widgets/custom_border.dart';
 
 BoxDecoration customBoxDecoration(BuildContext context) {
   return BoxDecoration(

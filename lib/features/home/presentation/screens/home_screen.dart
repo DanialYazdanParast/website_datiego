@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:website_datiego/core/di/service_locator.dart';
-import 'package:website_datiego/features/home/presentation/bloc/home_bloc.dart';
-import 'package:website_datiego/features/home/presentation/widgets/build_item_cards.dart';
-import 'package:website_datiego/features/home/presentation/widgets/intro_section.dart';
+import 'package:Datiego/core/di/service_locator.dart';
+import 'package:Datiego/features/home/presentation/bloc/home_bloc.dart';
+import 'package:Datiego/features/home/presentation/widgets/build_item_cards.dart';
+import 'package:Datiego/features/home/presentation/widgets/intro_section.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -70,7 +70,19 @@ class HomeBody extends StatelessWidget {
                         width,
                         height,
                       ),
-                    const IntroSection(),
+                    (width >= 600)
+                        ? const IntroSection(
+                            fontSize: 36,
+                            height: 235,
+                            width: 435,
+                            sizeimage: 50,
+                          )
+                        : const IntroSection(
+                            fontSize: 24,
+                            height: 178,
+                            width: 290,
+                            sizeimage: 30,
+                          ),
                   ],
                 ),
               ),

@@ -1,10 +1,10 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:website_datiego/core/utils/exceptions.dart';
-import 'package:website_datiego/features/home/domain/use_cases/download_file_usecase%20.dart';
-import 'package:website_datiego/features/shared/domain/entities/projects_entities.dart';
+import 'package:Datiego/core/utils/exceptions.dart';
+import 'package:Datiego/features/home/domain/use_cases/download_file_usecase%20.dart';
+import 'package:Datiego/features/shared/domain/entities/projects_entities.dart';
 
-import 'package:website_datiego/features/shared/domain/use_cases/get_projects_usecase.dart';
+import 'package:Datiego/features/shared/domain/use_cases/get_projects_usecase.dart';
 
 part 'home_event.dart';
 part 'home_state.dart';
@@ -18,7 +18,8 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     on<GetProjectsHomeEvent>((event, emit) async {
       try {
         var projects = await getProjectsUsecase.call();
-        emit(HomeSuccesState(projects));
+        var reversed = projects.reversed.toList();
+        emit(HomeSuccesState(reversed));
       } catch (e) {
         emit(HomeErrorState(exception: AppException()));
       }
