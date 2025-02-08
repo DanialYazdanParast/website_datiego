@@ -1,3 +1,7 @@
+import 'package:Datiego/features/blog/data/data_source/blog_data_source_remote.dart';
+import 'package:Datiego/features/blog/data/repository/blog_repository_impl.dart';
+import 'package:Datiego/features/blog/domain/repository/blog_repository.dart';
+import 'package:Datiego/features/blog/domain/use_cases/get_blog_usecase.dart';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:Datiego/core/services/url_launcher_service.dart';
@@ -30,4 +34,9 @@ Future<void> init() async {
   getIt.registerSingleton<UrlLauncherService>(UrlLauncherService());
   getIt.registerSingleton<SkillsDataSource>(SkillsDataSourceImpl());
   getIt.registerSingleton<SkillsRepository>(SkillsRepositoryImpl(getIt.get()));
+
+  getIt.registerSingleton<BlogDataSourceRemote>(
+      BlogDataSourceRemoteImpl(getIt.get()));
+  getIt.registerSingleton<BlogRepository>(BlogRepositoryImpl(getIt.get()));
+  getIt.registerSingleton<GetBlogUsecase>(GetBlogUsecase(getIt.get()));
 }
