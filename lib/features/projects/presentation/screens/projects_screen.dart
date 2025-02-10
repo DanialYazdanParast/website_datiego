@@ -26,6 +26,8 @@ class _ProjectsScreenState extends State<ProjectsScreen>
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
+
     double screenWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(

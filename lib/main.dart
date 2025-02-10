@@ -20,12 +20,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    GetBlogUsecase getBlogUsecase = getIt.get();
-    getBlogUsecase.call().then((value) {
-      print(value.toString());
-    }).catchError((e) {
-      print(e.toString());
-    });
+    // GetBlogUsecase getBlogUsecase = getIt.get();
+    // getBlogUsecase.call().then((value) {
+    //   print(value.toString());
+    // }).catchError((e) {
+    //   print(e.toString());
+    // });
 
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,

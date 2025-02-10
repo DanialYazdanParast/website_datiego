@@ -7,7 +7,6 @@ Widget buildProjectList({
   required int itemCount,
   required Widget Function(BuildContext, int) itemBuilder,
 }) {
-  print(screenWidth);
   return CustomScrollView(
     controller: controller,
     primary: false,

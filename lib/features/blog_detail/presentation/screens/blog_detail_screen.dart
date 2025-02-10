@@ -1,25 +1,23 @@
 import 'package:Datiego/core/constants/app_constants.dart';
+import 'package:Datiego/core/widgets/code_block_extension.dart';
 import 'package:Datiego/core/widgets/description_widget.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_animate/flutter_animate.dart';
+import 'package:Datiego/core/widgets/text_title.dart';
+import 'package:Datiego/features/blog/domain/entities/blog_entities.dart';
 import 'package:Datiego/core/widgets/custom_close_button.dart';
 import 'package:Datiego/core/widgets/image_detail.dart';
-import 'package:Datiego/core/widgets/tag_project.dart';
-import 'package:Datiego/core/widgets/text_subtitle.dart';
-import 'package:Datiego/core/widgets/text_title.dart';
-import 'package:Datiego/features/shared/domain/entities/projects_entities.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_html/flutter_html.dart';
 
-class ProjectDetailScreen extends StatefulWidget {
-  const ProjectDetailScreen({
-    super.key,
-    required this.project,
-  });
-  final ProjectsEntities project;
+class BlogDetailScreen extends StatefulWidget {
+  const BlogDetailScreen({super.key, required this.blog});
+  final BlogEntities blog;
+
   @override
-  State<ProjectDetailScreen> createState() => _ProjectDetailScreenState();
+  State<BlogDetailScreen> createState() => _BlogDetailScreenState();
 }
 
-class _ProjectDetailScreenState extends State<ProjectDetailScreen> {
+class _BlogDetailScreenState extends State<BlogDetailScreen> {
   double horizontalPadding = 20.0;
   final ScrollController scrollController = ScrollController();
 
@@ -62,6 +60,12 @@ class _ProjectDetailScreenState extends State<ProjectDetailScreen> {
                   child: TweenAnimationBuilder<EdgeInsets>(
                     duration: const Duration(milliseconds: 500),
                     tween: Tween<EdgeInsets>(
+                      begin: EdgeInsets.only(
+                        top: 100,
+                        left: horizontalPadding, // End padding
+                        right: horizontalPadding,
+                        bottom: 120,
+                      ),
                       end: EdgeInsets.only(
                         top: 100,
                         left: horizontalPadding,
@@ -75,19 +79,12 @@ class _ProjectDetailScreenState extends State<ProjectDetailScreen> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            ImageDetail(imageUrl: widget.project.image!),
+                            ImageDetail(imageUrl: widget.blog.image),
                             const SizedBox(height: 16),
-                            TextTitle(title: widget.project.title!),
-                            const SizedBox(height: 16),
-                            TextSubtitle(subtitle: widget.project.subtitle!),
-                            const SizedBox(height: 16),
-                            Padding(
-                              padding: const EdgeInsets.only(left: 10),
-                              child: TagProject(tag: widget.project.tag!),
-                            ),
+                            TextTitle(title: widget.blog.title),
                             const SizedBox(height: 24),
                             DescriptionWidget(
-                                description: widget.project.description!),
+                                description: widget.blog.description),
                           ],
                         )
                             .animate()

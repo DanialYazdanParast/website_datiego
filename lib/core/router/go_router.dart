@@ -1,3 +1,5 @@
+import 'package:Datiego/features/blog/domain/entities/blog_entities.dart';
+import 'package:Datiego/features/blog_detail/presentation/screens/blog_detail_screen.dart';
 import 'package:go_router/go_router.dart';
 import 'package:Datiego/core/common/root.dart';
 import 'package:Datiego/features/about_me/presentation/screens/about_me_screen.dart';
@@ -10,9 +12,10 @@ import 'package:Datiego/features/shared/domain/entities/projects_entities.dart';
 class ScreenGoRouter {
   static const home = '/';
   static const projects = '/projects';
-  static const detail = ':title';
+  static const detailProjects = ':title';
   static const blog = '/blog';
   static const about = '/about';
+  static const detailBlog = ':title';
 
   static GoRouter router = GoRouter(
     initialLocation: ScreenGoRouter.home, // تنظیم مسیر اولیه به /
@@ -40,7 +43,7 @@ class ScreenGoRouter {
             routes: [
               // زیرمسیر برای ProjectDetailScreen
               GoRoute(
-                path: ScreenGoRouter.detail, // استفاده از پارامتر title
+                path: ScreenGoRouter.detailProjects, // استفاده از پارامتر title
                 pageBuilder: (context, state) {
                   final project = state.extra
                       as ProjectsEntities?; // دریافت project از extra
@@ -51,13 +54,22 @@ class ScreenGoRouter {
             ],
           ),
           GoRoute(
-            path: ScreenGoRouter.blog,
-            pageBuilder: (context, state) {
-              return NoTransitionPage(
-                child: BlogScreen(),
-              );
-            },
-          ),
+              path: ScreenGoRouter.blog,
+              pageBuilder: (context, state) {
+                return const NoTransitionPage(
+                  child: BlogScreen(),
+                );
+              },
+              routes: [
+                GoRoute(
+                  path: ScreenGoRouter.detailBlog,
+                  pageBuilder: (context, state) {
+                    final blog = state.extra as BlogEntities?;
+                    return NoTransitionPage(
+                        child: BlogDetailScreen(blog: blog!));
+                  },
+                )
+              ]),
           GoRoute(
             path: ScreenGoRouter.about,
             pageBuilder: (context, state) {

@@ -12,12 +12,14 @@ class BlogMobileShimmer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
+    final bool isDarkMode =
+        Theme.of(context).colorScheme.brightness == Brightness.dark;
 
     return IntrinsicHeight(
         child: BlogContainer(
       child: Shimmer.fromColors(
-        baseColor: Colors.grey[300]!,
-        highlightColor: Colors.grey[100]!,
+        baseColor: isDarkMode ? Colors.grey[700]! : Colors.grey[300]!,
+        highlightColor: isDarkMode ? Colors.grey[500]! : Colors.grey[100]!,
         child: Column(
           children: [
             SizedBox(
@@ -26,8 +28,8 @@ class BlogMobileShimmer extends StatelessWidget {
               child: Expanded(
                 child: Container(
                   width: double.infinity,
-                  decoration: const BoxDecoration(
-                    color: Colors.white,
+                  decoration: BoxDecoration(
+                    color: isDarkMode ? Colors.black54 : Colors.white,
                     borderRadius:
                         const BorderRadius.vertical(top: Radius.circular(32)),
                   ),
@@ -43,32 +45,32 @@ class BlogMobileShimmer extends StatelessWidget {
                     Container(
                       width: 150,
                       height: 24,
-                      color: Colors.white,
+                      color: isDarkMode ? Colors.black54 : Colors.white,
                     ),
                     const SizedBox(height: 16),
                     Container(
                       width: double.infinity,
                       height: 16,
-                      color: Colors.white,
+                      color: isDarkMode ? Colors.black54 : Colors.white,
                     ),
                     const SizedBox(height: 5),
                     Container(
                       width: 350,
                       height: 16,
-                      color: Colors.white,
+                      color: isDarkMode ? Colors.black54 : Colors.white,
                     ),
                     const SizedBox(height: 5),
                     Container(
                       width: 200,
                       height: 16,
-                      color: Colors.white,
+                      color: isDarkMode ? Colors.black54 : Colors.white,
                     ),
                     const SizedBox(height: 10),
                     const Spacer(),
                     Align(
                       alignment: Alignment.bottomRight,
                       child: BlogButton(
-                        color: Colors.white,
+                        color: isDarkMode ? Colors.black54 : Colors.white,
                         text: "Read More",
                         onTap: () {},
                       ),

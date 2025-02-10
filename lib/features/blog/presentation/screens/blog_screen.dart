@@ -2,13 +2,11 @@ import 'package:Datiego/core/constants/app_constants.dart';
 import 'package:Datiego/core/di/service_locator.dart';
 import 'package:Datiego/features/blog/presentation/bloc/blog_bloc.dart';
 import 'package:Datiego/features/blog/presentation/widgets/blog_content.dart';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class BlogScreen extends StatefulWidget {
   const BlogScreen({super.key});
-
   @override
   State<BlogScreen> createState() => _BlogScreenState();
 }

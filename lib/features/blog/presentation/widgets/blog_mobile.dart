@@ -1,3 +1,4 @@
+import 'package:Datiego/core/router/go_router.dart';
 import 'package:Datiego/core/widgets/image_loding_service.dart';
 import 'package:Datiego/core/widgets/text_subtitle.dart';
 import 'package:Datiego/core/widgets/text_title.dart';
@@ -6,6 +7,7 @@ import 'package:Datiego/features/blog/presentation/widgets/blog_button.dart';
 import 'package:Datiego/features/blog/presentation/widgets/blog_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:go_router/go_router.dart';
 
 class BlogMobile extends StatelessWidget {
   final Color blogColor;
@@ -50,13 +52,18 @@ class BlogMobile extends StatelessWidget {
                       maxLines: 8,
                     ),
                     const SizedBox(height: 10),
-                    const Spacer(),
                     Align(
                       alignment: Alignment.bottomRight,
                       child: BlogButton(
                         color: blogColor,
                         text: "Read More",
-                        onTap: () {},
+                        onTap: () {
+                          final encodedTitle = Uri.encodeComponent(blog.title);
+                          context.go(
+                            '${ScreenGoRouter.blog}/$encodedTitle',
+                            extra: blog,
+                          );
+                        },
                       ),
                     ),
                   ],

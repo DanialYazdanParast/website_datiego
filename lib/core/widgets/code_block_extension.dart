@@ -1,0 +1,173 @@
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_highlight/flutter_highlight.dart';
+import 'package:flutter_highlight/themes/atom-one-dark.dart';
+import 'package:flutter_highlight/themes/github.dart';
+import 'package:flutter_html/flutter_html.dart';
+import 'package:html_unescape/html_unescape.dart';
+
+class CodeBlockExtension extends HtmlExtension {
+  final bool isDarkMode;
+  final HtmlUnescape htmlUnescape = HtmlUnescape();
+  static const double maxCodeHeight = 500.0;
+
+  CodeBlockExtension({required this.isDarkMode});
+
+  @override
+  Set<String> get supportedTags => {"pre"};
+
+  @override
+  InlineSpan build(ExtensionContext extensionContext) {
+    // حذف تگ‌های <code> و </code> از محتوا
+    final code = htmlUnescape.convert(
+      extensionContext.innerHtml
+          .trim()
+          .replaceAll('<code>', '')
+          .replaceAll('</code>', ''),
+    );
+    final language =
+        extensionContext.attributes['class']?.replaceFirst('language-', '') ??
+            'dart';
+
+    final verticalScrollController = ScrollController();
+    final horizontalScrollController = ScrollController();
+
+    return WidgetSpan(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 8),
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(8),
+          child: Container(
+            width: double.infinity,
+            decoration: BoxDecoration(
+              color: isDarkMode
+                  ? const Color(0xff282C34)
+                  : const Color(0xfff6f8fa),
+              borderRadius: BorderRadius.circular(8),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                _buildHeader(language, code),
+                _buildCodeView(code, language, verticalScrollController,
+                    horizontalScrollController),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildHeader(String language, String code) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+      decoration: BoxDecoration(
+        color: isDarkMode ? const Color(0xff1E2228) : const Color(0xffEAEAEA),
+        borderRadius: const BorderRadius.vertical(top: Radius.circular(8)),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(
+            language,
+            style: TextStyle(
+              fontWeight: FontWeight.w400,
+              color: isDarkMode ? Colors.white70 : Colors.black87,
+            ),
+          ),
+          CopyButton(code: code, isDarkMode: isDarkMode),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildCodeView(
+    String code,
+    String language,
+    ScrollController verticalScrollController,
+    ScrollController horizontalScrollController,
+  ) {
+    return ConstrainedBox(
+      constraints: const BoxConstraints(maxHeight: maxCodeHeight),
+      child: Scrollbar(
+        thumbVisibility: true,
+        controller: verticalScrollController,
+        child: SingleChildScrollView(
+          controller: verticalScrollController,
+          scrollDirection: Axis.vertical,
+          child: Scrollbar(
+            thumbVisibility: true,
+            controller: horizontalScrollController,
+            notificationPredicate: (_) => true,
+            child: SingleChildScrollView(
+              controller: horizontalScrollController,
+              scrollDirection: Axis.horizontal,
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: HighlightView(
+                  code,
+                  language: language,
+                  theme: isDarkMode ? atomOneDarkTheme : githubTheme,
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class CopyButton extends StatefulWidget {
+  final String code;
+  final bool isDarkMode;
+
+  const CopyButton({super.key, required this.code, required this.isDarkMode});
+
+  @override
+  State<CopyButton> createState() => _CopyButtonState();
+}
+
+class _CopyButtonState extends State<CopyButton> {
+  bool isCopied = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return Tooltip(
+      message: isCopied ? "Copied!" : "Copy to clipboard",
+      child: InkWell(
+        onTap: _copyToClipboard,
+        borderRadius: BorderRadius.circular(4),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              AnimatedSwitcher(
+                duration: const Duration(milliseconds: 300),
+                child: Text(
+                  isCopied ? "Copied!" : "Copy",
+                  key: ValueKey(isCopied),
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: widget.isDarkMode ? Colors.white70 : Colors.black87,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  void _copyToClipboard() async {
+    await Clipboard.setData(ClipboardData(text: widget.code));
+    setState(() => isCopied = true);
+
+    Future.delayed(const Duration(seconds: 1), () {
+      if (mounted) setState(() => isCopied = false);
+    });
+  }
+}

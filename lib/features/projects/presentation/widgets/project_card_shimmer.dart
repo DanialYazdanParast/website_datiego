@@ -8,6 +8,8 @@ class ProjectCardShimmer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final bool isDarkMode =
+        Theme.of(context).colorScheme.brightness == Brightness.dark;
     return Container(
       padding: const EdgeInsets.all(24),
       decoration: BoxDecoration(
@@ -15,8 +17,8 @@ class ProjectCardShimmer extends StatelessWidget {
           borderRadius: BorderRadius.circular(32),
           border: customBorder(context)),
       child: Shimmer.fromColors(
-        baseColor: Colors.grey[300]!,
-        highlightColor: Colors.grey[100]!,
+        baseColor: isDarkMode ? Colors.grey[700]! : Colors.grey[300]!,
+        highlightColor: isDarkMode ? Colors.grey[500]! : Colors.grey[100]!,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -25,7 +27,7 @@ class ProjectCardShimmer extends StatelessWidget {
               child: Container(
                 width: double.infinity,
                 decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: isDarkMode ? Colors.black54 : Colors.white,
                   borderRadius: BorderRadius.circular(15),
                 ),
               ),
@@ -34,13 +36,13 @@ class ProjectCardShimmer extends StatelessWidget {
             Container(
               width: 150,
               height: 24,
-              color: Colors.white,
+              color: isDarkMode ? Colors.black54 : Colors.white,
             ),
             const SizedBox(height: 16),
             Container(
               width: double.infinity,
               height: 16,
-              color: Colors.white,
+              color: isDarkMode ? Colors.black54 : Colors.white,
             ),
             const SizedBox(height: 16),
             Wrap(
@@ -51,7 +53,7 @@ class ProjectCardShimmer extends StatelessWidget {
                   padding:
                       const EdgeInsets.symmetric(vertical: 6, horizontal: 12),
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: isDarkMode ? Colors.black54 : Colors.white,
                     borderRadius: BorderRadius.circular(8),
                   ),
                   width: 80,

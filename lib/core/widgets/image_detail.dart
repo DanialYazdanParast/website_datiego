@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:Datiego/core/widgets/image_loding_service.dart';
 
-class ImageProject extends StatelessWidget {
-  const ImageProject({
+class ImageDetail extends StatelessWidget {
+  const ImageDetail({
     super.key,
-    required this.screenHeight,
     required this.imageUrl,
   });
 
-  final double screenHeight;
   final String imageUrl;
 
   @override
