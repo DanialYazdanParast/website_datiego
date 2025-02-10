@@ -1,21 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:Datiego/core/constants/app_colors.dart';
-import 'package:Datiego/core/widgets/custom_border.dart';
-import 'package:Datiego/core/widgets/custom_box_decoration.dart';
-import 'package:Datiego/features/about_me/presentation/widgets/text_titel_about.dart';
+import 'package:datiego/core/constants/app_colors.dart';
+import 'package:datiego/core/widgets/custom_border.dart';
+import 'package:datiego/core/widgets/custom_box_decoration.dart';
+import 'package:datiego/features/about_me/presentation/widgets/text_titel_about.dart';
 
 class ProfileIntroWidget extends StatelessWidget {
   const ProfileIntroWidget({
     super.key,
-    required this.screenheight,
   });
-
-  final double screenheight;
 
   @override
   Widget build(BuildContext context) {
+    final double height = MediaQuery.of(context).size.height;
     return Container(
-      height: screenheight * 0.95,
+      height: height * 0.95,
       padding: const EdgeInsets.all(24),
       decoration: customBoxDecoration(context),
       child: Column(

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:shimmer/shimmer.dart';
-import 'package:Datiego/core/widgets/custom_border.dart';
+import 'package:datiego/core/widgets/custom_border.dart';
 
 class ProjectCardShimmer extends StatelessWidget {
   const ProjectCardShimmer({super.key});

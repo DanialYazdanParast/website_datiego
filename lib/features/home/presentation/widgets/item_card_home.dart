@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:Datiego/core/router/go_router.dart';
-import 'package:Datiego/core/widgets/image_loding_service.dart';
-import 'package:Datiego/features/home/presentation/bloc/home_bloc.dart';
-import 'package:Datiego/features/shared/domain/entities/projects_entities.dart';
+import 'package:datiego/core/router/go_router.dart';
+import 'package:datiego/core/widgets/image_loding_service.dart';
+import 'package:datiego/features/home/presentation/bloc/home_bloc.dart';
+import 'package:datiego/features/shared/domain/entities/projects_entities.dart';
 
 class ItemCardHome extends StatelessWidget {
   const ItemCardHome({

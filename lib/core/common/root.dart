@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:Datiego/core/common/bottom_navigattion.dart';
+import 'package:datiego/core/common/bottom_navigattion.dart';
 
-import 'package:Datiego/core/router/go_router.dart';
+import 'package:datiego/core/router/go_router.dart';
 
 enum TabItem { home, projects, blog, about }
 

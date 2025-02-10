@@ -1,14 +1,15 @@
+import 'package:datiego/core/utils/responsive.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
-import 'package:Datiego/core/common/bottom_navigation_item.dart';
-import 'package:Datiego/core/common/root.dart';
+import 'package:datiego/core/common/bottom_navigation_item.dart';
+import 'package:datiego/core/common/root.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:Datiego/core/constants/app_colors.dart';
-import 'package:Datiego/core/constants/app_constants.dart';
+import 'package:datiego/core/constants/app_colors.dart';
+import 'package:datiego/core/constants/app_constants.dart';
 
-import 'package:Datiego/core/services/url_launcher_service.dart';
-import 'package:Datiego/core/widgets/custom_border.dart';
-import 'package:Datiego/core/widgets/custom_box_shadow.dart';
+import 'package:datiego/core/services/url_launcher_service.dart';
+import 'package:datiego/core/widgets/custom_border.dart';
+import 'package:datiego/core/widgets/custom_box_shadow.dart';
 
 class BottomNavigattion extends StatelessWidget {
   final Function(int index) onTab;
@@ -18,7 +19,6 @@ class BottomNavigattion extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final double screenWidth = MediaQuery.of(context).size.width;
     final urlLauncher = GetIt.instance<UrlLauncherService>();
     return Padding(
       padding: const EdgeInsets.only(bottom: 22),
@@ -94,7 +94,7 @@ class BottomNavigattion extends StatelessWidget {
                   await urlLauncher.sendEmail(AppConstants.emailUrl);
                 },
               ),
-              if (screenWidth >= AppConstants.maxWidthMobile)
+              if (Responsive.isDesktop(context))
                 Row(
                   children: [
                     const SizedBox(width: 12),

@@ -1,10 +1,9 @@
 import 'package:bloc/bloc.dart';
+import 'package:datiego/features/home/domain/use_cases/download_file_usecase.dart';
 import 'package:equatable/equatable.dart';
-import 'package:Datiego/core/utils/exceptions.dart';
-import 'package:Datiego/features/home/domain/use_cases/download_file_usecase%20.dart';
-import 'package:Datiego/features/shared/domain/entities/projects_entities.dart';
-
-import 'package:Datiego/features/shared/domain/use_cases/get_projects_usecase.dart';
+import 'package:datiego/core/utils/exceptions.dart';
+import 'package:datiego/features/shared/domain/entities/projects_entities.dart';
+import 'package:datiego/features/shared/domain/use_cases/get_projects_usecase.dart';
 
 part 'home_event.dart';
 part 'home_state.dart';

@@ -1,4 +1,4 @@
-import 'package:Datiego/features/about_me/data/models/skill_model.dart';
+import 'package:datiego/features/about_me/data/models/skill_model.dart';
 
 abstract class SkillsDataSource {
   List<SkillModel> getSkills();

@@ -1,4 +1,4 @@
-import 'package:Datiego/core/widgets/custom_border.dart';
+import 'package:datiego/core/widgets/custom_border.dart';
 import 'package:flutter/material.dart';
 
 class BlogContainer extends StatelessWidget {

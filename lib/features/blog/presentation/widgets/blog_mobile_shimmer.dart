@@ -1,5 +1,5 @@
-import 'package:Datiego/features/blog/presentation/widgets/blog_button.dart';
-import 'package:Datiego/features/blog/presentation/widgets/blog_container.dart';
+import 'package:datiego/features/blog/presentation/widgets/blog_button.dart';
+import 'package:datiego/features/blog/presentation/widgets/blog_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:shimmer/shimmer.dart';

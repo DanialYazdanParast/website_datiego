@@ -17,17 +17,16 @@ class CodeBlockExtension extends HtmlExtension {
   Set<String> get supportedTags => {"pre"};
 
   @override
-  InlineSpan build(ExtensionContext extensionContext) {
+  InlineSpan build(ExtensionContext context) {
     // حذف تگ‌های <code> و </code> از محتوا
     final code = htmlUnescape.convert(
-      extensionContext.innerHtml
+      context.innerHtml
           .trim()
           .replaceAll('<code>', '')
           .replaceAll('</code>', ''),
     );
     final language =
-        extensionContext.attributes['class']?.replaceFirst('language-', '') ??
-            'dart';
+        context.attributes['class']?.replaceFirst('language-', '') ?? 'dart';
 
     final verticalScrollController = ScrollController();
     final horizontalScrollController = ScrollController();

@@ -9,5 +9,5 @@ class AppConstants {
   static String instagramUrl = 'https://www.instagram.com/datiego';
   static String phoneNumber = "(+98)9174016011";
 
-  static int maxWidthMobile = 900;
+  // static int maxWidthMobile = 900;
 }

@@ -1,13 +1,13 @@
-import 'package:Datiego/features/blog/domain/entities/blog_entities.dart';
-import 'package:Datiego/features/blog_detail/presentation/screens/blog_detail_screen.dart';
+import 'package:datiego/features/blog/domain/entities/blog_entities.dart';
+import 'package:datiego/features/blog_detail/presentation/screens/blog_detail_screen.dart';
 import 'package:go_router/go_router.dart';
-import 'package:Datiego/core/common/root.dart';
-import 'package:Datiego/features/about_me/presentation/screens/about_me_screen.dart';
-import 'package:Datiego/features/blog/presentation/screens/blog_screen.dart';
-import 'package:Datiego/features/home/presentation/screens/home_screen.dart';
-import 'package:Datiego/features/project_detail/presentation/screens/project_detail_screen.dart';
-import 'package:Datiego/features/projects/presentation/screens/projects_screen.dart';
-import 'package:Datiego/features/shared/domain/entities/projects_entities.dart';
+import 'package:datiego/core/common/root.dart';
+import 'package:datiego/features/about_me/presentation/screens/about_me_screen.dart';
+import 'package:datiego/features/blog/presentation/screens/blog_screen.dart';
+import 'package:datiego/features/home/presentation/screens/home_screen.dart';
+import 'package:datiego/features/project_detail/presentation/screens/project_detail_screen.dart';
+import 'package:datiego/features/projects/presentation/screens/projects_screen.dart';
+import 'package:datiego/features/shared/domain/entities/projects_entities.dart';
 
 class ScreenGoRouter {
   static const home = '/';

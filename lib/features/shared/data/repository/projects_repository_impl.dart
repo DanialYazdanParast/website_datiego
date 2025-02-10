@@ -1,9 +1,9 @@
-import 'package:Datiego/core/utils/response_validator.dart';
-import 'package:Datiego/features/shared/data/data_source/remote/projects_remote_data_source.dart';
+import 'package:datiego/core/utils/response_validator.dart';
+import 'package:datiego/features/shared/data/data_source/remote/projects_remote_data_source.dart';
 
-import 'package:Datiego/features/shared/data/models/projects_models.dart';
-import 'package:Datiego/features/shared/domain/entities/projects_entities.dart';
-import 'package:Datiego/features/shared/domain/repository/projects_repository.dart';
+import 'package:datiego/features/shared/data/models/projects_models.dart';
+import 'package:datiego/features/shared/domain/entities/projects_entities.dart';
+import 'package:datiego/features/shared/domain/repository/projects_repository.dart';
 
 class ProjectsRepositoryImpl extends ProjectsRepository
     with HttpResponseValidat {

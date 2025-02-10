@@ -1,9 +1,10 @@
-import 'package:Datiego/confing/theme/app_theme.dart';
-import 'package:Datiego/core/di/service_locator.dart';
-import 'package:Datiego/core/router/go_router.dart';
-import 'package:Datiego/features/blog/domain/use_cases/get_blog_usecase.dart';
+import 'package:datiego/confing/theme/app_theme.dart';
+import 'package:datiego/core/di/service_locator.dart';
+import 'package:datiego/core/router/go_router.dart';
+
 import 'package:flutter/material.dart';
 
+// ignore: depend_on_referenced_packages
 import 'package:flutter_web_plugins/flutter_web_plugins.dart';
 
 void main() async {
@@ -30,7 +31,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       routerConfig: ScreenGoRouter.router,
-      title: 'Datiego',
+      title: 'datiego',
       theme: MyAppThemeConfig.light().getTheme(),
       darkTheme: MyAppThemeConfig.dark().getTheme(),
       themeMode: ThemeMode.system,

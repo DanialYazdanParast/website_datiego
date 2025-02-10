@@ -1,12 +1,12 @@
-import 'package:Datiego/core/router/go_router.dart';
-import 'package:Datiego/core/widgets/image_loding_service.dart';
-import 'package:Datiego/core/widgets/text_subtitle.dart';
-import 'package:Datiego/core/widgets/text_title.dart';
-import 'package:Datiego/features/blog/domain/entities/blog_entities.dart';
-import 'package:Datiego/features/blog/presentation/widgets/blog_button.dart';
-import 'package:Datiego/features/blog/presentation/widgets/blog_container.dart';
+import 'package:datiego/core/router/go_router.dart';
+import 'package:datiego/core/widgets/image_loding_service.dart';
+import 'package:datiego/core/widgets/text_subtitle.dart';
+import 'package:datiego/core/widgets/text_title.dart';
+import 'package:datiego/features/blog/domain/entities/blog_entities.dart';
+import 'package:datiego/features/blog/presentation/widgets/blog_button.dart';
+import 'package:datiego/features/blog/presentation/widgets/blog_container.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_animate/flutter_animate.dart';
+
 import 'package:go_router/go_router.dart';
 
 class BlogMobile extends StatelessWidget {
@@ -31,12 +31,10 @@ class BlogMobile extends StatelessWidget {
             SizedBox(
               height: screenHeight * 0.5,
               width: double.infinity,
-              child: Expanded(
-                child: ImageLodingService(
-                  imageUrl: blog.image,
-                  borderRadius:
-                      const BorderRadius.vertical(top: Radius.circular(32)),
-                ),
+              child: ImageLodingService(
+                imageUrl: blog.image,
+                borderRadius:
+                    const BorderRadius.vertical(top: Radius.circular(32)),
               ),
             ),
             Expanded(
@@ -47,9 +45,11 @@ class BlogMobile extends StatelessWidget {
                   children: [
                     TextTitle(title: blog.title),
                     const SizedBox(height: 16),
-                    TextSubtitle(
-                      subtitle: blog.subtitle,
-                      maxLines: 8,
+                    Expanded(
+                      child: TextSubtitle(
+                        subtitle: blog.subtitle,
+                        maxLines: 8,
+                      ),
                     ),
                     const SizedBox(height: 10),
                     Align(

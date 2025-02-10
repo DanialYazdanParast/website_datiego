@@ -1,17 +1,20 @@
-import 'package:Datiego/core/constants/app_colors.dart';
+import 'package:datiego/core/constants/app_colors.dart';
+import 'package:datiego/core/utils/responsive.dart';
 
-import 'package:Datiego/features/blog/domain/entities/blog_entities.dart';
-import 'package:Datiego/features/blog/presentation/bloc/blog_bloc.dart';
-import 'package:Datiego/features/blog/presentation/widgets/blog_desktop.dart';
-import 'package:Datiego/features/blog/presentation/widgets/blog_desktop_shimmer.dart';
-import 'package:Datiego/features/blog/presentation/widgets/blog_mobile.dart';
-import 'package:Datiego/features/blog/presentation/widgets/blog_mobile_shimmer.dart';
+import 'package:datiego/features/blog/domain/entities/blog_entities.dart';
+import 'package:datiego/features/blog/presentation/bloc/blog_bloc.dart';
+import 'package:datiego/features/blog/presentation/widgets/blog_desktop.dart';
+import 'package:datiego/features/blog/presentation/widgets/blog_desktop_shimmer.dart';
+import 'package:datiego/features/blog/presentation/widgets/blog_mobile.dart';
+import 'package:datiego/features/blog/presentation/widgets/blog_mobile_shimmer.dart';
 import 'package:flutter/material.dart';
 
 class BlogContent extends StatelessWidget {
-  const BlogContent({super.key, required this.state, required this.isMobile});
+  const BlogContent({
+    super.key,
+    required this.state,
+  });
   final BlogState state;
-  final bool isMobile;
 
   @override
   Widget build(BuildContext context) {
@@ -36,11 +39,12 @@ class BlogContent extends StatelessWidget {
   Widget _buildShimmerList() {
     return SliverList.builder(
       itemCount: 6,
-      itemBuilder: (context, index) => Padding(
-          padding: const EdgeInsets.only(bottom: 32),
-          child: !isMobile
-              ? const BlogDesktopShimmer()
-              : const BlogMobileShimmer()),
+      itemBuilder: (context, index) => const Padding(
+          padding: EdgeInsets.only(bottom: 32),
+          child: Responsive(
+            desktop: BlogDesktopShimmer(),
+            mobile: BlogMobileShimmer(),
+          )),
     );
   }
 
@@ -48,17 +52,17 @@ class BlogContent extends StatelessWidget {
     return SliverList.builder(
       itemCount: blogs.length,
       itemBuilder: (context, index) => Padding(
-        padding: const EdgeInsets.only(bottom: 32),
-        child: !isMobile
-            ? BlogDesktop(
-                blog: blogs[index],
-                blogColor: blogColors[index % blogColors.length],
-              )
-            : BlogMobile(
-                blog: blogs[index],
-                blogColor: blogColors[index % blogColors.length],
-              ),
-      ),
+          padding: const EdgeInsets.only(bottom: 32),
+          child: Responsive(
+            desktop: BlogDesktop(
+              blog: blogs[index],
+              blogColor: blogColors[index % blogColors.length],
+            ),
+            mobile: BlogMobile(
+              blog: blogs[index],
+              blogColor: blogColors[index % blogColors.length],
+            ),
+          )),
     );
   }
 }

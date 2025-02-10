@@ -1,4 +1,4 @@
-import 'package:Datiego/features/shared/domain/entities/projects_entities.dart';
+import 'package:datiego/features/shared/domain/entities/projects_entities.dart';
 
 class ProjectsModels extends ProjectsEntities {
   const ProjectsModels({
@@ -14,8 +14,7 @@ class ProjectsModels extends ProjectsEntities {
     return ProjectsModels(
       description: json['Description'] ?? '',
       image:
-          'https://dan.chbk.app/api/files/projects/${json['id']}/${json['Image']}' ??
-              '',
+          'https://dan.chbk.app/api/files/projects/${json['id']}/${json['Image']}',
       subtitle: json['Subtitle'] ?? '',
       title: json['Title'] ?? '',
       id: json['id'] ?? '',

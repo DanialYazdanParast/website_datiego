@@ -7,7 +7,7 @@ class SkillsAnimation extends StatefulWidget {
   const SkillsAnimation({super.key});
 
   @override
-  _SkillsAnimationState createState() => _SkillsAnimationState();
+  State<SkillsAnimation> createState() => _SkillsAnimationState();
 }
 
 class _SkillsAnimationState extends State<SkillsAnimation> {

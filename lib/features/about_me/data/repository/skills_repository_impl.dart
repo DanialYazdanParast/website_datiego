@@ -1,7 +1,7 @@
-import 'package:Datiego/features/about_me/data/data_source/skills_data_source.dart';
+import 'package:datiego/features/about_me/data/data_source/skills_data_source.dart';
 
-import 'package:Datiego/features/about_me/domain/entities/skill_entities.dart';
-import 'package:Datiego/features/about_me/domain/repository/skills_repository.dart';
+import 'package:datiego/features/about_me/domain/entities/skill_entities.dart';
+import 'package:datiego/features/about_me/domain/repository/skills_repository.dart';
 
 class SkillsRepositoryImpl implements SkillsRepository {
   final SkillsDataSource dataSource;

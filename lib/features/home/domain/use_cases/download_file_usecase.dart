@@ -1,4 +1,4 @@
-import 'package:Datiego/features/home/domain/repository/file_downloader_repository.dart';
+import 'package:datiego/features/home/domain/repository/file_downloader_repository.dart';
 
 class DownloadFileUseCase {
   final FileDownloaderRepository repository;

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:Datiego/core/widgets/image_loding_service.dart';
+import 'package:datiego/core/widgets/image_loding_service.dart';
 
 class ImageDetail extends StatelessWidget {
   const ImageDetail({

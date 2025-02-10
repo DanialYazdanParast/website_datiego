@@ -1,12 +1,12 @@
-import 'package:Datiego/core/router/go_router.dart';
-import 'package:Datiego/core/widgets/image_loding_service.dart';
-import 'package:Datiego/core/widgets/text_subtitle.dart';
-import 'package:Datiego/core/widgets/text_title.dart';
-import 'package:Datiego/features/blog/domain/entities/blog_entities.dart';
-import 'package:Datiego/features/blog/presentation/widgets/blog_button.dart';
-import 'package:Datiego/features/blog/presentation/widgets/blog_container.dart';
+import 'package:datiego/core/router/go_router.dart';
+import 'package:datiego/core/widgets/image_loding_service.dart';
+import 'package:datiego/core/widgets/text_subtitle.dart';
+import 'package:datiego/core/widgets/text_title.dart';
+import 'package:datiego/features/blog/domain/entities/blog_entities.dart';
+import 'package:datiego/features/blog/presentation/widgets/blog_button.dart';
+import 'package:datiego/features/blog/presentation/widgets/blog_container.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_animate/flutter_animate.dart';
+
 import 'package:go_router/go_router.dart';
 
 class BlogDesktop extends StatelessWidget {

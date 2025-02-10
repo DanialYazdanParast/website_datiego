@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:Datiego/core/constants/app_colors.dart';
+import 'package:datiego/core/constants/app_colors.dart';
 
 class MyAppThemeConfig {
   final Color primaryColor;

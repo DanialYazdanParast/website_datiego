@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:Datiego/features/home/presentation/bloc/home_bloc.dart';
-import 'package:Datiego/features/home/presentation/widgets/item_card_home.dart';
+import 'package:datiego/features/home/presentation/bloc/home_bloc.dart';
+import 'package:datiego/features/home/presentation/widgets/item_card_home.dart';
 
 Widget buildItemCards(
   HomeState state,

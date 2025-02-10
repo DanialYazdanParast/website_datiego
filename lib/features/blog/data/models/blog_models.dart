@@ -1,4 +1,4 @@
-import 'package:Datiego/features/blog/domain/entities/blog_entities.dart';
+import 'package:datiego/features/blog/domain/entities/blog_entities.dart';
 
 class BlogModels extends BlogEntities {
   const BlogModels(

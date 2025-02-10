@@ -1,11 +1,11 @@
-import 'package:Datiego/core/constants/app_constants.dart';
-import 'package:Datiego/features/projects/presentation/widgets/project_card_shimmer.dart';
+import 'package:datiego/core/utils/responsive.dart';
+import 'package:datiego/features/projects/presentation/widgets/project_card_shimmer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:Datiego/core/di/service_locator.dart';
-import 'package:Datiego/features/projects/presentation/bloc/projects_bloc.dart';
-import 'package:Datiego/features/projects/presentation/widgets/build_project_list.dart';
-import 'package:Datiego/features/projects/presentation/widgets/project_card.dart';
+import 'package:datiego/core/di/service_locator.dart';
+import 'package:datiego/features/projects/presentation/bloc/projects_bloc.dart';
+import 'package:datiego/features/projects/presentation/widgets/build_project_list.dart';
+import 'package:datiego/features/projects/presentation/widgets/project_card.dart';
 
 class ProjectsScreen extends StatefulWidget {
   const ProjectsScreen({super.key});
@@ -14,8 +14,7 @@ class ProjectsScreen extends StatefulWidget {
   State<ProjectsScreen> createState() => _ProjectsScreenState();
 }
 
-class _ProjectsScreenState extends State<ProjectsScreen>
-    with AutomaticKeepAliveClientMixin {
+class _ProjectsScreenState extends State<ProjectsScreen> {
   final ScrollController _scrollController = ScrollController();
 
   @override
@@ -26,8 +25,6 @@ class _ProjectsScreenState extends State<ProjectsScreen>
 
   @override
   Widget build(BuildContext context) {
-    super.build(context);
-
     double screenWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
@@ -35,8 +32,8 @@ class _ProjectsScreenState extends State<ProjectsScreen>
         create: (context) => ProjectsBloc(getIt.get())..add(GetProjectsEvent()),
         child: Scrollbar(
           controller: _scrollController,
-          thumbVisibility: screenWidth >= AppConstants.maxWidthMobile,
-          trackVisibility: screenWidth >= AppConstants.maxWidthMobile,
+          thumbVisibility: Responsive.isDesktop(context),
+          trackVisibility: Responsive.isDesktop(context),
           thickness: 10,
           radius: const Radius.circular(10),
           child: BlocBuilder<ProjectsBloc, ProjectsState>(
@@ -46,6 +43,7 @@ class _ProjectsScreenState extends State<ProjectsScreen>
                   controller: _scrollController,
                   screenWidth: screenWidth,
                   itemCount: 6,
+                  context: context,
                   itemBuilder: (context, index) => const ProjectCardShimmer(),
                 );
               }
@@ -54,6 +52,7 @@ class _ProjectsScreenState extends State<ProjectsScreen>
                   controller: _scrollController,
                   screenWidth: screenWidth,
                   itemCount: state.projects.length,
+                  context: context,
                   itemBuilder: (context, index) => ProjectCard(
                     index: index,
                     project: state.projects[index],
@@ -72,8 +71,4 @@ class _ProjectsScreenState extends State<ProjectsScreen>
       ),
     );
   }
-
-  @override
-  // TODO: implement wantKeepAlive
-  bool get wantKeepAlive => true;
 }

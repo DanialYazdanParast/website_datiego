@@ -1,5 +1,6 @@
-import 'package:Datiego/features/home/domain/repository/file_downloader_repository.dart';
+import 'package:datiego/features/home/domain/repository/file_downloader_repository.dart';
 
+// ignore: avoid_web_libraries_in_flutter
 import 'dart:html' as html;
 
 class FileDownloaderRepositoryImpl implements FileDownloaderRepository {

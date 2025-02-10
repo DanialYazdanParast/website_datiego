@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:Datiego/core/widgets/custom_border.dart';
+import 'package:datiego/core/widgets/custom_border.dart';
 
 class CustomCloseButton extends StatelessWidget {
   const CustomCloseButton({

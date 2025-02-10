@@ -1,5 +1,5 @@
-import 'package:Datiego/features/blog/domain/entities/blog_entities.dart';
-import 'package:Datiego/features/blog/domain/repository/blog_repository.dart';
+import 'package:datiego/features/blog/domain/entities/blog_entities.dart';
+import 'package:datiego/features/blog/domain/repository/blog_repository.dart';
 
 class GetBlogUsecase {
   final BlogRepository repository;

@@ -1,13 +1,13 @@
-import 'package:Datiego/core/constants/app_constants.dart';
-import 'package:Datiego/core/widgets/description_widget.dart';
+import 'package:datiego/core/utils/responsive.dart';
+import 'package:datiego/core/widgets/description_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:Datiego/core/widgets/custom_close_button.dart';
-import 'package:Datiego/core/widgets/image_detail.dart';
-import 'package:Datiego/core/widgets/tag_project.dart';
-import 'package:Datiego/core/widgets/text_subtitle.dart';
-import 'package:Datiego/core/widgets/text_title.dart';
-import 'package:Datiego/features/shared/domain/entities/projects_entities.dart';
+import 'package:datiego/core/widgets/custom_close_button.dart';
+import 'package:datiego/core/widgets/image_detail.dart';
+import 'package:datiego/core/widgets/tag_project.dart';
+import 'package:datiego/core/widgets/text_subtitle.dart';
+import 'package:datiego/core/widgets/text_title.dart';
+import 'package:datiego/features/shared/domain/entities/projects_entities.dart';
 
 class ProjectDetailScreen extends StatefulWidget {
   const ProjectDetailScreen({
@@ -44,13 +44,11 @@ class _ProjectDetailScreenState extends State<ProjectDetailScreen> {
 
   @override
   Widget build(BuildContext context) {
-    double screenWidth = MediaQuery.of(context).size.width;
-
     return Scaffold(
       body: Scrollbar(
         controller: scrollController,
-        thumbVisibility: screenWidth >= AppConstants.maxWidthMobile,
-        trackVisibility: screenWidth >= AppConstants.maxWidthMobile,
+        thumbVisibility: Responsive.isDesktop(context),
+        trackVisibility: Responsive.isDesktop(context),
         thickness: 10,
         child: Stack(
           alignment: Alignment.topCenter,

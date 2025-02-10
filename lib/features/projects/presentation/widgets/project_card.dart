@@ -1,17 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:Datiego/core/router/go_router.dart';
-import 'package:Datiego/core/widgets/custom_border.dart';
-import 'package:Datiego/core/widgets/custom_box_shadow.dart';
-import 'package:Datiego/core/widgets/image_loding_service.dart';
-import 'package:Datiego/core/widgets/tag_project.dart';
-import 'package:Datiego/core/widgets/text_subtitle.dart';
-import 'package:Datiego/core/widgets/text_title.dart';
-
-import 'package:Datiego/features/projects/presentation/bloc/projects_bloc.dart';
-import 'package:Datiego/features/shared/domain/entities/projects_entities.dart';
+import 'package:datiego/core/router/go_router.dart';
+import 'package:datiego/core/widgets/custom_border.dart';
+import 'package:datiego/core/widgets/custom_box_shadow.dart';
+import 'package:datiego/core/widgets/image_loding_service.dart';
+import 'package:datiego/core/widgets/tag_project.dart';
+import 'package:datiego/core/widgets/text_subtitle.dart';
+import 'package:datiego/core/widgets/text_title.dart';
+import 'package:datiego/features/projects/presentation/bloc/projects_bloc.dart';
+import 'package:datiego/features/shared/domain/entities/projects_entities.dart';
 
 class ProjectCard extends StatefulWidget {
   final int index;
@@ -67,8 +65,6 @@ class _ProjectCardState extends State<ProjectCard>
                   border: customBorder(context),
                 ),
                 child: Column(
-                  // mainAxisSize:
-                  //     MainAxisSize.max, // محتوای کارت بر اساس نیاز رشد می‌کند
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -91,15 +87,7 @@ class _ProjectCardState extends State<ProjectCard>
                   ],
                 ),
               )),
-        )
-        // .animate()
-        // .slideY(
-        //     begin: 0.2, // Start slightly below
-        //     end: 0, // End at its normal position
-        //     duration: const Duration(milliseconds: 500),
-        //     curve: Curves.easeOut)
-        // .fadeIn(),
-        );
+        ));
   }
 
   @override

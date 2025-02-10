@@ -1,5 +1,5 @@
-import 'package:Datiego/features/shared/domain/entities/projects_entities.dart';
-import 'package:Datiego/features/shared/domain/repository/projects_repository.dart';
+import 'package:datiego/features/shared/domain/entities/projects_entities.dart';
+import 'package:datiego/features/shared/domain/repository/projects_repository.dart';
 
 class GetProjectsUsecase {
   final ProjectsRepository projectsRepository;

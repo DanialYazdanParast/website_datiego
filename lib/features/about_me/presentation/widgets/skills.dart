@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:Datiego/core/di/service_locator.dart';
-import 'package:Datiego/core/widgets/custom_border.dart';
-import 'package:Datiego/features/about_me/domain/entities/skill_entities.dart';
-import 'package:Datiego/features/about_me/domain/use_cases/get_skills_use_case.dart';
-import 'package:Datiego/features/about_me/presentation/widgets/text_titel_about.dart';
+import 'package:datiego/core/di/service_locator.dart';
+import 'package:datiego/core/widgets/custom_border.dart';
+import 'package:datiego/features/about_me/domain/entities/skill_entities.dart';
+import 'package:datiego/features/about_me/domain/use_cases/get_skills_use_case.dart';
+import 'package:datiego/features/about_me/presentation/widgets/text_titel_about.dart';
 
 class Skills extends StatelessWidget {
   Skills({

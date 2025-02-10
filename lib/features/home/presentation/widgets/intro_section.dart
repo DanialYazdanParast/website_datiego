@@ -2,11 +2,11 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:Datiego/core/constants/app_colors.dart';
-import 'package:Datiego/core/constants/app_constants.dart';
-import 'package:Datiego/core/widgets/custom_border.dart';
-import 'package:Datiego/core/widgets/custom_box_shadow.dart';
-import 'package:Datiego/features/home/presentation/bloc/home_bloc.dart';
+import 'package:datiego/core/constants/app_colors.dart';
+import 'package:datiego/core/constants/app_constants.dart';
+import 'package:datiego/core/widgets/custom_border.dart';
+import 'package:datiego/core/widgets/custom_box_shadow.dart';
+import 'package:datiego/features/home/presentation/bloc/home_bloc.dart';
 
 class IntroSection extends StatelessWidget {
   const IntroSection(
@@ -45,7 +45,7 @@ class IntroSection extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  _buildIntroRow('Hi, I\'m', 'Datiego', AppColors.lightPurple,
+                  _buildIntroRow('Hi, I\'m', 'datiego', AppColors.lightPurple,
                       context, true, fontSize, sizeimage),
                   _buildIntroRow('I\'m a', 'Flutter Developer',
                       AppColors.lightBlue, context, false, fontSize, sizeimage),
