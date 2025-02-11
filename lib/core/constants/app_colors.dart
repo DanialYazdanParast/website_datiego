@@ -16,13 +16,13 @@ class LightThemeColors {
   // Divider Color
   static const Color dividerColor = Color(0xB3E0E0E0);
 
-  /////////////////////////
+  // Bottom Color
   static const Color peach = Color(0xFFFAC99C);
   static const Color purple = Color(0xFFC8ADFA);
   static const Color coral = Color(0xFFF8A9A8);
   static const Color blue = Color(0xFF9CCBF5);
   static const Color green = Color(0xFFB0E3B6);
-  static const Color gray = Color(0xFFBDBDBD);
+  static const Color gray = Color.fromARGB(255, 227, 224, 150);
   static const Color skyBlue = Color(0xC861BDEE);
   static const Color pink = Color(0xffffb3e9);
 }
@@ -41,27 +41,16 @@ class DarkThemeColors {
   // Divider Color
   static const Color dividerColor = Color(0xFF323232);
 
-  ///
+  // Bottom Color
   static const Color peach = Color(0xFFf69851);
   static const Color purple = Color(0xFF9a63f5);
   static const Color coral = Color(0xFFee7271);
   static const Color blue = Color(0xFF4da7ed);
   static const Color green = Color(0xFF69cc7a);
-  static const Color gray = Color(0xFFBDBDBD);
-  static const Color skyBlue = Color(0xFF61BDEE);
+  static const Color gray = Color.fromARGB(255, 166, 170, 98);
+  static const Color skyBlue = Color.fromARGB(255, 52, 119, 196);
   static const Color pink = Color(0xffeb66c8);
 }
-
-// class AppColors {
-//   static const Color lightPeach = Color(0xFFFAC99C);
-//   static const Color lightPurple = Color(0xFFC8ADFA);
-//   static const Color lightCoral = Color(0xFFF8A9A8);
-//   static const Color lightBlue = Color(0xFF9CCBF5);
-//   static const Color lightMintGreen = Color(0xFFB0E3B6);
-//   static const Color gray400 = Color(0xFFBDBDBD);
-//   static const Color lightSkyBlue = Color(0xC861BDEE);
-//   static const Color lightPink = Color(0xffffb3e9);
-// }
 
 final List<Color> blogColorsLight = [
   LightThemeColors.blue,
