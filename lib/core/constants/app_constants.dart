@@ -8,6 +8,4 @@ class AppConstants {
   static String linkedinUrl = "http://linkedin.com/in/danialyazdanparast";
   static String instagramUrl = 'https://www.instagram.com/datiego';
   static String phoneNumber = "(+98)9174016011";
-
-  // static int maxWidthMobile = 900;
 }
