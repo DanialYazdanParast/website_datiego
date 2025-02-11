@@ -47,7 +47,7 @@ class DarkThemeColors {
   static const Color coral = Color(0xFFee7271);
   static const Color blue = Color(0xFF4da7ed);
   static const Color green = Color(0xFF69cc7a);
-  static const Color gray = Color.fromARGB(255, 166, 170, 98);
+  static const Color gray = Color.fromARGB(255, 227, 224, 150);
   static const Color skyBlue = Color.fromARGB(255, 52, 119, 196);
   static const Color pink = Color(0xffeb66c8);
 }

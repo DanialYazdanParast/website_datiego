@@ -27,4 +27,13 @@ class UrlLauncherService {
       throw 'Could not launch $email';
     }
   }
+
+  Future<void> makePhoneCall(String number) async {
+    final Uri url = Uri.parse("tel:$number");
+    if (await canLaunchUrl(url)) {
+      await launchUrl(url);
+    } else {
+      throw "Could not launch $url";
+    }
+  }
 }
