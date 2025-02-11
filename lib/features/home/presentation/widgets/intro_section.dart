@@ -1,4 +1,5 @@
 import 'dart:ui';
+import 'package:datiego/confing/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -22,6 +23,7 @@ class IntroSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final themeConfig = MyAppThemeConfig.of(context);
     return MouseRegion(
       onEnter: (_) =>
           context.read<HomeBloc>().add(const SetMouseRegionEvent(true)),
@@ -45,24 +47,18 @@ class IntroSection extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  _buildIntroRow('Hi, I\'m', 'datiego', AppColors.lightPurple,
+                  _buildIntroRow('Hi, I\'m', 'datiego', themeConfig.purple,
                       context, true, fontSize, sizeimage),
                   _buildIntroRow('I\'m a', 'Flutter Developer',
-                      AppColors.lightBlue, context, false, fontSize, sizeimage),
+                      themeConfig.blue, context, false, fontSize, sizeimage),
                   InkWell(
                     onTap: () {
                       context.read<HomeBloc>().add(DownloadFileEvent(
                           url: AppConstants.urlCv,
                           fileName: "Danial-YazdanParast_Flutter.pdf"));
                     },
-                    child: _buildIntroRow(
-                        'my cv',
-                        'Download ↗',
-                        AppColors.lightMintGreen,
-                        context,
-                        false,
-                        fontSize,
-                        sizeimage),
+                    child: _buildIntroRow('my cv', 'Download ↗',
+                        themeConfig.green, context, false, fontSize, sizeimage),
                   ),
                 ],
               ),

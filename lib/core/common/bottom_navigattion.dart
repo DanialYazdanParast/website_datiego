@@ -1,3 +1,4 @@
+import 'package:datiego/confing/theme/app_theme.dart';
 import 'package:datiego/core/utils/responsive.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
@@ -20,6 +21,9 @@ class BottomNavigattion extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final urlLauncher = GetIt.instance<UrlLauncherService>();
+
+    // ایجاد تم براساس وضعیت
+    final themeConfig = MyAppThemeConfig.of(context);
     return Padding(
       padding: const EdgeInsets.only(bottom: 22),
       child: Container(
@@ -40,7 +44,7 @@ class BottomNavigattion extends StatelessWidget {
                 label: 'Home',
                 iconFileName: Icons.home_outlined,
                 isActive: selextedIndex == TabItem.home.index,
-                color: AppColors.lightPeach,
+                color: themeConfig.peach,
                 onTap: () {
                   onTab(TabItem.home.index);
                 },
@@ -50,7 +54,7 @@ class BottomNavigattion extends StatelessWidget {
                 label: 'Projects',
                 iconFileName: Icons.code,
                 isActive: selextedIndex == TabItem.projects.index,
-                color: AppColors.lightPurple,
+                color: themeConfig.purple,
                 onTap: () {
                   onTab(TabItem.projects.index);
                 },
@@ -60,7 +64,7 @@ class BottomNavigattion extends StatelessWidget {
                 label: 'Blog',
                 iconFileName: Icons.article_outlined,
                 isActive: selextedIndex == TabItem.blog.index,
-                color: AppColors.lightCoral,
+                color: themeConfig.coral,
                 onTap: () {
                   onTab(TabItem.blog.index);
                 },
@@ -70,7 +74,7 @@ class BottomNavigattion extends StatelessWidget {
                 label: 'About Me',
                 iconFileName: Icons.account_circle_outlined,
                 isActive: selextedIndex == TabItem.about.index,
-                color: AppColors.lightBlue,
+                color: themeConfig.blue,
                 onTap: () {
                   onTab(TabItem.about.index);
                 },
@@ -88,7 +92,7 @@ class BottomNavigattion extends StatelessWidget {
               BottomNavigationItem(
                 label: 'danialyazdan77@gmail.com ↗',
                 iconFileName: Icons.email_outlined,
-                color: AppColors.lightMintGreen,
+                color: themeConfig.green,
                 isActive: false,
                 onTap: () async {
                   await urlLauncher.sendEmail(AppConstants.emailUrl);
@@ -101,7 +105,7 @@ class BottomNavigattion extends StatelessWidget {
                     BottomNavigationItem(
                       label: '@DanialYazdanParast ↗',
                       iconFileName: FontAwesomeIcons.github,
-                      color: AppColors.gray400,
+                      color: themeConfig.gray,
                       isActive: false,
                       onTap: () async {
                         await urlLauncher.openUrl(AppConstants.gitHubUrl);
@@ -111,7 +115,7 @@ class BottomNavigattion extends StatelessWidget {
                     BottomNavigationItem(
                       label: '@DanialYazdanParast ↗',
                       iconFileName: FontAwesomeIcons.linkedin,
-                      color: AppColors.lightSkyBlue,
+                      color: themeConfig.skyBlue,
                       isActive: false,
                       onTap: () async {
                         await urlLauncher.openUrl(AppConstants.linkedinUrl);

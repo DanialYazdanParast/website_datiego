@@ -1,3 +1,4 @@
+import 'package:datiego/confing/theme/app_theme.dart';
 import 'package:datiego/core/constants/app_colors.dart';
 import 'package:datiego/core/services/url_launcher_service.dart';
 import 'package:datiego/core/utils/responsive.dart';
@@ -96,15 +97,13 @@ class _ProjectDetailScreenState extends State<ProjectDetailScreen> {
                                             widget.project.gitHubLink!);
                                       }
                                     },
-                                    color: AppColors.lightBlue,
+                                    color: MyAppThemeConfig.of(context).blue,
                                     icon: FontAwesomeIcons.github,
                                     text: "View on GitHub",
                                   ),
                                 ),
                               ],
                             ),
-                            // const SizedBox(height: 16),
-                            // TextSubtitle(subtitle: widget.project.subtitle!),
                             const SizedBox(height: 16),
                             Padding(
                               padding: const EdgeInsets.only(left: 10),

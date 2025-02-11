@@ -11,6 +11,21 @@ class MyAppThemeConfig {
   final Color borderColor;
   final Color dividerColor;
   final Brightness brightness;
+  final Color peach;
+  final Color purple;
+  final Color coral;
+  final Color blue;
+  final Color green;
+  final Color gray;
+  final Color skyBlue;
+  final Color pink;
+
+  factory MyAppThemeConfig.of(BuildContext context) {
+    final brightness = Theme.of(context).colorScheme.brightness;
+    return brightness == Brightness.dark
+        ? MyAppThemeConfig.dark()
+        : MyAppThemeConfig.light();
+  }
 
   MyAppThemeConfig.dark()
       : primaryColor = DarkThemeColors.primaryColor,
@@ -21,6 +36,14 @@ class MyAppThemeConfig {
         borderColor = DarkThemeColors.borderColor,
         dividerColor = DarkThemeColors.dividerColor,
         brightness = Brightness.dark,
+        peach = DarkThemeColors.peach,
+        purple = DarkThemeColors.purple,
+        coral = DarkThemeColors.coral,
+        blue = DarkThemeColors.blue,
+        green = DarkThemeColors.green,
+        skyBlue = DarkThemeColors.skyBlue,
+        pink = DarkThemeColors.pink,
+        gray = DarkThemeColors.gray,
         textSecondary = DarkThemeColors.textSecondary;
 
   MyAppThemeConfig.light()
@@ -32,6 +55,14 @@ class MyAppThemeConfig {
         borderColor = LightThemeColors.borderColor,
         dividerColor = LightThemeColors.dividerColor,
         brightness = Brightness.light,
+        peach = LightThemeColors.peach,
+        purple = LightThemeColors.purple,
+        coral = LightThemeColors.coral,
+        blue = LightThemeColors.blue,
+        green = LightThemeColors.green,
+        skyBlue = LightThemeColors.skyBlue,
+        pink = LightThemeColors.pink,
+        gray = LightThemeColors.gray,
         textSecondary = LightThemeColors.textSecondary;
 
   ThemeData getTheme() {

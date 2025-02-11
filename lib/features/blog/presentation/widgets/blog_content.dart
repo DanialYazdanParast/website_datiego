@@ -18,10 +18,11 @@ class BlogContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDark = Theme.of(context).colorScheme.brightness == Brightness.dark;
     if (state is BlogLoadingState) {
       return _buildShimmerList();
     } else if (state is BlogSuccesState) {
-      return _buildBlogList((state as BlogSuccesState).blogs);
+      return _buildBlogList((state as BlogSuccesState).blogs, isDark);
     } else if (state is BlogErrorState) {
       return _buildErrorWidget((state as BlogErrorState).exception.message);
     } else {
@@ -48,7 +49,7 @@ class BlogContent extends StatelessWidget {
     );
   }
 
-  Widget _buildBlogList(List<BlogEntities> blogs) {
+  Widget _buildBlogList(List<BlogEntities> blogs, bool isDark) {
     return SliverList.builder(
       itemCount: blogs.length,
       itemBuilder: (context, index) => Padding(
@@ -56,11 +57,15 @@ class BlogContent extends StatelessWidget {
           child: Responsive(
             desktop: BlogDesktop(
               blog: blogs[index],
-              blogColor: blogColors[index % blogColors.length],
+              blogColor: isDark
+                  ? blogColorsDark[index % blogColorsDark.length]
+                  : blogColorsLight[index % blogColorsLight.length],
             ),
             mobile: BlogMobile(
               blog: blogs[index],
-              blogColor: blogColors[index % blogColors.length],
+              blogColor: isDark
+                  ? blogColorsDark[index % blogColorsDark.length]
+                  : blogColorsLight[index % blogColorsLight.length],
             ),
           )),
     );

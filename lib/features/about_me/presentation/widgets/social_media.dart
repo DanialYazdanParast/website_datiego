@@ -1,8 +1,9 @@
+import 'package:datiego/confing/theme/app_theme.dart';
 import 'package:datiego/core/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get_it/get_it.dart';
-import 'package:datiego/core/constants/app_colors.dart';
+
 import 'package:datiego/core/constants/app_constants.dart';
 import 'package:datiego/core/services/url_launcher_service.dart';
 import 'package:datiego/core/widgets/custom_border.dart';
@@ -16,6 +17,7 @@ class SocialMedia extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final urlLauncher = GetIt.instance<UrlLauncherService>();
+    final themeConfig = MyAppThemeConfig.of(context);
     return Container(
       padding: const EdgeInsets.all(24),
       decoration: BoxDecoration(
@@ -37,7 +39,7 @@ class SocialMedia extends StatelessWidget {
                 onTap: () async {
                   await urlLauncher.sendEmail('danialyazdan77@gmail.com');
                 },
-                color: AppColors.lightMintGreen,
+                color: themeConfig.green,
                 icon: Icons.email_outlined,
                 text: "danialyazdan77@gmail.com",
               ),
@@ -46,7 +48,7 @@ class SocialMedia extends StatelessWidget {
                 onTap: () async {
                   await urlLauncher.openUrl(AppConstants.gitHubUrl);
                 },
-                color: AppColors.gray400,
+                color: themeConfig.gray,
                 icon: FontAwesomeIcons.github,
                 text: "github.com/DanialYazdanParast",
               ),
@@ -55,7 +57,7 @@ class SocialMedia extends StatelessWidget {
                 onTap: () async {
                   await urlLauncher.openUrl(AppConstants.linkedinUrl);
                 },
-                color: AppColors.lightSkyBlue,
+                color: themeConfig.skyBlue,
                 icon: FontAwesomeIcons.linkedin,
                 text: "linkedin.com/DanialYazdanParast",
               ),
@@ -64,14 +66,14 @@ class SocialMedia extends StatelessWidget {
                 onTap: () async {
                   await urlLauncher.openUrl(AppConstants.instagramUrl);
                 },
-                color: AppColors.lightPink,
+                color: themeConfig.pink,
                 icon: FontAwesomeIcons.instagram,
                 text: "instagram.com/datiego",
               ),
               const SizedBox(height: 10),
               CustomButton(
                 onTap: () {},
-                color: AppColors.lightPeach,
+                color: themeConfig.peach,
                 icon: Icons.phone_outlined,
                 text: AppConstants.phoneNumber,
               ),
