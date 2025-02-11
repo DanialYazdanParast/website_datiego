@@ -1,3 +1,4 @@
+import 'package:datiego/core/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get_it/get_it.dart';
@@ -32,7 +33,7 @@ class SocialMedia extends StatelessWidget {
           const SizedBox(height: 16),
           Column(
             children: [
-              ButtonSocial(
+              CustomButton(
                 onTap: () async {
                   await urlLauncher.sendEmail('danialyazdan77@gmail.com');
                 },
@@ -41,7 +42,7 @@ class SocialMedia extends StatelessWidget {
                 text: "danialyazdan77@gmail.com",
               ),
               const SizedBox(height: 10),
-              ButtonSocial(
+              CustomButton(
                 onTap: () async {
                   await urlLauncher.openUrl(AppConstants.gitHubUrl);
                 },
@@ -50,7 +51,7 @@ class SocialMedia extends StatelessWidget {
                 text: "github.com/DanialYazdanParast",
               ),
               const SizedBox(height: 10),
-              ButtonSocial(
+              CustomButton(
                 onTap: () async {
                   await urlLauncher.openUrl(AppConstants.linkedinUrl);
                 },
@@ -59,7 +60,7 @@ class SocialMedia extends StatelessWidget {
                 text: "linkedin.com/DanialYazdanParast",
               ),
               const SizedBox(height: 10),
-              ButtonSocial(
+              CustomButton(
                 onTap: () async {
                   await urlLauncher.openUrl(AppConstants.instagramUrl);
                 },
@@ -68,7 +69,7 @@ class SocialMedia extends StatelessWidget {
                 text: "instagram.com/datiego",
               ),
               const SizedBox(height: 10),
-              ButtonSocial(
+              CustomButton(
                 onTap: () {},
                 color: AppColors.lightPeach,
                 icon: Icons.phone_outlined,
@@ -77,61 +78,6 @@ class SocialMedia extends StatelessWidget {
             ],
           ),
         ],
-      ),
-    );
-  }
-}
-
-class ButtonSocial extends StatelessWidget {
-  const ButtonSocial({
-    super.key,
-    required this.text,
-    required this.color,
-    required this.icon,
-    required this.onTap,
-  });
-
-  final String text;
-  final Color color;
-  final IconData icon;
-  final VoidCallback onTap;
-
-  @override
-  Widget build(BuildContext context) {
-    return TextButton.icon(
-      style: TextButton.styleFrom(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(8),
-        ),
-        minimumSize: const Size(double.infinity, 53),
-        backgroundColor: const Color(0xFFEEEEEE),
-        side: const BorderSide(
-          width: 1,
-          color: Color.fromRGBO(0, 0, 0, 0.1),
-        ),
-      ).copyWith(
-        // تغییر رنگ هنگام Hover
-        backgroundColor: WidgetStateProperty.resolveWith<Color?>(
-          (Set<WidgetState> states) {
-            if (states.contains(WidgetState.hovered)) {
-              return color; // رنگ هنگام Hover
-            }
-            return Theme.of(context).colorScheme.onSecondary; // رنگ پیش‌فرض
-          },
-        ),
-      ),
-      label: Text(
-        text,
-        style: Theme.of(context)
-            .textTheme
-            .titleLarge!
-            .copyWith(fontSize: 16, fontWeight: FontWeight.w400),
-      ),
-      onPressed: onTap,
-      icon: Icon(
-        icon,
-        color: Theme.of(context).iconTheme.color,
-        size: 24,
       ),
     );
   }

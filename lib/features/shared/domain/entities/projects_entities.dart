@@ -7,6 +7,7 @@ class ProjectsEntities extends Equatable {
   final String? title;
   final String? id;
   final List<String>? tag;
+  final String? gitHubLink;
   const ProjectsEntities({
     this.description,
     this.image,
@@ -14,8 +15,10 @@ class ProjectsEntities extends Equatable {
     this.title,
     this.id,
     this.tag,
+    this.gitHubLink,
   });
 
   @override
-  List<Object?> get props => [description, image, subtitle, title, id, tag];
+  List<Object?> get props =>
+      [description, image, subtitle, title, id, tag, gitHubLink];
 }

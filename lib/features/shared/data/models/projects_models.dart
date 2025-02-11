@@ -8,6 +8,7 @@ class ProjectsModels extends ProjectsEntities {
     super.title,
     super.id,
     super.tag,
+    super.gitHubLink,
   });
 
   factory ProjectsModels.fromJson(Map<String, dynamic> json) {
@@ -22,6 +23,7 @@ class ProjectsModels extends ProjectsEntities {
           ? List<String>.from(
               json['expand']['tag'].map((tag) => tag['name'] as String))
           : [],
+      gitHubLink: json['gitHubLink'] ?? '',
     );
   }
 }

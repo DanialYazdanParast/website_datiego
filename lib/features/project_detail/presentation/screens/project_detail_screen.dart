@@ -1,13 +1,19 @@
+import 'package:datiego/core/constants/app_colors.dart';
+import 'package:datiego/core/services/url_launcher_service.dart';
 import 'package:datiego/core/utils/responsive.dart';
+import 'package:datiego/core/widgets/custom_button.dart';
 import 'package:datiego/core/widgets/description_widget.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:datiego/core/widgets/custom_close_button.dart';
 import 'package:datiego/core/widgets/image_detail.dart';
 import 'package:datiego/core/widgets/tag_project.dart';
-import 'package:datiego/core/widgets/text_subtitle.dart';
+
 import 'package:datiego/core/widgets/text_title.dart';
 import 'package:datiego/features/shared/domain/entities/projects_entities.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:get_it/get_it.dart';
 
 class ProjectDetailScreen extends StatefulWidget {
   const ProjectDetailScreen({
@@ -44,6 +50,7 @@ class _ProjectDetailScreenState extends State<ProjectDetailScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final urlLauncher = GetIt.instance<UrlLauncherService>();
     return Scaffold(
       body: Scrollbar(
         controller: scrollController,
@@ -75,9 +82,29 @@ class _ProjectDetailScreenState extends State<ProjectDetailScreen> {
                           children: [
                             ImageDetail(imageUrl: widget.project.image!),
                             const SizedBox(height: 16),
-                            TextTitle(title: widget.project.title!),
-                            const SizedBox(height: 16),
-                            TextSubtitle(subtitle: widget.project.subtitle!),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                TextTitle(title: widget.project.title!),
+                                SizedBox(
+                                  height: 45,
+                                  width: 160,
+                                  child: CustomButton(
+                                    onTap: () async {
+                                      if (widget.project.gitHubLink != null) {
+                                        await urlLauncher.openUrl(
+                                            widget.project.gitHubLink!);
+                                      }
+                                    },
+                                    color: AppColors.lightBlue,
+                                    icon: FontAwesomeIcons.github,
+                                    text: "View on GitHub",
+                                  ),
+                                ),
+                              ],
+                            ),
+                            // const SizedBox(height: 16),
+                            // TextSubtitle(subtitle: widget.project.subtitle!),
                             const SizedBox(height: 16),
                             Padding(
                               padding: const EdgeInsets.only(left: 10),
