@@ -11,9 +11,9 @@ class ProjectsBloc extends Bloc<ProjectsEvent, ProjectsState> {
   final GetProjectsUsecase getProjectsUsecase;
   ProjectsBloc(this.getProjectsUsecase) : super(ProjectLoadingState()) {
     on<GetProjectsEvent>((event, emit) async {
+      emit(ProjectLoadingState());
+      await Future.delayed(const Duration(milliseconds: 500));
       try {
-        emit(ProjectLoadingState());
-        await Future.delayed(const Duration(milliseconds: 500));
         var projects = await getProjectsUsecase.call();
         var reversed = projects.reversed.toList();
         emit(ProjectSuccesState(reversed));
