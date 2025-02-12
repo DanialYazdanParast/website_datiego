@@ -20,6 +20,7 @@ class AboutMeMobile extends StatelessWidget {
       thumbVisibility: false,
       trackVisibility: false,
       thickness: 10,
+      radius: const Radius.circular(10),
       child: SingleChildScrollView(
         controller: scrollController,
         child: Padding(

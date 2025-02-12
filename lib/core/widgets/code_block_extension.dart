@@ -92,6 +92,7 @@ class CodeBlockExtension extends HtmlExtension {
       child: Scrollbar(
         thumbVisibility: true,
         controller: verticalScrollController,
+        radius: const Radius.circular(10),
         child: SingleChildScrollView(
           controller: verticalScrollController,
           scrollDirection: Axis.vertical,
@@ -99,6 +100,7 @@ class CodeBlockExtension extends HtmlExtension {
             thumbVisibility: true,
             controller: horizontalScrollController,
             notificationPredicate: (_) => true,
+            radius: const Radius.circular(10),
             child: SingleChildScrollView(
               controller: horizontalScrollController,
               scrollDirection: Axis.horizontal,

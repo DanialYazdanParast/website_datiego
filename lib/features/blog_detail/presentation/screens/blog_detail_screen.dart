@@ -45,6 +45,7 @@ class _BlogDetailScreenState extends State<BlogDetailScreen> {
         controller: scrollController,
         thumbVisibility: Responsive.isDesktop(context),
         trackVisibility: Responsive.isDesktop(context),
+        radius: const Radius.circular(10),
         thickness: 10,
         child: Stack(
           alignment: Alignment.topCenter,

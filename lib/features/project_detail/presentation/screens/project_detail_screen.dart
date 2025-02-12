@@ -58,6 +58,7 @@ class _ProjectDetailScreenState extends State<ProjectDetailScreen> {
         thumbVisibility: Responsive.isDesktop(context),
         trackVisibility: Responsive.isDesktop(context),
         thickness: 10,
+        radius: const Radius.circular(10),
         child: Stack(
           alignment: Alignment.topCenter,
           children: [
