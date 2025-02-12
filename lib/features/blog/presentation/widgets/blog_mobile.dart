@@ -29,7 +29,7 @@ class BlogMobile extends StatelessWidget {
         child: Column(
           children: [
             SizedBox(
-              height: screenHeight * 0.5,
+              height: screenHeight * 0.4,
               width: double.infinity,
               child: ImageLodingService(
                 imageUrl: blog.image,

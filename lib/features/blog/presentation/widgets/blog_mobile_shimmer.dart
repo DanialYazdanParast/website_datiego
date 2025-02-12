@@ -22,18 +22,13 @@ class BlogMobileShimmer extends StatelessWidget {
         highlightColor: isDarkMode ? Colors.grey[500]! : Colors.grey[100]!,
         child: Column(
           children: [
-            SizedBox(
-              height: screenHeight * 0.5,
+            Container(
+              height: screenHeight * 0.4,
               width: double.infinity,
-              child: Expanded(
-                child: Container(
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    color: isDarkMode ? Colors.black54 : Colors.white,
-                    borderRadius:
-                        const BorderRadius.vertical(top: Radius.circular(32)),
-                  ),
-                ),
+              decoration: BoxDecoration(
+                color: isDarkMode ? Colors.black54 : Colors.white,
+                borderRadius:
+                    const BorderRadius.vertical(top: Radius.circular(32)),
               ),
             ),
             Expanded(
@@ -66,7 +61,6 @@ class BlogMobileShimmer extends StatelessWidget {
                       color: isDarkMode ? Colors.black54 : Colors.white,
                     ),
                     const SizedBox(height: 10),
-                    const Spacer(),
                     Align(
                       alignment: Alignment.bottomRight,
                       child: BlogButton(
