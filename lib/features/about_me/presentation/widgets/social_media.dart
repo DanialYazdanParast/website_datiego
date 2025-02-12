@@ -71,16 +71,13 @@ class SocialMedia extends StatelessWidget {
                 text: "instagram.com/datiego",
               ),
               const SizedBox(height: 10),
-              Tooltip(
-                message: "Call me",
-                child: CustomButton(
-                  onTap: () async {
-                    await urlLauncher.makePhoneCall("+989174016011");
-                  },
-                  color: themeConfig.peach,
-                  icon: Icons.phone_outlined,
-                  text: AppConstants.phoneNumber,
-                ),
+              CustomButton(
+                onTap: () async {
+                  await urlLauncher.makePhoneCall("+989174016011");
+                },
+                color: themeConfig.peach,
+                icon: Icons.phone_outlined,
+                text: AppConstants.phoneNumber,
               ),
             ],
           ),

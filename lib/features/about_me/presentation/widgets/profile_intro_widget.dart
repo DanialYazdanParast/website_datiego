@@ -49,7 +49,7 @@ class ProfileIntroWidget extends StatelessWidget {
             height: 16,
           ),
           Text(
-            "I am currently on my professional journey, creating digital experiences that are both efficient and engaging. My goal is to improve and simplify technology to help people make their daily tasks easier and more enjoyable.",
+            "I am on my professional journey, designing digital experiences that are both efficient and engaging. My goal is to simplify and improve technology to help people make their daily tasks easier and more enjoyable.",
             style: Theme.of(context).textTheme.titleMedium,
           ),
           const SizedBox(
