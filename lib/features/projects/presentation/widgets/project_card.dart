@@ -25,11 +25,9 @@ class ProjectCard extends StatefulWidget {
   State<ProjectCard> createState() => _ProjectCardState();
 }
 
-class _ProjectCardState extends State<ProjectCard>
-    with AutomaticKeepAliveClientMixin {
+class _ProjectCardState extends State<ProjectCard> {
   @override
   Widget build(BuildContext context) {
-    super.build(context);
     final hoveredOnItemCard = context.select<ProjectsBloc, bool>((bloc) {
       final state = bloc.state;
       if (state is ProjectSuccesState) {
@@ -89,7 +87,4 @@ class _ProjectCardState extends State<ProjectCard>
               )),
         ));
   }
-
-  @override
-  bool get wantKeepAlive => true;
 }

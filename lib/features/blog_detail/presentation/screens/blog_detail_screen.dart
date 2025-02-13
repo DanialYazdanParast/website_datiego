@@ -20,26 +20,16 @@ class _BlogDetailScreenState extends State<BlogDetailScreen> {
   final ScrollController scrollController = ScrollController();
 
   @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-    _updatePadding();
-  }
-
-  @override
   void dispose() {
     scrollController.dispose();
     super.dispose();
   }
 
-  void _updatePadding() {
-    final screenWidth = MediaQuery.of(context).size.width;
-    setState(() {
-      horizontalPadding = screenWidth > 1200 ? screenWidth * 0.18 : 20.0;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final horizontalPadding = screenWidth > 1200 ? screenWidth * 0.18 : 20.0;
+
     return Scaffold(
       body: Scrollbar(
         controller: scrollController,

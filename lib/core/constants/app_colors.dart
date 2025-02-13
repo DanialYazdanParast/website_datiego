@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class LightThemeColors {
   // رنگ‌های اصلی
   static const primaryColor = Color(0xffFFFFFF);
-  static const onprimaryColor = Color(0xD6F8F8F8); // شفافیت ۰٫۸۴ (D6)
+  static const onprimaryColor = Color(0xD6F8F8F8);
   static const secondaryColor = Color(0xFFf8f8f8);
   static const onsecondaryColor = Color(0xFFEEEEEE);
   // رنگ‌های متن
@@ -30,7 +30,7 @@ class LightThemeColors {
 class DarkThemeColors {
   // رنگ‌های اصلی
   static const primaryColor = Color(0xff101010);
-  static const onprimaryColor = Color(0xd6212121); // شفافیت ۰٫۸۴ (D6)
+  static const onprimaryColor = Color(0xd6212121);
   static const secondaryColor = Color(0xFF181818);
   static const onsecondaryColor = Color(0xFF262626);
   // رنگ‌های متن

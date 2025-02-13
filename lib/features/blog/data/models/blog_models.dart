@@ -1,3 +1,4 @@
+import 'package:datiego/core/constants/app_constants.dart';
 import 'package:datiego/features/blog/domain/entities/blog_entities.dart';
 
 class BlogModels extends BlogEntities {
@@ -12,8 +13,7 @@ class BlogModels extends BlogEntities {
     return BlogModels(
       title: json['title'],
       subtitle: json['subtitle'],
-      image:
-          'https://dan.chbk.app/api/files/blog/${json['id']}/${json['image']}',
+      image: '${AppConstants.baseUrl}files/blog/${json['id']}/${json['image']}',
       description: json['description'],
       id: json['id'],
     );

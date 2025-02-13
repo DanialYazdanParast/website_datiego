@@ -1,5 +1,4 @@
 import 'package:animate_do/animate_do.dart';
-
 import 'package:flutter/material.dart';
 import 'package:datiego/core/widgets/custom_border.dart';
 import 'package:datiego/core/widgets/custom_box_shadow.dart';

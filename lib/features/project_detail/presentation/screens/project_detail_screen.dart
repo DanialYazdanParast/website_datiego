@@ -1,16 +1,13 @@
 import 'package:datiego/confing/theme/app_theme.dart';
-import 'package:datiego/core/constants/app_colors.dart';
 import 'package:datiego/core/services/url_launcher_service.dart';
 import 'package:datiego/core/utils/responsive.dart';
 import 'package:datiego/core/widgets/custom_button.dart';
 import 'package:datiego/core/widgets/description_widget.dart';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:datiego/core/widgets/custom_close_button.dart';
 import 'package:datiego/core/widgets/image_detail.dart';
 import 'package:datiego/core/widgets/tag_project.dart';
-
 import 'package:datiego/core/widgets/text_title.dart';
 import 'package:datiego/features/shared/domain/entities/projects_entities.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -31,27 +28,17 @@ class _ProjectDetailScreenState extends State<ProjectDetailScreen> {
   final ScrollController scrollController = ScrollController();
 
   @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-    _updatePadding();
-  }
-
-  @override
   void dispose() {
     scrollController.dispose();
     super.dispose();
   }
 
-  void _updatePadding() {
-    final screenWidth = MediaQuery.of(context).size.width;
-    setState(() {
-      horizontalPadding = screenWidth > 1200 ? screenWidth * 0.18 : 20.0;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     final urlLauncher = GetIt.instance<UrlLauncherService>();
+    final screenWidth = MediaQuery.of(context).size.width;
+    final horizontalPadding = screenWidth > 1200 ? screenWidth * 0.18 : 20.0;
+
     return Scaffold(
       body: Scrollbar(
         controller: scrollController,

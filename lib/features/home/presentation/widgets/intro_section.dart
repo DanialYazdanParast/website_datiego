@@ -3,7 +3,6 @@ import 'package:datiego/confing/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:datiego/core/constants/app_colors.dart';
 import 'package:datiego/core/constants/app_constants.dart';
 import 'package:datiego/core/widgets/custom_border.dart';
 import 'package:datiego/core/widgets/custom_box_shadow.dart';

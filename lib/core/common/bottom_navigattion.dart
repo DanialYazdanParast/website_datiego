@@ -5,9 +5,7 @@ import 'package:get_it/get_it.dart';
 import 'package:datiego/core/common/bottom_navigation_item.dart';
 import 'package:datiego/core/common/root.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:datiego/core/constants/app_colors.dart';
 import 'package:datiego/core/constants/app_constants.dart';
-
 import 'package:datiego/core/services/url_launcher_service.dart';
 import 'package:datiego/core/widgets/custom_border.dart';
 import 'package:datiego/core/widgets/custom_box_shadow.dart';

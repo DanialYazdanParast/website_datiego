@@ -1,3 +1,4 @@
+import 'package:datiego/core/constants/app_constants.dart';
 import 'package:datiego/features/shared/domain/entities/projects_entities.dart';
 
 class ProjectsModels extends ProjectsEntities {
@@ -15,7 +16,7 @@ class ProjectsModels extends ProjectsEntities {
     return ProjectsModels(
       description: json['Description'] ?? '',
       image:
-          'https://dan.chbk.app/api/files/projects/${json['id']}/${json['Image']}',
+          '${AppConstants.baseUrl}files/projects/${json['id']}/${json['Image']}',
       subtitle: json['Subtitle'] ?? '',
       title: json['Title'] ?? '',
       id: json['id'] ?? '',

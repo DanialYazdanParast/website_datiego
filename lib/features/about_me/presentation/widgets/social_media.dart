@@ -21,8 +21,7 @@ class SocialMedia extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(24),
       decoration: BoxDecoration(
-        color:
-            Theme.of(context).colorScheme.secondary, // معادل background-color
+        color: Theme.of(context).colorScheme.secondary,
         borderRadius: BorderRadius.circular(32),
         border: customBorder(context),
       ),
@@ -73,7 +72,7 @@ class SocialMedia extends StatelessWidget {
               const SizedBox(height: 10),
               CustomButton(
                 onTap: () async {
-                  await urlLauncher.makePhoneCall("+989174016011");
+                  await urlLauncher.makePhoneCall(AppConstants.phoneNumbercall);
                 },
                 color: themeConfig.peach,
                 icon: Icons.phone_outlined,

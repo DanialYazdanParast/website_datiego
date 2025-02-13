@@ -26,9 +26,7 @@ class HomeBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final width = MediaQuery.of(context).size.width;
-    final height = MediaQuery.of(context).size.height;
-
+    final size = MediaQuery.of(context).size;
     final bool isDarkMode =
         Theme.of(context).colorScheme.brightness == Brightness.dark;
 
@@ -55,8 +53,8 @@ class HomeBody extends StatelessWidget {
         builder: (context, state) {
           final showItemCard = (state is HomeSuccesState) &&
               (state.mouseRegion || state.hoveredOnItemCard) &&
-              width > 800 &&
-              height > 600;
+              size.width > 800 &&
+              size.height > 600;
 
           return Column(
             children: [
@@ -68,8 +66,8 @@ class HomeBody extends StatelessWidget {
                     if (showItemCard)
                       buildItemCards(
                         state,
-                        width,
-                        height,
+                        size.width,
+                        size.height,
                       ),
                     const Responsive(
                       desktop: IntroSection(

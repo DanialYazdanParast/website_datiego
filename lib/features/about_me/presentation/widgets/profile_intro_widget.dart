@@ -1,3 +1,4 @@
+import 'package:datiego/core/constants/app_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:datiego/core/constants/app_colors.dart';
 import 'package:datiego/core/widgets/custom_border.dart';
@@ -49,7 +50,7 @@ class ProfileIntroWidget extends StatelessWidget {
             height: 16,
           ),
           Text(
-            "I am on my professional journey, designing digital experiences that are both efficient and engaging. My goal is to simplify and improve technology to help people make their daily tasks easier and more enjoyable.",
+            AppConstants.profileIntro,
             style: Theme.of(context).textTheme.titleMedium,
           ),
           const SizedBox(

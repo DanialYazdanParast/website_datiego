@@ -17,8 +17,7 @@ class Skills extends StatelessWidget {
       width: double.infinity,
       padding: const EdgeInsets.all(24),
       decoration: BoxDecoration(
-          color:
-              Theme.of(context).colorScheme.secondary, // معادل background-color
+          color: Theme.of(context).colorScheme.secondary,
           borderRadius: BorderRadius.circular(32),
           border: customBorder(context)),
       child: Column(
