@@ -1,6 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:datiego/core/constants/app_colors.dart';
 
+/// کلاس مدیریت پیکربندی تم‌های برنامه (تاریک و روشن).
+///
+/// این کلاس رنگ‌ها و تنظیمات تم‌های تاریک و روشن را مدیریت می‌کند و امکان ایجاد `ThemeData` را فراهم می‌کند.
+///
+/// ## مثال استفاده:
+/// ```dart
+/// final themeConfig = MyAppThemeConfig.of(context);
+/// final themeData = themeConfig.getTheme();
+/// ```
+///
+/// ## پارامترها:
+/// - `primaryColor`: رنگ اصلی تم.
+/// - `onprimaryColor`: رنگ متن یا عناصر روی `primaryColor`.
+/// - `secondaryColor`: رنگ ثانویه تم.
+/// - `onsecondaryColor`: رنگ متن یا عناصر روی `secondaryColor`.
+/// - `textPrimary`: رنگ متن اصلی.
+/// - `textSecondary`: رنگ متن ثانویه.
+/// - `borderColor`: رنگ حاشیه‌ها.
+/// - `dividerColor`: رنگ جداکننده‌ها.
+/// - `brightness`: روشنایی تم (`Brightness.dark` یا `Brightness.light`).
+/// - `peach`, `purple`, `coral`, `blue`, `green`, `gray`, `skyBlue`, `pink`: رنگ‌های اضافی.
+///
+/// ## نکات:
+/// - از `MyAppThemeConfig.of(context)` برای تشخیص تم فعلی (تاریک یا روشن) استفاده می‌شود.
+/// - `getTheme()` یک `ThemeData` بر اساس تنظیمات رنگ‌ها و تم ایجاد می‌کند.
 class MyAppThemeConfig {
   final Color primaryColor;
   final Color onprimaryColor;
@@ -20,6 +45,7 @@ class MyAppThemeConfig {
   final Color skyBlue;
   final Color pink;
 
+  /// تشخیص تم فعلی (تاریک یا روشن) بر اساس `context`.
   factory MyAppThemeConfig.of(BuildContext context) {
     final brightness = Theme.of(context).colorScheme.brightness;
     return brightness == Brightness.dark
@@ -27,6 +53,7 @@ class MyAppThemeConfig {
         : MyAppThemeConfig.light();
   }
 
+  /// سازنده تم تاریک.
   MyAppThemeConfig.dark()
       : primaryColor = DarkThemeColors.primaryColor,
         onprimaryColor = DarkThemeColors.onprimaryColor,
@@ -46,6 +73,7 @@ class MyAppThemeConfig {
         gray = DarkThemeColors.gray,
         textSecondary = DarkThemeColors.textSecondary;
 
+  /// سازنده تم روشن.
   MyAppThemeConfig.light()
       : primaryColor = LightThemeColors.primaryColor,
         onprimaryColor = LightThemeColors.onprimaryColor,
@@ -65,6 +93,7 @@ class MyAppThemeConfig {
         gray = LightThemeColors.gray,
         textSecondary = LightThemeColors.textSecondary;
 
+  /// ایجاد `ThemeData` بر اساس تنظیمات رنگ‌ها و تم.
   ThemeData getTheme() {
     return ThemeData(
       scaffoldBackgroundColor: primaryColor,

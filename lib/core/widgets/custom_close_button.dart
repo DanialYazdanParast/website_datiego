@@ -2,6 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:datiego/core/widgets/custom_border.dart';
 
+/// یک ویجت دکمه بستن (Close) سفارشی که با کلیک روی آن، صفحه فعلی بسته می‌شود.
+///
+/// این دکمه از `GestureDetector` برای تشخیص کلیک و `GoRouter` برای بستن صفحه استفاده می‌کند.
+/// همچنین دارای یک آیکون `close` و استایل‌های سفارشی مانند رنگ پس‌زمینه، حاشیه و شعاع گوشه‌ها است.
+///
+/// مثال استفاده:
+/// ```dart
+/// CustomCloseButton();
+/// ```
 class CustomCloseButton extends StatelessWidget {
   const CustomCloseButton({
     super.key,
@@ -11,22 +20,22 @@ class CustomCloseButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
+        // بستن صفحه فعلی با استفاده از GoRouter
         context.pop();
       },
       child: Container(
-        height: 48,
-        width: 48,
-        padding: const EdgeInsets.all(8),
+        height: 48, // ارتفاع دکمه
+        width: 48, // عرض دکمه
+        padding: const EdgeInsets.all(8), // padding داخلی
         decoration: BoxDecoration(
-            color: Theme.of(context)
-                .colorScheme
-                .onPrimary, // معادل background-color
-            borderRadius: BorderRadius.circular(12),
-            border: customBorder(context)),
+          color: Theme.of(context).colorScheme.onPrimary, // رنگ پس‌زمینه
+          borderRadius: BorderRadius.circular(12), // شعاع گوشه‌ها
+          border: customBorder(context), // حاشیه سفارشی
+        ),
         child: Icon(
-          Icons.close,
-          color: Theme.of(context).iconTheme.color,
-          size: 25,
+          Icons.close, // آیکون بستن
+          color: Theme.of(context).iconTheme.color, // رنگ آیکون
+          size: 25, // اندازه آیکون
         ),
       ),
     );

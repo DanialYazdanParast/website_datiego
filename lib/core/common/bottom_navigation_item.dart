@@ -3,6 +3,33 @@ import 'package:flutter/material.dart';
 import 'package:datiego/core/widgets/custom_border.dart';
 import 'package:datiego/core/widgets/custom_box_shadow.dart';
 
+/// یک ویجت برای نمایش آیتم‌های نوار پایینی (Bottom Navigation) با قابلیت انیمیشن و نمایش لیبل هنگام هاور.
+///
+/// این ویجت شامل یک آیکون و لیبل است که هنگام هاور موس، لیبل به صورت انیمیشنی نمایش داده می‌شود.
+/// همچنین، اگر آیتم فعال باشد، یک نشانگر زیر آیکون نمایش داده می‌شود.
+///
+/// ## مثال استفاده:
+/// ```dart
+/// BottomNavigationItem(
+///   iconFileName: Icons.home, // آیکون
+///   label: 'خانه', // لیبل
+///   onTap: () {}, // عملکرد کلیک
+///   isActive: true, // وضعیت فعال بودن
+///   color: Colors.blue, // رنگ آیتم
+/// )
+/// ```
+///
+/// ## پارامترها:
+/// - `iconFileName`: آیکون آیتم.
+/// - `label`: متن لیبل.
+/// - `onTap`: عملکرد کلیک روی آیتم.
+/// - `isActive`: وضعیت فعال بودن آیتم.
+/// - `color`: رنگ آیتم.
+///
+/// ## نکات:
+/// - از `MouseRegion` برای تشخیص هاور موس استفاده می‌شود.
+/// - لیبل با انیمیشن `SlideInUp` نمایش داده می‌شود.
+/// - اگر آیتم فعال باشد، یک نشانگر زیر آیکون نمایش داده می‌شود.
 class BottomNavigationItem extends StatefulWidget {
   final IconData iconFileName;
   final String label;
@@ -50,7 +77,6 @@ class _BottomNavigationItemState extends State<BottomNavigationItem> {
                 duration: const Duration(milliseconds: 300), // مدت زمان انیمیشن
                 curve: Curves.fastEaseInToSlowEaseOut,
                 from: 20,
-
                 child: Container(
                   padding:
                       const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
@@ -78,10 +104,9 @@ class _BottomNavigationItemState extends State<BottomNavigationItem> {
                       borderRadius: BorderRadius.circular(12), // گوشه‌های گرد
                       boxShadow: const [
                         BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.04), // سایه اول
-                          blurRadius: 4,
-                          offset: Offset(0, 1),
-                        ),
+                            color: Color.fromRGBO(0, 0, 0, 0.04), // سایه اول
+                            blurRadius: 4,
+                            offset: Offset(0, 1)),
                         BoxShadow(
                           color: Color.fromRGBO(0, 0, 0, 0.04), // سایه دوم
                           blurRadius: 8,

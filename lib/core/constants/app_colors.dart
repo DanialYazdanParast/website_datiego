@@ -1,22 +1,25 @@
 import 'package:flutter/material.dart';
 
+/// **🎨 رنگ‌های تم روشن (Light Theme Colors)**
+/// این کلاس شامل رنگ‌های مورد استفاده در حالت روشن اپلیکیشن است.
 class LightThemeColors {
-  // رنگ‌های اصلی
-  static const primaryColor = Color(0xffFFFFFF);
-  static const onprimaryColor = Color(0xD6F8F8F8);
-  static const secondaryColor = Color(0xFFf8f8f8);
-  static const onsecondaryColor = Color(0xFFEEEEEE);
-  // رنگ‌های متن
-  static const textPrimary = Color(0xff212121);
-  static const textSecondary = Color(0xff6e6e6e);
-  // Border Color
-  static const Color borderColor = Color(0x1A000000);
-  // Divider Color
-  static const Color gray300 = Color(0xB3E0E0E0);
-  // Divider Color
-  static const Color dividerColor = Color(0xB3E0E0E0);
+  // 🌟 رنگ‌های اصلی
+  static const primaryColor = Color(0xffFFFFFF); // رنگ اصلی پس‌زمینه
+  static const onprimaryColor = Color(0xD6F8F8F8); // رنگ روی پس‌زمینه اصلی
+  static const secondaryColor = Color(0xFFf8f8f8); // رنگ پس‌زمینه ثانویه
+  static const onsecondaryColor = Color(0xFFEEEEEE); // رنگ روی پس‌زمینه ثانویه
 
-  // Bottom Color
+  // 📝 رنگ‌های متن
+  static const textPrimary = Color(0xff212121); // رنگ متن اصلی
+  static const textSecondary = Color(0xff6e6e6e); // رنگ متن ثانویه
+
+  // 🔳 رنگ‌های خطوط و جداکننده‌ها
+  static const Color borderColor = Color(0x1A000000); // رنگ مرزها
+  static const Color gray300 =
+      Color(0xB3E0E0E0); // رنگ خاکستری (استفاده شده برای جداکننده‌ها)
+  static const Color dividerColor = Color(0xB3E0E0E0); // رنگ خط جداکننده
+
+  // 🎨 رنگ‌های استفاده شده در دکمه‌ها و بخش‌های مختلف
   static const Color peach = Color(0xFFFAC99C);
   static const Color purple = Color(0xFFC8ADFA);
   static const Color coral = Color(0xFFF8A9A8);
@@ -27,21 +30,25 @@ class LightThemeColors {
   static const Color pink = Color(0xffffb3e9);
 }
 
+/// **🌙 رنگ‌های تم تاریک (Dark Theme Colors)**
+/// این کلاس شامل رنگ‌های مورد استفاده در حالت تاریک اپلیکیشن است.
 class DarkThemeColors {
-  // رنگ‌های اصلی
-  static const primaryColor = Color(0xff101010);
-  static const onprimaryColor = Color(0xd6212121);
-  static const secondaryColor = Color(0xFF181818);
-  static const onsecondaryColor = Color(0xFF262626);
-  // رنگ‌های متن
-  static const textPrimary = Color(0xffffffff);
-  static const textSecondary = Color(0xffb3b3b3);
-  // Border Color
-  static const Color borderColor = Color(0x1affffff);
-  // Divider Color
-  static const Color dividerColor = Color(0xFF323232);
+  // 🌟 رنگ‌های اصلی
+  static const primaryColor = Color(0xff101010); // رنگ اصلی پس‌زمینه
+  static const onprimaryColor = Color(0xd6212121); // رنگ روی پس‌زمینه اصلی
+  static const secondaryColor = Color(0xFF181818); // رنگ پس‌زمینه ثانویه
+  static const onsecondaryColor = Color(0xFF262626); // رنگ روی پس‌زمینه ثانویه
 
-  // Bottom Color
+  // 📝 رنگ‌های متن
+  static const textPrimary = Color(0xffffffff); // رنگ متن اصلی (سفید)
+  static const textSecondary =
+      Color(0xffb3b3b3); // رنگ متن ثانویه (خاکستری روشن)
+
+  // 🔳 رنگ‌های خطوط و جداکننده‌ها
+  static const Color borderColor = Color(0x1affffff); // رنگ مرزها
+  static const Color dividerColor = Color(0xFF323232); // رنگ خط جداکننده
+
+  // 🎨 رنگ‌های استفاده شده در دکمه‌ها و بخش‌های مختلف
   static const Color peach = Color(0xFFf69851);
   static const Color purple = Color(0xFF9a63f5);
   static const Color coral = Color(0xFFee7271);
@@ -52,6 +59,7 @@ class DarkThemeColors {
   static const Color pink = Color(0xffeb66c8);
 }
 
+/// **📝 لیست رنگ‌های مورد استفاده برای وبلاگ در تم روشن**
 final List<Color> blogColorsLight = [
   LightThemeColors.blue,
   LightThemeColors.coral,
@@ -61,6 +69,7 @@ final List<Color> blogColorsLight = [
   LightThemeColors.purple,
 ];
 
+/// **📝 لیست رنگ‌های مورد استفاده برای وبلاگ در تم تاریک**
 final List<Color> blogColorsDark = [
   DarkThemeColors.blue,
   DarkThemeColors.coral,

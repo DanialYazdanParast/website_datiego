@@ -1,12 +1,13 @@
 import 'package:datiego/features/about_me/domain/entities/skill_entities.dart';
 
-class SkillModel {
-  final String text;
-  final int colorCode;
+/// مدل مهارت
+///
+/// این کلاس برای تبدیل داده‌های منتقل شده از API (DTO) به موجودیت‌های (Entities) داخلی استفاده می‌شود.
+class SkillModel extends SkillsEntities {
+  // سازنده مدل که ویژگی‌های `text` و `colorCode` را از کلاس والد (`SkillsEntities`) می‌گیرد.
+  SkillModel({required super.text, required super.colorCode});
 
-  SkillModel({required this.text, required this.colorCode});
-
-  // تبدیل DTO به Entity
+  // تبدیل مدل به موجودیت (Entity)
   SkillsEntities toEntity() {
     return SkillsEntities(
       text: text,

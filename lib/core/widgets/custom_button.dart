@@ -1,5 +1,27 @@
 import 'package:flutter/material.dart';
 
+/// یک ویجت دکمه سفارشی که شامل متن، آیکون و قابلیت تغییر رنگ هنگام Hover است.
+///
+/// این دکمه از `TextButton.icon` استفاده می‌کند و می‌تواند برای ایجاد دکمه‌های زیبا و تعاملی استفاده شود.
+///
+/// پارامترها:
+/// - [text]: متن نمایش داده شده روی دکمه.
+/// - [color]: رنگ دکمه هنگام Hover.
+/// - [icon]: آیکون نمایش داده شده در کنار متن.
+/// - [onTap]: تابعی که هنگام کلیک روی دکمه اجرا می‌شود.
+///
+/// مثال استفاده:
+/// ```dart
+/// CustomButton(
+///   text: 'ثبت نام',
+///   color: Colors.blue,
+///   icon: Icons.person_add,
+///   onTap: () {
+///     print('دکمه کلیک شد!');
+///   },
+/// );
+/// ```
+
 class CustomButton extends StatelessWidget {
   const CustomButton({
     super.key,
@@ -22,7 +44,6 @@ class CustomButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(8),
         ),
         minimumSize: const Size(double.infinity, 53),
-        //  backgroundColor: Theme.of(context).colorScheme.onSecondary,
         side: const BorderSide(
           width: 1,
           color: Color.fromRGBO(0, 0, 0, 0.1),
@@ -45,7 +66,7 @@ class CustomButton extends StatelessWidget {
             .titleLarge!
             .copyWith(fontSize: 14, fontWeight: FontWeight.w400),
       ),
-      onPressed: onTap,
+      onPressed: onTap, // تابع اجرا شده هنگام کلیک
       icon: Icon(
         icon,
         color: Theme.of(context).iconTheme.color,

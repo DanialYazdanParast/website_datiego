@@ -10,11 +10,38 @@ import 'package:datiego/core/services/url_launcher_service.dart';
 import 'package:datiego/core/widgets/custom_border.dart';
 import 'package:datiego/core/widgets/custom_box_shadow.dart';
 
+/// ویجت نوار پایینی (Bottom Navigation) برای برنامه.
+///
+/// این ویجت شامل چندین آیتم ناوبری است که کاربر می‌تواند بین آن‌ها جابه‌جا شود.
+/// همچنین شامل لینک‌هایی برای ارسال ایمیل و باز کردن پروفایل‌های GitHub و LinkedIn است.
+///
+/// ## مثال استفاده:
+/// ```dart
+/// BottomNavigattion(
+///   onTab: (index) {
+///     // عملکرد تغییر تب
+///   },
+///   selextedIndex: 0, // ایندکس تب انتخاب‌شده
+/// )
+/// ```
+///
+/// ## پارامترها:
+/// - `onTab`: تابعی که هنگام کلیک روی آیتم‌ها فراخوانی می‌شود.
+/// - `selextedIndex`: ایندکس تب انتخاب‌شده.
+///
+/// ## نکات:
+/// - از `BottomNavigationItem` برای نمایش آیتم‌ها استفاده می‌شود.
+/// - لینک‌های ایمیل، GitHub و LinkedIn با استفاده از `UrlLauncherService` باز می‌شوند.
+/// - در حالت دسکتاپ، لینک‌های GitHub و LinkedIn نمایش داده می‌شوند.
 class BottomNavigattion extends StatelessWidget {
   final Function(int index) onTab;
   final int selextedIndex;
-  const BottomNavigattion(
-      {super.key, required this.onTab, required this.selextedIndex});
+
+  const BottomNavigattion({
+    super.key,
+    required this.onTab,
+    required this.selextedIndex,
+  });
 
   @override
   Widget build(BuildContext context) {
