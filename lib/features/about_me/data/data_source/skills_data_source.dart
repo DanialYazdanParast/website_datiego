@@ -25,9 +25,10 @@ class SkillsDataSourceImpl implements SkillsDataSource {
       SkillModel(
           text: "State Management (Provider, Bloc, Cubit)",
           colorCode: 0xFFA5D6A7), // سبز
+      SkillModel(text: "Material and Custom Components", colorCode: 0xFFF48FB1),
       SkillModel(
-          text: "Material and Custom Component",
-          colorCode: 0xFFF48FB1), // صورتی
+          text: "Flutter Web / PWA",
+          colorCode: 0xFFB39DDB), // بنفش کم‌رنگ // صورتی
       SkillModel(text: "Responsive Design", colorCode: 0xFFFFCC80), // نارنجی
       SkillModel(
           text: "Android / iOS / Desktop Deployment",
@@ -35,6 +36,8 @@ class SkillsDataSourceImpl implements SkillsDataSource {
       SkillModel(
           text: "Packages (Dio, Hive, GetIt, etc.)",
           colorCode: 0xFFFFF59D), // زرد
+      SkillModel(
+          text: "Documentation", colorCode: 0xFFB0BEC5), // خاکستری مایل به آبی
       SkillModel(text: "GIT / Gitflow", colorCode: 0xFFE0E0E0), // خاکستری
     ];
   }
