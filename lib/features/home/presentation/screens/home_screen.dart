@@ -96,7 +96,7 @@ class HomeBody extends StatelessWidget {
                         fontSize: 36,
                         height: 235,
                         width: 435,
-                        sizeimage: 50,
+                        sizeimage: 45,
                       ), // تنظیمات بخش معرفی برای دسکتاپ.
                       mobile: IntroSection(
                         fontSize: 24,

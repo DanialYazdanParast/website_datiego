@@ -17,6 +17,8 @@ abstract class HomeState extends Equatable {
 /// این حالت زمانی ارسال می‌شود که داده‌ها در حال بارگذاری هستند.
 class HomeLoadingState extends HomeState {}
 
+class HomeInitialState extends HomeState {}
+
 /// حالت موفقیت آمیز بارگذاری داده‌ها.
 ///
 /// این حالت زمانی ارسال می‌شود که داده‌ها با موفقیت بارگذاری شده‌اند.

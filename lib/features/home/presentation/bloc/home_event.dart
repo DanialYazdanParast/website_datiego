@@ -17,21 +17,6 @@ abstract class HomeEvent extends Equatable {
 /// این رویداد زمانی ارسال می‌شود که نیاز به دریافت لیست پروژه‌ها از منبع داده وجود داشته باشد.
 class GetProjectsHomeEvent extends HomeEvent {}
 
-/// رویداد حرکت ماوس بر روی المان‌ها.
-///
-/// این رویداد زمانی ارسال می‌شود که ماوس بر روی یک المان حرکت کند یا از آن خارج شود.
-///
-/// ## پارامترها:
-/// - [isHovering]: وضعیت هاور (در صورتی که ماوس بر روی المان باشد، مقدار `true` است).
-class MouseHoverEvent extends HomeEvent {
-  final bool isHovering;
-
-  /// سازنده کلاس [MouseHoverEvent].
-  ///
-  /// - [isHovering]: وضعیت هاور.
-  const MouseHoverEvent(this.isHovering);
-}
-
 /// رویداد تنظیم حالت ماوس در منطقه خاصی.
 ///
 /// این رویداد زمانی ارسال می‌شود که ماوس وارد یا خارج از یک منطقه خاص شود.

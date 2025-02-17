@@ -23,9 +23,10 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   /// - [getProjectsUsecase]: UseCase برای دریافت پروژه‌ها.
   /// - [downloadFileUseCase]: UseCase برای دانلود فایل.
   HomeBloc(this.getProjectsUsecase, this.downloadFileUseCase)
-      : super(HomeLoadingState()) {
+      : super(HomeInitialState()) {
     /// مدیریت رویداد دریافت پروژه‌ها.
     on<GetProjectsHomeEvent>((event, emit) async {
+      emit(HomeLoadingState());
       try {
         // دریافت لیست پروژه‌ها از طریق UseCase.
         var projects = await getProjectsUsecase.call();

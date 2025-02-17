@@ -148,7 +148,7 @@ class _CopyButtonState extends State<CopyButton> {
   @override
   Widget build(BuildContext context) {
     return Tooltip(
-      message: isCopied ? "کپی شد!" : "کپی به کلیپ‌بورد",
+      message: isCopied ? "Copied!" : " Copy to clipboard",
       child: InkWell(
         onTap: _copyToClipboard,
         borderRadius: BorderRadius.circular(4),
@@ -160,7 +160,7 @@ class _CopyButtonState extends State<CopyButton> {
               AnimatedSwitcher(
                 duration: const Duration(milliseconds: 300),
                 child: Text(
-                  isCopied ? "کپی شد!" : "کپی",
+                  isCopied ? "Copied!" : "Copy",
                   key: ValueKey(isCopied),
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
