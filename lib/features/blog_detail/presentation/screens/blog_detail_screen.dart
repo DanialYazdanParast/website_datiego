@@ -1,4 +1,4 @@
-import 'package:datiego/core/utils/responsive.dart';
+import 'package:datiego/core/widgets/custom_scrollbar.dart';
 import 'package:datiego/core/widgets/description_widget.dart';
 import 'package:datiego/core/widgets/text_title.dart';
 import 'package:datiego/features/blog/domain/entities/blog_entities.dart';
@@ -47,14 +47,8 @@ class _BlogDetailScreenState extends State<BlogDetailScreen> {
     final horizontalPadding = screenWidth > 1200 ? screenWidth * 0.18 : 20.0;
 
     return Scaffold(
-      body: Scrollbar(
+      body: CustomScrollbar(
         controller: scrollController,
-        thumbVisibility:
-            Responsive.isDesktop(context), // نمایش شست اسکرول در صفحات دسکتاپ.
-        trackVisibility:
-            Responsive.isDesktop(context), // نمایش مسیر اسکرول در صفحات دسکتاپ.
-        radius: const Radius.circular(10), // شعاع گردی شست و مسیر اسکرول.
-        thickness: 10, // ضخامت شست اسکرول.
         child: Stack(
           alignment:
               Alignment.topCenter, // هم‌ترازی المان‌ها در مرکز بالای صفحه.

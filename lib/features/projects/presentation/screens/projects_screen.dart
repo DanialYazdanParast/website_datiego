@@ -1,4 +1,4 @@
-import 'package:datiego/core/utils/responsive.dart';
+import 'package:datiego/core/widgets/custom_scrollbar.dart';
 import 'package:datiego/features/projects/presentation/widgets/project_card_shimmer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -39,14 +39,8 @@ class _ProjectsScreenState extends State<ProjectsScreen> {
       body: BlocProvider(
         create: (context) => ProjectsBloc(getIt.get())
           ..add(GetProjectsEvent()), // ایجاد و مقداردهی اولیه BLoC.
-        child: Scrollbar(
+        child: CustomScrollbar(
           controller: _scrollController,
-          thumbVisibility: Responsive.isDesktop(
-              context), // نمایش شست اسکرول در صفحات دسکتاپ.
-          trackVisibility: Responsive.isDesktop(
-              context), // نمایش مسیر اسکرول در صفحات دسکتاپ.
-          thickness: 10, // ضخامت شست اسکرول.
-          radius: const Radius.circular(10), // شعاع گردی شست و مسیر اسکرول.
           child: BlocBuilder<ProjectsBloc, ProjectsState>(
             builder: (context, state) {
               if (state is ProjectLoadingState) {

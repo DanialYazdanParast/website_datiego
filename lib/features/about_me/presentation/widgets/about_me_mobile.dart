@@ -1,3 +1,4 @@
+import 'package:datiego/core/widgets/custom_scrollbar.dart';
 import 'package:datiego/features/about_me/presentation/widgets/profile_details_widget.dart';
 import 'package:datiego/features/about_me/presentation/widgets/profile_intro_widget.dart';
 import 'package:flutter/material.dart';
@@ -29,13 +30,8 @@ class AboutMeMobile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scrollbar(
+    return CustomScrollbar(
       controller: scrollController,
-      thumbVisibility:
-          false, // نوار اسکرول فقط زمانی نمایش داده می‌شود که اسکرول فعال باشد
-      trackVisibility: false, // مسیر اسکرول نمایش داده نمی‌شود
-      thickness: 10, // ضخامت نوار اسکرول
-      radius: const Radius.circular(10), // شعاع گوشه‌های نوار اسکرول
       child: SingleChildScrollView(
         controller: scrollController, // مدیریت اسکرول صفحه
         child: Padding(

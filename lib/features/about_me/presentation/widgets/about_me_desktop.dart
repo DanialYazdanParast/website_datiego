@@ -1,3 +1,4 @@
+import 'package:datiego/core/widgets/custom_scrollbar.dart';
 import 'package:datiego/features/about_me/presentation/widgets/profile_details_widget.dart';
 import 'package:datiego/features/about_me/presentation/widgets/profile_intro_widget.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +17,7 @@ import 'package:flutter_animate/flutter_animate.dart';
 ///
 /// ## نکات:
 /// - از انیمیشن `slideY` و `fadeIn` برای ایجاد تاثیرات جذاب در هنگام بارگذاری استفاده شده است.
-/// - از `Scrollbar` برای کنترل اسکرول و نمایش یک نوار اسکرول تمیز استفاده می‌شود.
+/// - از `CustomScrollbar` برای کنترل اسکرول و نمایش یک نوار اسکرول تمیز استفاده می‌شود.
 ///
 /// ## ساختار صفحه:
 /// 1. **بخش سمت چپ**: پروفایل اینترو (ProfileIntroWidget) با انیمیشن.
@@ -60,12 +61,9 @@ class AboutMeDesktop extends StatelessWidget {
         // بخش اسکرول‌پذیر سمت راست
         Expanded(
           flex: 9,
-          child: Scrollbar(
+          child: CustomScrollbar(
             controller: scrollController,
-            thumbVisibility: true, // نمایش نوار اسکرول
-            trackVisibility: true, // نمایش مسیر اسکرول
-            thickness: 10, // ضخامت نوار اسکرول
-            radius: const Radius.circular(10), // شعاع گوشه‌های نوار اسکرول
+            // شعاع گوشه‌های نوار اسکرول
             child: CustomScrollView(
               controller: scrollController,
               slivers: [

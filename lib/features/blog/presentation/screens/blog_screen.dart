@@ -1,5 +1,6 @@
 import 'package:datiego/core/di/service_locator.dart';
 import 'package:datiego/core/utils/responsive.dart';
+import 'package:datiego/core/widgets/custom_scrollbar.dart';
 import 'package:datiego/features/blog/presentation/bloc/blog_bloc.dart';
 import 'package:datiego/features/blog/presentation/widgets/blog_content.dart';
 import 'package:flutter/material.dart';
@@ -8,7 +9,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 /// صفحه‌ی "وبلاگ" که به صورت واکنش‌گرا برای دستگاه‌های موبایل و دسکتاپ طراحی شده است.
 ///
 /// این صفحه از `BlogBloc` برای مدیریت وضعیت و دریافت داده‌های وبلاگ استفاده می‌کند.
-/// همچنین از `Scrollbar` و `CustomScrollView` برای نمایش اسکرول‌بار و محتوای وبلاگ استفاده شده است.
+/// همچنین از `CustomScrollbar` و `CustomScrollView` برای نمایش اسکرول‌بار و محتوای وبلاگ استفاده شده است.
 ///
 /// ## مثال استفاده:
 /// ```dart
@@ -53,14 +54,8 @@ class _BlogScreenState extends State<BlogScreen> {
       body: BlocProvider(
         // ایجاد و ارائه `BlogBloc` به درخت ویجت‌ها
         create: (context) => BlogBloc(getIt.get())..add(GetBlogEvent()),
-        child: Scrollbar(
+        child: CustomScrollbar(
           controller: _scrollController,
-          thumbVisibility:
-              Responsive.isDesktop(context), // نمایش اسکرول‌بار فقط در دسکتاپ
-          trackVisibility:
-              Responsive.isDesktop(context), // نمایش خط اسکرول فقط در دسکتاپ
-          thickness: 10, // ضخامت اسکرول‌بار
-          radius: const Radius.circular(10), // گوشه‌های گرد اسکرول‌بار
           child: CustomScrollView(
             controller: _scrollController,
             slivers: [
