@@ -67,3 +67,11 @@ To get started with the project locally, follow these steps:
 4. **Run the app**:
    ```bash
     flutter run -d chrome
+   ```
+
+
+<div align="center">
+  <p>Made with ❤️ by <a href="https://github.com/DanialYazdanParast">Danial</a></p>
+</div>
+
+
