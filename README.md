@@ -1,10 +1,8 @@
-# 🌐 Datiego – Personal Website 
+# 🌐 Datiego – Personal Website  
 
-![Flutter](https://img.shields.io/badge/Flutter-%2302569B.svg?style=for-the-badge&logo=Flutter&logoColor=white)  
-![PWA](https://img.shields.io/badge/PWA-%2302569B.svg?style=for-the-badge&logo=PWA&logoColor=white)  
-![Clean Architecture](https://img.shields.io/badge/Clean%20Architecture-%230175C2.svg?style=for-the-badge)
+![Flutter](https://img.shields.io/badge/Flutter-%2302569B.svg?style=for-the-badge&logo=Flutter&logoColor=white) ![PWA](https://img.shields.io/badge/PWA-%2302569B.svg?style=for-the-badge&logo=PWA&logoColor=white) ![Clean Architecture](https://img.shields.io/badge/Clean%20Architecture-%230175C2.svg?style=for-the-badge) ![Dependency Injection](https://img.shields.io/badge/Dependency%20Injection-%230175C2.svg?style=for-the-badge)
 
-✨ A personal website built with **Flutter Web** and **PWA** to showcase projects and articles. This project utilizes **Clean Architecture** for scalability and maintainability, offering an exceptional user experience through various optimizations.
+✨ A personal website built with **Flutter Web** and **PWA** to showcase projects and articles. This project utilizes **Clean Architecture** and **Dependency Injection** for scalability, maintainability, and an exceptional user experience through various optimizations.
 
 ![Datiego](https://github.com/user-attachments/assets/9db7cef9-f149-4a41-b7bd-018460122cd5)
 
@@ -18,6 +16,7 @@
 - **📚 Comprehensive Docs**: Clear documentation for easy collaboration.
 - **⚡️ Performance**: Optimized for fast load times.
 - **🔗 PocketBase Backend**: Integrated for data management.
+- **🎯 Dependency Injection**: Implemented using **get_it** for modular and testable code.
 
 ---
 
@@ -31,7 +30,7 @@
 - **🛣️ GoRouter** 
 - **📲 PWA** 
 - **🗂️ PocketBase**  
-
+- **🎯 Dependency Injection**
 ---
 
 ## 🖼️ Screenshots
@@ -44,14 +43,12 @@
 
 ---
 
-
 ## 🌍 Useful Links
 
 - **GitHub Repo**: [https://github.com/DanialYazdanParast/website_datiego](https://github.com/DanialYazdanParast/website_datiego)
 - **Live Website**: [https://datiego.ir](https://datiego.ir)
 
 ---
-
 ## 🛠️ Getting Started
 
 To get started with the project locally, follow these steps:
