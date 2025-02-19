@@ -1,3 +1,4 @@
+import 'package:datiego/core/widgets/build_placeholder.dart';
 import 'package:datiego/features/blog/presentation/widgets/blog_button.dart';
 import 'package:datiego/features/blog/presentation/widgets/blog_container.dart';
 import 'package:flutter/material.dart';
@@ -70,36 +71,31 @@ class BlogDesktopShimmer extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               // شایمر برای عنوان وبلاگ
-                              Container(
-                                width: 150,
-                                height: 24,
-                                color:
-                                    isDarkMode ? Colors.black54 : Colors.white,
-                              ),
+
+                              buildPlaceholder(
+                                  width: 150,
+                                  height: 24,
+                                  isDarkMode: isDarkMode), // عنوان.
                               const SizedBox(height: 16),
                               // شایمر برای قسمت توضیحات
-                              Container(
-                                width: double.infinity,
-                                height: 16,
-                                color:
-                                    isDarkMode ? Colors.black54 : Colors.white,
-                              ),
+
+                              buildPlaceholder(
+                                  width: double.infinity,
+                                  height: 16,
+                                  isDarkMode: isDarkMode),
                               const SizedBox(height: 5),
                               // شایمر برای قسمت توضیحات بیشتر
-                              Container(
-                                width: 350,
-                                height: 16,
-                                color:
-                                    isDarkMode ? Colors.black54 : Colors.white,
-                              ),
+
+                              buildPlaceholder(
+                                  width: 350,
+                                  height: 16,
+                                  isDarkMode: isDarkMode),
+
                               const SizedBox(height: 5),
-                              // شایمر برای قسمت توضیحات کوتاه
-                              Container(
-                                width: 200,
-                                height: 16,
-                                color:
-                                    isDarkMode ? Colors.black54 : Colors.white,
-                              ),
+                              buildPlaceholder(
+                                  width: 200,
+                                  height: 16,
+                                  isDarkMode: isDarkMode),
                               const SizedBox(height: 10),
                             ],
                           ),

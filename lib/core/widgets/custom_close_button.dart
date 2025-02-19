@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:datiego/core/widgets/custom_border.dart';
@@ -23,19 +25,25 @@ class CustomCloseButton extends StatelessWidget {
         // بستن صفحه فعلی با استفاده از GoRouter
         context.pop();
       },
-      child: Container(
-        height: 48, // ارتفاع دکمه
-        width: 48, // عرض دکمه
-        padding: const EdgeInsets.all(8), // padding داخلی
-        decoration: BoxDecoration(
-          color: Theme.of(context).colorScheme.onPrimary, // رنگ پس‌زمینه
-          borderRadius: BorderRadius.circular(12), // شعاع گوشه‌ها
-          border: customBorder(context), // حاشیه سفارشی
-        ),
-        child: Icon(
-          Icons.close, // آیکون بستن
-          color: Theme.of(context).iconTheme.color, // رنگ آیکون
-          size: 25, // اندازه آیکون
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(12),
+        child: BackdropFilter(
+          filter: ImageFilter.blur(sigmaX: 5.0, sigmaY: 5.0),
+          child: Container(
+            height: 48, // ارتفاع دکمه
+            width: 48, // عرض دکمه
+            padding: const EdgeInsets.all(8), // padding داخلی
+            decoration: BoxDecoration(
+              color: Theme.of(context).colorScheme.onPrimary, // رنگ پس‌زمینه
+              borderRadius: BorderRadius.circular(12), // شعاع گوشه‌ها
+              border: customBorder(context), // حاشیه سفارشی
+            ),
+            child: Icon(
+              Icons.close, // آیکون بستن
+              color: Theme.of(context).iconTheme.color, // رنگ آیکون
+              size: 25, // اندازه آیکون
+            ),
+          ),
         ),
       ),
     );

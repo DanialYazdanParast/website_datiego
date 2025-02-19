@@ -2,8 +2,7 @@
 /// این کلاس شامل ثابت‌هایی مانند لینک‌های شخصی، اطلاعات تماس و توضیحات درباره‌ی دانیا یزدان پرست است.
 class AppConstants {
   /// **📄 لینک دانلود رزومه**
-  static String urlCv =
-      "https://rozup.ir/download/3973557/Danial-YazdanParast_Flutter.pdf";
+  static String urlCv = "https://datiego.ir/dl/Danial-YazdanParast_Flutter.pdf";
 
   /// **🌍 آدرس پایه‌ی API سرور**
   static String baseUrl = 'https://dan.chbk.app/api/';

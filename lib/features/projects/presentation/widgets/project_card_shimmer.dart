@@ -1,3 +1,4 @@
+import 'package:datiego/core/widgets/build_placeholder.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:shimmer/shimmer.dart';
@@ -39,16 +40,16 @@ class ProjectCardShimmer extends StatelessWidget {
               MainAxisAlignment.spaceBetween, // فضای خالی بین المان‌ها.
           children: [
             Expanded(
-              child: _buildPlaceholder(
+              child: buildPlaceholder(
                   width: double.infinity,
                   height: 150,
                   isDarkMode: isDarkMode), // تصویر.
             ),
             const SizedBox(height: 16), // فاصله عمودی.
-            _buildPlaceholder(
+            buildPlaceholder(
                 width: 150, height: 24, isDarkMode: isDarkMode), // عنوان.
             const SizedBox(height: 16), // فاصله عمودی.
-            _buildPlaceholder(
+            buildPlaceholder(
                 width: double.infinity,
                 height: 16,
                 isDarkMode: isDarkMode), // توضیحات.
@@ -57,8 +58,11 @@ class ProjectCardShimmer extends StatelessWidget {
               spacing: 8.0, // فاصله افقی بین تگ‌ها.
               runSpacing: 4.0, // فاصله عمودی بین ردیف‌ها.
               children: List.generate(3, (index) {
-                return _buildPlaceholder(
-                    width: 80, height: 30, isDarkMode: isDarkMode); // تگ‌ها.
+                return buildPlaceholder(
+                    width: 80,
+                    height: 30,
+                    isDarkMode: isDarkMode,
+                    borderRadius: 8); // تگ‌ها.
               }),
             ),
           ],
@@ -73,26 +77,5 @@ class ProjectCardShimmer extends StatelessWidget {
           curve: Curves.easeOut, // منحنی انیمیشن.
         )
         .fadeIn(); // ظهور تدریجی.
-  }
-
-  /// ساخت یک المان جایگزین (Placeholder) برای شبیه‌سازی بارگذاری.
-  ///
-  /// ## پارامترها:
-  /// - [width]: عرض المان.
-  /// - [height]: ارتفاع المان.
-  /// - [isDarkMode]: وضعیت تم (تاریک یا روشن).
-  Widget _buildPlaceholder({
-    required double width,
-    required double height,
-    required bool isDarkMode,
-  }) {
-    return Container(
-      width: width,
-      height: height,
-      decoration: BoxDecoration(
-        color: isDarkMode ? Colors.black54 : Colors.white, // رنگ پس‌زمینه.
-        borderRadius: BorderRadius.circular(8), // گردی گوشه‌ها.
-      ),
-    );
   }
 }

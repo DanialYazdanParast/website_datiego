@@ -32,7 +32,7 @@ class CustomScrollbar extends StatelessWidget {
       thumbVisibility: Responsive.isDesktop(context),
       trackVisibility: Responsive.isDesktop(context),
       thickness: Responsive.isDesktop(context) ? 10 : 7,
-      radius: const Radius.circular(10),
+      radius: const Radius.circular(0),
       child: child,
     );
   }

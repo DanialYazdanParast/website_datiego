@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:datiego/confing/theme/app_theme.dart';
 import 'package:datiego/core/utils/responsive.dart';
 import 'package:flutter/material.dart';
@@ -49,109 +51,128 @@ class BottomNavigattion extends StatelessWidget {
 
     // ایجاد تم براساس وضعیت
     final themeConfig = MyAppThemeConfig.of(context);
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 22),
-      child: Container(
-        decoration: BoxDecoration(
-          color: Theme.of(context).colorScheme.onPrimary,
-          borderRadius: BorderRadius.circular(24),
-          boxShadow: customBoxShadow,
-          border: customBorder(context),
-        ),
-        child: Container(
-          color: Colors.transparent,
-          padding:
-              const EdgeInsets.only(left: 12, right: 12, top: 12, bottom: 4),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              BottomNavigationItem(
-                label: 'Home',
-                iconFileName: Icons.home_outlined,
-                isActive: selextedIndex == TabItem.home.index,
-                color: themeConfig.peach,
-                onTap: () {
-                  onTab(TabItem.home.index);
-                },
+    return Stack(
+      children: [
+        // BackdropFilter برای مات کردن پس‌زمینه
+        Positioned.fill(
+          bottom: 22,
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(24),
+            child: BackdropFilter(
+              filter: ImageFilter.blur(sigmaX: 5.0, sigmaY: 5.0),
+              child: Container(
+                color: Colors.transparent,
               ),
-              const SizedBox(width: 12),
-              BottomNavigationItem(
-                label: 'Projects',
-                iconFileName: Icons.code,
-                isActive: selextedIndex == TabItem.projects.index,
-                color: themeConfig.purple,
-                onTap: () {
-                  onTab(TabItem.projects.index);
-                },
-              ),
-              const SizedBox(width: 12),
-              BottomNavigationItem(
-                label: 'Blog',
-                iconFileName: Icons.article_outlined,
-                isActive: selextedIndex == TabItem.blog.index,
-                color: themeConfig.coral,
-                onTap: () {
-                  onTab(TabItem.blog.index);
-                },
-              ),
-              const SizedBox(width: 12),
-              BottomNavigationItem(
-                label: 'About Me',
-                iconFileName: Icons.account_circle_outlined,
-                isActive: selextedIndex == TabItem.about.index,
-                color: themeConfig.blue,
-                onTap: () {
-                  onTab(TabItem.about.index);
-                },
-              ),
-              const SizedBox(width: 12),
-              Container(
-                width: 2,
-                height: 20,
-                decoration: BoxDecoration(
-                  color: Theme.of(context).dividerColor,
-                  borderRadius: BorderRadius.circular(20),
-                ),
-              ),
-              const SizedBox(width: 12),
-              BottomNavigationItem(
-                label: 'danialyazdan77@gmail.com ↗',
-                iconFileName: Icons.email_outlined,
-                color: themeConfig.green,
-                isActive: false,
-                onTap: () async {
-                  await urlLauncher.sendEmail(AppConstants.emailUrl);
-                },
-              ),
-              if (Responsive.isDesktop(context))
-                Row(
-                  children: [
-                    const SizedBox(width: 12),
-                    BottomNavigationItem(
-                      label: '@DanialYazdanParast ↗',
-                      iconFileName: FontAwesomeIcons.github,
-                      color: themeConfig.gray,
-                      isActive: false,
-                      onTap: () async {
-                        await urlLauncher.openUrl(AppConstants.gitHubUrl);
-                      },
-                    ),
-                    const SizedBox(width: 12),
-                    BottomNavigationItem(
-                      label: '@DanialYazdanParast ↗',
-                      iconFileName: FontAwesomeIcons.linkedin,
-                      color: themeConfig.skyBlue,
-                      isActive: false,
-                      onTap: () async {
-                        await urlLauncher.openUrl(AppConstants.linkedinUrl);
-                      },
-                    ),
-                  ],
-                )
-            ],
+            ),
           ),
         ),
-      ),
+        Padding(
+          padding: const EdgeInsets.only(
+            bottom: 22,
+          ),
+          child: Container(
+            decoration: BoxDecoration(
+              color: Theme.of(context).colorScheme.onPrimary,
+              borderRadius: BorderRadius.circular(24),
+              boxShadow: customBoxShadow,
+              border: customBorder(context),
+            ),
+            child: Container(
+              color: Colors.transparent,
+              padding: const EdgeInsets.only(
+                  left: 12, right: 12, top: 12, bottom: 4),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  BottomNavigationItem(
+                    label: 'Home',
+                    iconFileName: Icons.home_outlined,
+                    isActive: selextedIndex == TabItem.home.index,
+                    color: themeConfig.peach,
+                    onTap: () {
+                      onTab(TabItem.home.index);
+                    },
+                  ),
+                  const SizedBox(width: 12),
+                  BottomNavigationItem(
+                    label: 'Projects',
+                    iconFileName: Icons.code,
+                    isActive: selextedIndex == TabItem.projects.index,
+                    color: themeConfig.purple,
+                    onTap: () {
+                      onTab(TabItem.projects.index);
+                    },
+                  ),
+                  const SizedBox(width: 12),
+                  BottomNavigationItem(
+                    label: 'Blog',
+                    iconFileName: Icons.article_outlined,
+                    isActive: selextedIndex == TabItem.blog.index,
+                    color: themeConfig.coral,
+                    onTap: () {
+                      onTab(TabItem.blog.index);
+                    },
+                  ),
+                  const SizedBox(width: 12),
+                  BottomNavigationItem(
+                    label: 'About Me',
+                    iconFileName: Icons.account_circle_outlined,
+                    isActive: selextedIndex == TabItem.about.index,
+                    color: themeConfig.blue,
+                    onTap: () {
+                      onTab(TabItem.about.index);
+                    },
+                  ),
+                  const SizedBox(width: 12),
+                  Container(
+                    width: 2,
+                    height: 20,
+                    decoration: BoxDecoration(
+                      color: Theme.of(context).dividerColor,
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                  ),
+                  const SizedBox(width: 12),
+                  BottomNavigationItem(
+                    label: 'danialyazdan77@gmail.com ↗',
+                    iconFileName: Icons.email_outlined,
+                    color: themeConfig.green,
+                    isActive: false,
+                    onTap: () async {
+                      await urlLauncher.sendEmail(AppConstants.emailUrl);
+                    },
+                  ),
+                  if (Responsive.isDesktop(context))
+                    Row(
+                      children: [
+                        const SizedBox(width: 12),
+                        BottomNavigationItem(
+                          label: '@DanialYazdanParast ↗',
+                          iconFileName: FontAwesomeIcons.github,
+                          color: themeConfig.gray,
+                          isActive: false,
+                          onTap: () async {
+                            await urlLauncher.openUrl(AppConstants.gitHubUrl);
+                          },
+                        ),
+                        const SizedBox(width: 12),
+                        BottomNavigationItem(
+                          label: '@DanialYazdanParast ↗',
+                          iconFileName: FontAwesomeIcons.linkedin,
+                          color: themeConfig.skyBlue,
+                          isActive: false,
+                          onTap: () async {
+                            await urlLauncher.openUrl(AppConstants.linkedinUrl);
+                          },
+                        ),
+                      ],
+                    )
+                ],
+              ),
+            ),
+          ),
+        ),
+      ],
     );
   }
 }

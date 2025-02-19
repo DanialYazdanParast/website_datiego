@@ -1,3 +1,4 @@
+import 'package:datiego/core/widgets/build_placeholder.dart';
 import 'package:datiego/features/blog/presentation/widgets/blog_button.dart';
 import 'package:datiego/features/blog/presentation/widgets/blog_container.dart';
 import 'package:flutter/material.dart';
@@ -61,32 +62,26 @@ class BlogMobileShimmer extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     // شیمر برای عنوان وبلاگ
-                    Container(
-                      width: 150,
-                      height: 24,
-                      color: isDarkMode ? Colors.black54 : Colors.white,
-                    ),
+
+                    buildPlaceholder(
+                        width: 150, height: 24, isDarkMode: isDarkMode),
+
                     const SizedBox(height: 16),
                     // شیمر برای زیرعنوان وبلاگ
-                    Container(
-                      width: double.infinity,
-                      height: 16,
-                      color: isDarkMode ? Colors.black54 : Colors.white,
-                    ),
+
+                    buildPlaceholder(
+                        width: double.infinity,
+                        height: 16,
+                        isDarkMode: isDarkMode),
                     const SizedBox(height: 5),
                     // شیمر برای اولین خط از متن
-                    Container(
-                      width: 350,
-                      height: 16,
-                      color: isDarkMode ? Colors.black54 : Colors.white,
-                    ),
+
+                    buildPlaceholder(
+                        width: 350, height: 16, isDarkMode: isDarkMode),
                     const SizedBox(height: 5),
                     // شیمر برای دومین خط از متن
-                    Container(
-                      width: 200,
-                      height: 16,
-                      color: isDarkMode ? Colors.black54 : Colors.white,
-                    ),
+                    buildPlaceholder(
+                        width: 200, height: 16, isDarkMode: isDarkMode),
                     const SizedBox(height: 10),
                     // دکمه "Read More"
                     Align(

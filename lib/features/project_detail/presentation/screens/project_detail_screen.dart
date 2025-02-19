@@ -76,7 +76,7 @@ class _ProjectDetailScreenState extends State<ProjectDetailScreen> {
                         const Duration(milliseconds: 500), // مدت زمان انیمیشن.
                     tween: Tween<EdgeInsets>(
                       end: EdgeInsets.only(
-                        top: 100,
+                        top: 88,
                         left: horizontalPadding,
                         right: horizontalPadding,
                         bottom: 120,
@@ -123,14 +123,9 @@ class _ProjectDetailScreenState extends State<ProjectDetailScreen> {
                             ),
                             const SizedBox(
                                 height: 16), // فاصله عمودی بین عنوان و تگ‌ها.
-                            Padding(
-                              padding: const EdgeInsets.only(left: 10),
-                              child: TagProject(
-                                  tag: widget
-                                      .project.tag!), // نمایش تگ‌های پروژه.
-                            ),
+                            TagProject(tag: widget.project.tag!),
                             const SizedBox(
-                                height: 24), // فاصله عمودی بین تگ‌ها و توضیحات.
+                                height: 8), // فاصله عمودی بین تگ‌ها و توضیحات.
                             DescriptionWidget(
                                 description: widget.project
                                     .description!), // نمایش توضیحات پروژه.
