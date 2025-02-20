@@ -45,7 +45,7 @@
 
 ## 🌍 Useful Links
 
-- **GitHub Repo**: [https://github.com/DanialYazdanParast/website_datiego](https://github.com/DanialYazdanParast/website_datiego)
+- **GitHub Repo**: [https://github.com/DanialYazdanParast/flutter_website](https://github.com/DanialYazdanParast/flutter_website)
 - **Live Website**: [https://datiego.ir](https://datiego.ir)
 
 ---
